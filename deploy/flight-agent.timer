@@ -1,0 +1,9 @@
+[Unit]
+Description=Run TLV-Taiwan Flight Price Agent daily at 06:15 Asia/Jerusalem
+
+[Timer]
+OnCalendar=*-*-* 06:15:00 Asia/Jerusalem
+Persistent=true
+
+[Install]
+WantedBy=timers.target

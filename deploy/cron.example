@@ -1,0 +1,4 @@
+# Run TLV <-> Taiwan Flight Price Agent once daily at 06:15 Israel time
+# Install with: crontab deploy/cron.example
+CRON_TZ=Asia/Jerusalem
+15 6 * * * /home/antigravity/tlv-taiwan-flight-agent/.venv/bin/python /home/antigravity/tlv-taiwan-flight-agent/agent.py --run-now >> /home/antigravity/tlv-taiwan-flight-agent/data/cron.log 2>&1
