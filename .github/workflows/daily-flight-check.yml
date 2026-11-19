@@ -1,0 +1,50 @@
+name: Daily TLV-Taiwan Flight Price Check
+
+on:
+  schedule:
+    # 04:15 UTC = 06:15 Israel Standard Time (07:15 IDT)
+    - cron: '15 4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  check-flights:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install uv & Python 3.11
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Run daily real-fare flight scan & send Telegram alert
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          FLIGHT_ALERT_TARGET_USD: ${{ vars.FLIGHT_ALERT_TARGET_USD || '1500' }}
+          TELEGRAM_DAILY_DIGEST: ${{ vars.TELEGRAM_DAILY_DIGEST || 'true' }}
+        run: uv run python agent.py --run-now
+
+      - name: Upload daily HTML dashboard & JSON report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: flight-report-${{ github.run_number }}
+          path: |
+            reports/dashboard.html
+            reports/latest.md
+            data/latest_report.json
+
+      - name: Commit updated price history & reports
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/ reports/
+          git diff --staged --quiet || git commit -m "chore(fares): daily TLV-Taiwan flight check $(date -u +%Y-%m-%d)"
+          git push

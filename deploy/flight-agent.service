@@ -1,0 +1,9 @@
+[Unit]
+Description=TLV-Taiwan Daily Flight Price Agent Check
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/antigravity/tlv-taiwan-flight-agent
+ExecStart=/home/antigravity/tlv-taiwan-flight-agent/.venv/bin/python /home/antigravity/tlv-taiwan-flight-agent/agent.py --run-now
