@@ -1,8 +1,8 @@
 {
-  "run_id": 2,
+  "run_id": 3,
   "run_date": "2026-11-19",
-  "checked_at_utc": "2026-11-19T11:51:54.485895+00:00",
-  "checked_at_local": "2026-11-19T13:51:54.485895+02:00",
+  "checked_at_utc": "2026-11-19T13:57:51.582311+00:00",
+  "checked_at_local": "2026-11-19T15:57:51.582311+02:00",
   "schedule": {
     "timezone": "Asia/Jerusalem",
     "daily_time": "06:15",
@@ -10,7 +10,7 @@
     "rationale": "06:15 Asia/Jerusalem captures overnight European & East Asian airline GDS fare-bucket recalculations, T-330 schedule rollovers, and expired 24h ticket holds before morning in Israel."
   },
   "summary": {
-    "raw_candidates_scanned": 393,
+    "raw_candidates_scanned": 396,
     "strict_total_count": 11,
     "strict_ideal_count": 8,
     "strict_acceptable_count": 3,
@@ -23,28 +23,28 @@
     "kiwi": {
       "provider": "kiwi_umbrella_graphql",
       "status": "ok",
-      "raw_candidates_fetched": 393,
+      "raw_candidates_fetched": 396,
       "valid_oneway_outbound": 10,
       "valid_oneway_inbound": 4,
       "paired_combinations": 40,
       "pass_counts": {
         "overnight_hubs": 0,
-        "single_pnr_2_22h": 14,
         "ideal_2_4h_quality": 8,
-        "ideal_2_4h_price": 8,
         "short_2_6h_price": 10,
-        "1stop_mixed_price": 50,
+        "ideal_2_4h_price": 8,
         "1stop_mixed_quality": 50,
-        "day_2027-10-08_1stop": 33,
+        "single_pnr_2_22h": 16,
+        "1stop_mixed_price": 50,
+        "day_2027-10-06_1stop": 43,
         "day_2027-10-05_1stop": 45,
-        "day_2027-10-06_1stop": 45,
         "day_2027-10-07_1stop": 45,
         "day_2027-10-09_1stop": 45,
+        "day_2027-10-08_1stop": 36,
+        "ow_in_1stop": 15,
         "ow_out_hubs": 0,
         "ow_out_single": 11,
         "ow_in_hubs": 0,
         "ow_in_single": 4,
-        "ow_in_1stop": 17,
         "ow_out_1stop": 49
       },
       "errors": [
@@ -64,7 +64,9 @@
       "outbound_candidates": 0,
       "inbound_candidates": 0,
       "paired_itineraries": 0,
-      "notes": []
+      "notes": [
+        "TLV>KHH@2027-10-06_single: missing_ds1_script"
+      ]
     }
   },
   "daily_trend": [
@@ -78,7 +80,7 @@
     },
     {
       "run_date": "2026-11-19",
-      "checked_at_local": "2026-11-19T13:51:54.485895+02:00",
+      "checked_at_local": "2026-11-19T15:57:51.582311+02:00",
       "min_strict_price_usd": 2204,
       "min_ideal_price_usd": 2204,
       "min_acceptable_price_usd": 2354,
@@ -88,7 +90,7 @@
   "strict_matches": [
     {
       "fingerprint": "LY81@2027-10-07:TLV>BKK-LY8409@2027-10-08:BKK>TPE||LY8404@2027-10-24:TPE>BKK-LY80@2027-10-24:BKK>TLV",
-      "source_provider": "kiwi_rt:single_pnr_2_22h",
+      "source_provider": "kiwi_rt:ideal_2_4h_quality",
       "price_usd": 2204,
       "pnr_count": 1,
       "ticket_structure": "single_ticket",
@@ -229,10 +231,10 @@
         "Single Airline Ticket"
       ],
       "summary_note": "Ideal 3.2h connection at BKK; Ideal 3.2h connection at BKK",
-      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HDqx1d-7nJ6HXq5jUzerA7QYpvlSDfg0b09_xPJv5yVij6ikpkOOSydLQNEujshUpMizQpklX_EGDErqVkPnJOkDpm6b7zWGUw2EhVs0ZZb6_8PCDBUeuaAvpNWiA0JhzNhzJoK9KxeIWcAxrfkXwwdPQRsWvMceDiPz-tAbqaFerDMpIiEajxKKVUE7b1GeVZe5zVJ2kdkGIqwRgUeL0a2vJjpbWeGPLgw9t92Pk5i2mbBGnHwuIHdybNyepmWrhghMo9V3Gbbg3Qdq4qVp-Ii5avQxHQOIhTfPY7X1D8l3QFH0zDDP1y6aTiJZ9BuiHOa1A6K7ukROEz071upuf6_RISFw0nI8XeN5m1Vx9QsagHqdtNhKkxB8zU204t_rnwSv7ZHdwv-q7zjjI_saLyqoWmkFcY0zKyaRsCUFRhluyDbQaShidS7d9e0ZNUx7Uj0TSYrVx_iL9-vShM-iIqbCAIHGx9eiQH4TynXWrfNGJq9j9RuezAiGeE_D6IvuN_ZTapajtpwgLnaZwj6GxZlta00PMMebNvW-reczMrE00TAiGeqMWURr4knFU9Cibpr1Q7xZBN34nRJHckNP8hkhi7Ur64yW2VLR-5y4F0v7qOfsMhyqMQ45V2okero3kBddJyg3V0V51QXbVrWY7hEbPqGGOxJEW8hh1IlEHjY3q1Ewlt99riqi8kVDB3-1Si0QXTF8TqSpr_eWPOZj5es6m-Sr6lv5lAVxNkfcqTQ8kK-AXvCiBei27H5cJ6LA6rKEwFoE801BEnTV2gu2-jH7Z9HIlSQt4GzD593QrQ7hrY8sRSTx1kLilPFfcbBIwxo0eCA1RN0msB6QUks4CfC-WgpWZz4KUxVFZe6lpu2qyqkIpe2jkFUE6Q7WUrQxE3XFHP1BpWhtvUR_QNyVjDGg4SC40N-SfhNdgxS7dbWjHG0HfbnXMNFgrecstzkStZ03561g8_FNrl8P8Hpjujtvm5QAuMcrxPsClsBXjQQSOc54LaWPRH2VEIPnC69th5-cyr0oX3wWyBpMizesDtjllL2YbJZePlcYRp7jD55O1PPyabGDW27gXktDVtU4u9ShdkueSwvcqT8Bb-cAjh5nhpYqz5lUbpYIcTJQF1hpXLovySkLoQys47BIcucRiBOEORh5xkVZ6u2kq9JF-ZpKqa5NzQHp3OTLY2m00VwN8gp1UKIupCmv7qCVdDgEWSxlB5rJh8KcFiB55ebq0qg%3D%3D&searchType=return&searchBags=0.0",
+      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HEE9yuFsaoYlYEEPYt5DeCo9jG7KPBF-HIoL3fHWAU-v3CZv9K-hPeaw6_im9tCLbES1Anmocv-Lwzz8LSDfKymNqaHnvmA6ND9XoqkqErQ2Y80MYzMPOQ-IBBrIYvYiVhM18a_G-UO4aQrI498JvqbPVGO7sa3vEJAUHinevvF7BESwxncUNDv5BxpRxav4_gzfs_YmC8tdnNaJooM4-QJBzisud8m8JmlTx12_fyNsRoiFm7s4Yf7GS6ep1bCOgNoQJpIaJc7MfDknMaj7AfaMf74bfPdFV9KX-4X93i8q1fRf13TbxBKXKTzXYFSuwUr6SukwwoyJsKorcJoBtDQzXSq7WISyDfuABwVBUWt1sjqu4weNXMjKmWbR6L7HNb4MfFhwCc1v2Bfkawub0TiYyUU4kFwFd_pQ33Qg3g7o8_4-0LT3iCwLXePo5Dg1TuRp2GHCygWjUoGa_zb1rtLEQKE0-EzMAkxF66KFPT2KqNAarYtcYRFccIlvrnW1-eGY5Kcb8VPsv8XoquJju3dvyU0T_cFMfDgfAphUgGj9CJdK22kgLAHQZ5xi6XRe_EX5oij0WDQ5ap7rKN09yXNqgkSJHNI2Rg0b98ajZnpvCLXDZykPCwb9Vh--Zl_hs_SOY9xDSLuQEydI8bPnONbc-jWZaDQ7GnOrhSMH5ZOXQbvM0-ajQkQp_4D7Eq572eR9sI7xd4eIuZMulNZK1sCJ7-v81Itd8X8msi-m-qzyaV9vXnbsK-8g3JYgCANblP5SFyZYYf1XiU5KI0IGYopzEZm-fkLpuIk2VgBzh0MAJNDLACFls1BT3XmxpPGQqtnoyxLxq2GcBtW1Vw3fN5TJSMR2O1uE8_qYe6pVWbHw3au-N7sPVJvUEANoDmVNag1QsJ1Ux2whhs2BKKeHSI1nVAs1NnxDmOs05LC-mNW0yj3WTCWIwd1B2rlKF1r4DQzZ1qeeiPSJ8VanpZ6HsA6Iz06YHinYxeNSUGLz3ACnzMbEH8SzvyOTXqs0jLiY9fysLh5q4aJLe3TnlTjpoLTFh0-UAysRbbjR-3kTmfRUsZcPac79LXZ0iw_2ESHA5Fh5DnRtmp5YuWoEAgjyIaqIt8hjuFuOsYOT0V19wnL3AH8eAVEZQPqvD130t81CZ_vLRwLJzU04SVbvyMr-1BA9EugH-37Yca7-XSDOeiB9kBRCTISsmRFQEkzSkdZhFAj3DOAhYiGpDsIdxs0Fx0Q%3D%3D&searchType=return&searchBags=0.0",
       "inbound_booking_url": "",
-      "previous_price_usd": 2213,
-      "price_delta_usd": -9
+      "previous_price_usd": 2204,
+      "price_delta_usd": 0
     },
     {
       "fingerprint": "LY81@2027-10-07:TLV>BKK-LY8409@2027-10-08:BKK>TPE||LY8406@2027-10-24:TPE>BKK-LY84@2027-10-25:BKK>TLV",
@@ -377,14 +379,14 @@
         "Single Airline Ticket"
       ],
       "summary_note": "18.5h overnight in Bangkok (Suvarnabhumi) (lands Oct 24 21:35, flies next day Oct 25 16:05)",
-      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HJ1U9kAY01rwNWJVvTeQtr9pen-yXDubmBz25WUfSwrl-B4GJxmEWGG_xgmZFI0KzcGuRfZcxcEcGKrQ-II3ib6Ie474LSrvULNz48gH3awDkRaGE_-hjfyev7PcDsPyI7XbLq82DyE65LsK7AKAi81oaPr58RLfNIdMIBPON8E5NN84VQho96fdk7N27NaBJwFXfhmlt8uoria8rST_NSpvRAM6qEpnesH6389wk53PqTln13X3cEino_r0Fs7SAfcrSsg14O4Ej3p_oardVdY4BdPyjVmBpCIFxsAiEv3xTb79k4u3x-OUo-YyBBcIQ0PmoDz_3obDHFElK3-1bEyLpSYmONkN83PqDu0GTAshw4CmWko1cttRX65GZn-XIlIRcDsjAP6qeHSYlf2pAgn-TAetzxHF2CQBRBbSVOyTmr98Cn7zJT0AJo-zqvtPHLmXfZoa1JSVVlJCy7GQGJmnG_wZuSmBnVZnIjdTnYoZQRtMtTuqsUKQ65QhK7Z5ZqVJhHgYk_4IuLnPSPNFa39IPwjJgziua_UGzfjdJhyktPKjjwIX2raebzxPQOuS1AcOcFYFsptc_hJwrxL4L20pUCZpyZBTmXCgwcwBP6UER9qtu8VqfclNQYqHu4T7GSKP1hBcXMoja8RgklXry4lQ2SDGCtMEAHDg-5x-eiB5aD_wlaWMMK_6Nlt_3kq0IKKs5Rs5vjo2MGm-g-Q5CsQ6qurqtIrDEK4dsVXqbRzCh39_Fxyqvi3aECXm_ck8Bpo958qYbKeuC-5NSNtmJNBw-y9Aw1DfrW4-pR0yIBnU0KkjgDDNoBoDpq72ZHBSB90jtWRSv9U84EGpDkz3bNU0xrdorlRP29LXhzFnYvef1Xg4Kkz4TP8w2UyqnJnz1t3bwOLDl6hdCY2GoICEno3l-TA_Qje0i35pJhWSqvGaGs8oRjwefA_2phTe2xMDHf4Ns9HHZKX43dyMJbGfsIF_fDIwzfheSOue5WXygG85sMkMEzkNPTxCoSOH8b70PR0JVpfFkcT8Fv81XZqFLpxlD91ZjCXmK7HYdtqlyfKAGkflMDVknnLXN2HJdOaCX_JlW684K6grhNMdWib6o_9tEx7MbTeg795svvYTSeCdGBy3Ytf6RU_bLNKR4qWpZsE233mr65Gu01V_wUXYXh1Tj7v4RXm7IP-DYx3O5JTFIEyOOXa0qHTehw-DxFBhoKCU0rUDHgzWPs1Ri4H8MsQ%3D%3D&searchType=return&searchBags=0.0",
+      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HZ-X0T0-37Ty3RUiUySp1DcmYNjmsvMI9zTUllkJ-ziNW7qJz7mQmu8rSgBzi6RD0fwj8i_PKL4wHDnLMSOVU2MbEl_2cuQBGhXCla0YkGhIrj_62Hp2m12H4PzGFRigSs5vwS8QzdChGG5kQFHp_05TPNf_FUEDNBjRi7TK07swLqW9FRAWsKliL45X6_gak1Rad6G9QrUkHl5L6h9xRPB501_Fh5vpe3fsVa7gERjVEs_tFWyb3-rqywa-Bo7iOvW4a55gusra1ilD8hiAI1btL4OlaSjWbBGkI_nEcw_6xsO6FlIv7i77t1jwJ9CXRa9tEnMVHvNfHOWx3rzkdMuZ3rtq2KPq4KV4O36gUDwO8y8p0LwL8Q6fkOJK0F62fyR98Vlf7HDDhj295msf4g2UMAuNjNrEDIuYUf_5LureHWr8MGkB2rUAutarsTSRol-GWXCHGKmo4n4OV8wHVqh-dgulUSx6vx4tuWVn-1otksuOmQ8KCdowzYCOCyzos0RFLBjzTpFPb3GWPVfkFpz9Qkhq8Ou-upcV3DSm9x8kTOb0-m_PQ1Vkg0wm-7kQd2H0VXgEMOaKeMEHsYEReFbANet5ZhWPeT6ftiMgEMIMpk1BOqxqCLz0_LG3ldGvE6apfeUMtGctiLJrGYhmnEqBMXYdFf61MnUbK2ek4HgPkQ_uNNnwTYrFHmSvUhdiKtca_zek-UxPqM0rGq6VGXZoYR6Rfg4cs68JpOF4TYvRlkZcwKBJ__s--m7rgnDBaFo7nzxHMJXvFY71XAZJW7ln33De5XTIXUpUq4UD7pswyIeOYDjFbOdFzLsch8TDAlbQX6Z6RLE2SbQr0BPurJm_ovBXTa0QnfFyz6rBr7vyNjRTjN5XG3RSN3lBbuC11WnO0VPFIl_tgFEk2u5iYaGMwKNMpaJE7Me6N5SPpsy5FUYUlpzcHcVnDYIVbb0Bgb2ADBKjOZuih3PP61tFQxphU850SM8WEyGln472t7Hvw1lht13cWn_KwMtD0WDsRlKPT6lU7X6Kig2sIGgMSYWiavNz2uVAIVtvru0bO_8PBySilDN_09tcAbB38jEtXzFXkPWBqvaztE8Z3RprgIKhAJhM3AgoM3NYle9A9aDjHezoU_JQEaTiTW04-8-7U3QhzNaJNbsR8E-8aVyEzwVYrRCiOGaWGW489g2dyw7kEC_-8RYdsmbmq8EJbReRkXE-bMwr-mcovj3wjz2eVhQ%3D%3D&searchType=return&searchBags=0.0",
       "inbound_booking_url": "",
-      "previous_price_usd": 2364,
-      "price_delta_usd": -10
+      "previous_price_usd": 2354,
+      "price_delta_usd": 0
     },
     {
       "fingerprint": "LY81@2027-10-07:TLV>BKK-LY8409@2027-10-08:BKK>TPE||LY8406@2027-10-24:TPE>BKK-LY82@2027-10-24:BKK>TLV",
-      "source_provider": "kiwi_rt:single_pnr_2_22h",
+      "source_provider": "kiwi_rt:ideal_2_4h_quality",
       "price_usd": 2448,
       "pnr_count": 1,
       "ticket_structure": "single_ticket",
@@ -525,14 +527,14 @@
         "Single Airline Ticket"
       ],
       "summary_note": "Ideal 3.2h connection at BKK; Ideal 2.3h connection at BKK",
-      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HjiXwhzuHsMydV3FruCGQ5sgCR5nM51JFIi0CFpgYq0vNqU1NZMx3tVIzslKuAr0DugRh_4ZdKAo6HgmaFn1aDLAJy-6yrITvxaI7j9XMfE4Ad6j342U4bZTjbRFu2EAu51xD6CTc92jJnQApsbvXF-bOCnXLe0RNci65DLCzLdv9NbcQIhoNgr1KwqVItTKcfvHz7ZZ_e80tVHXdF96y6v2yr_AIKtkf41sHtQA171f4XEbC4UDJf5kTDQbPQ2ejHBKdg9FQppx9V15OAT-6uK6vTfM1-6LBLhv5PFAi_R5i3jRqf_CxsSanzFupPGg27Kb3__vJqA5th20r76meGA2wKo8uZN4roLQ6yLyyXwZsxUMcu3izL-sECaObyj_VIiHH2Ebw4igA-FwQfzVtpjrAj30AXl5bqaMAOGI9RLZ7-huJV_iwjW80b6MZFe7aUb6PgnDtwO3_clYZRoy-aO7iZgKXA1mhcFTZgnHukEvvBoTDsqhU0KrN-eGeExmc5gu3mHL3A5KyE3pFj0driJfvyswnv8X79iwC9DJzBnUA_s1ErnbMlcpF_3FyA5F7OnuEp-wNmwYRqXZiq7Gx80bj7_7sB1h5YWKKv5DXQHkayF6BBkhJ-1Bf0pfF08W_J6Jnim4-SiEo_ADIXFx65j-wz9eYkU4LnuIecfIIt1Mt_ZU9R82z3lDbLibeOnSxgogrDd2BKuIJerXcdzd6_syV5sVlhfIF_pxVrLBuvFS2_JvCsQOkDKu-yxdh9WcO3u66D9ijkMxedv2lD20_QUb1doBW4yopD2YSRj2kYMN_I6nPHi94lzoKx5hKv5re_4ayDDBR7iCCIeQx7k3kyWar6mEnvjoRhIRWbzOywz14GOOD-GI7n9Hc-g2BDRMM_2M25qEcYtfZI-MHOkkiM5HaV0om83hH6te2fU3uBdm1_ykgbPoICM9SfwE8qsBH1p9ypWGVP7iqfrmNCqHqkrgxq_9T1r4XUcz0N-qijyNxwroUYfoO_6abOGYBtih745Ylq6HZMJ7E0C8L6G0aRAJZUIAHFUV8kK-Pwle1XUyznfNAsweXW_S64EI2UCvn_0KjloPC83yIdgaz2SBekl1JjV0T_vuj8FruqgWRTSVPuSMcN7zi9Yu7tedUP4Ilj7PzTtDmDq9A-OSEgGS-AkagAhv1RaZC47YjhvXjHnp1LpEkBqeC6ODsqApAnuRYCT5Idzdc_AdtChy7NroKHg%3D%3D&searchType=return&searchBags=0.0",
+      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HakLKjDvvrltaFGt2lup0COuC-qWiDji1oPBrlvbzLV49fsbRhEe_AEdIEQxUDmJ3RHAH12FCEI_QvHkwH13NmRIsXMjra_HS9vJquDBWN43KUQgdp2pUkhsMHGRgMDl3NuLwmLoQWkCAgF0T0HrEImf74W4AGrhX0C4kP76ii04L9rWCjp85Y0O1gm6qbasS2-39JoaQ8JiOyUdzkdBumrVHz6qJyIahpqq7fE_VkBNtHmSuHlezJkTebJmaAMTm-_UH7UgqqMK7XwlJcdIdR-y-YEZNqNwOKuW5t9EqThzEmj1TxmVhOJsX-EQxp3R8ks9fLO5P3AfU64l1taJN1ItlfX1uxI-6D-M1hbyTK3WTiD4sR3Pj7UKJ-EO7ShiS58c08sQhFgKla0UDxa9wnSIwRmgJRC5xIo1YXE0yk5Ul1GI0yXmzjApUK9voROcA7Ge-8evR59j1Si9LKY3Ut_ZGyWy-cCRf5tvSCg69Udr4ZGA-Y3PM18ic4TscFbBUzLJF_s1Paabm7-9klS3avgLb2rg6-xDezToT6cJpi0PdUGuieAdyNjJ9jqaNsfT3EHmP-QBhEbyP-V0kRMBB3KTa9n3r_IP-qQD4m0NGpDvPO7MTIkXrUJAp9Qgw1biCLHaWYKTpHrOdHAmerWy3NlXmj9-HlPNTVj5tpH6mdRtoabOsFvJQJLPHCJB-a-LJUuFy_vfaJkRhWx64kZvE64-H2QEpzz1ZQ9oy-nRi2F3UMcmBSnLW2TfRWl8GMXKzZDamUHfzqkHSUaz3JrDnqQuF8EFACUiepPdKE2jOfz3BNyfNpuBlyJpMImk-2Ylf5JP5mlHaj8Ez9-i3ORjFiaVKBxNgXLQn9McyybmKfMCbl8sES2K2cI8igKYolN8GMUH75VumWlRLbJCpK3HLLwe0W0OD-u7mA2e8xuxp_1c5mFP4h3gOahAHAwGPxUzYAsRuICkcgS3ISWBZfM08oqPdWFRhZEzFQwGNt1TAU6MhJBZZR82bsY8j38p24qkjEo4SHyuvZ_y_45CMRSCIR0S7TTRGRT8OCKfs6S74OZfIzsPVyHEt3_4yR8X7VE9OJ5cSplaScC6uPOB2I11IbbYcvU4jLxoyts4LJ6ClMHIZvSdaveM2YWd-yqrPzr7EOrzPlRTF6sZocwS5_z8YW6vowDqJd6jnGAENZ0lT2VCJ4jLUkq5Q2W33iv3X17Drihh78d3ZiocFj1QDbY3lWQ%3D%3D&searchType=return&searchBags=0.0",
       "inbound_booking_url": "",
-      "previous_price_usd": 2458,
-      "price_delta_usd": -10
+      "previous_price_usd": 2448,
+      "price_delta_usd": 0
     },
     {
       "fingerprint": "LY83@2027-10-09:TLV>BKK-LY8409@2027-10-10:BKK>TPE||LY8406@2027-10-24:TPE>BKK-LY82@2027-10-24:BKK>TLV",
-      "source_provider": "kiwi_rt:single_pnr_2_22h",
+      "source_provider": "kiwi_rt:ideal_2_4h_quality",
       "price_usd": 2448,
       "pnr_count": 1,
       "ticket_structure": "single_ticket",
@@ -673,14 +675,14 @@
         "Single Airline Ticket"
       ],
       "summary_note": "Ideal 3.8h connection at BKK; Ideal 2.3h connection at BKK",
-      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=H373dHu4tVnahM_dprNRR7eAk1f1K1Z-ERY5ak20OraZfL9Aa-kr2wz97c6LCOEZLwTbVvRingMuV86ZEmiU3EEkiTcdFLbRDqiDMq4t26vB5WlgISiEpxtyy1lVxqnNNe2wLZneX3XaOpWICC_OPEJovIdW4tc1d3qc6ayGOnRWt1QmRVMjBqDwHyPmmDuB4T8rcurTc_Nx3hf13-SN6_QlmjXQw7AAwrbE7oojG5S546QUx3IXw00paYCcj-lyZDXVKuUdPghaPiCXyS24N5E1gxKIOmrQSxK_ysnu5L5hZw0_r6pxVvx7-MzGr0e3bn_WPkE0re9r7hk_9s7pnvVH9tQJS647Prq_Z2GsY8IkaLPE8DsUetoM_bV70LTfrL-sNcjzNUUC-wO3K4KFK0NnuQ8bUFoy-rQzw0eNQQCcE0_S_cZ3qxcg-dmkmyq-BCK3CespLnY38AuLqdgQGxvFhIbfYvqJEy_ukTbvIp_nubXjqmVuyvNfxiq74fmVqvRQLhpr1hNThWWD9h1o5oBbCuX5qps7Qd3s_tckxqFt-8KGMzBy95rV86F93nTTfuIJcpBG0F6dP6F3r4PuaC7Y5S736mqffewkcRmmQGx-dlPsjuv_D7emH3ZjFkjNduGwiJXsZpw3S4q_F5W8Eos2b7MwfcS-4gGDcucTxZd3kCKIsypXFpMVQakk04dn4JHH_tpD576LLlV3VUq03zcCLQb-ArpNIRfILnah_KY_O95ottzPRhpEQJrHm6zedvgY4u_ofdndXKB-bAhJ3K-vypxr9CSS3CStJrJi8oznkymx5izl98Ybi-U-0U9jR5lyYfm67D0A942-WcdD9Sltasc6pI9-Z9GwKE4PpdI-1SPbY7pt-SA5cu6pyV2NXxdXJc_EjSyD2EO0QBlTIZRXnBjHru1U3gMkSZvPRlJkI4YWdr-lZN8GvWJausW7dqX7eRQ4P5WKJxKOqvNcTRpDH6l00fdVqDugdCFE7kqRjRbmpDzyvYLsE2DE2chSzTO1AAkpOfZ-r7klr0yIuzLyT2sHel9V1W0TOqCPSs41fyLuDMEDX5Ly-STuIexs8QOMOo6R-_fcXXayazkGbyqfYrBIg0GfdOZT-TCIT8IQBOwUaMzeKxMjsiDz4t1pSKfbXuWyIwHWopJ9yJmy_psUlwOQNBdy2xtIyatkyZ2bMK-RgGiM2iDSCrtknHlVft4x8FV9H-2sla9ZaI4q8Vw%3D%3D&searchType=return&searchBags=0.0",
+      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HDQULP0iMSvKu4WfRA-vbtOH5wt5Pm4L-xqOJZV05-IQvGfsHgMrjQ1RwSXf8UU51jRkjC9AQ4ny7_0ObzqKwaTALbvLFjXEbiYwHWuD3-UI31_v34QydJGP8xf5dTN_p0odrxyPXys65XscV7AtZ96ZFNwHkrruaUXKFgC_eQUCO6t_MK8qEoUhszEWHoWo6aJIGJGTMoqDDDO7Behn3ZyIsc1adehrJNDtD6WD3hwrkcuuThkOtGRZwtf9kbQ8iED-leaOApoOZAg9qMx0HfFCsm55DANjEhilRREOlvT9WHj1b7m1Tf6Hn_OTUYugE3gxvBLy9Bcvo_TMGR2cSMHpKEreI2JYKJqcjOBX-RCcRBff5TfM4fOe3F-ve1H-W8XtPOFGHcwND8MAogpZXGrRkc9RpkimAqDz6peUzARkfP2BIpHDt57H_-9FfcDAFLf_bT4oD_Kq5bgUlWQjvYd87ifRiijR0aI9ONZU5AVOtLu8VLQkBwp1D-P11JnDp9YSx3CiSihUN-ULcoPB1Laa14K97j_BZTk4rs1WPVS3qyYDHlEudlHInmQiBxFcVP0HEWAEBRrpqOsOCqB2WM6dOjzLUaBgDHTHylOiaLSy0GyFVXbuAP7mR_1PC8H8Ox2vciO0PmcLgJOrjbaO89A7fdIGnOkk3lIGqXJplzkOM3XRnh-EST6q4Juime0GVwEp6Or_KxF797QE6ovEIx1obNZQJ7xQxd6kSIDe2vkuRoj8iUDAwzGcs8PMivHY038wUa2yB9KL5kQv39id9ao-Bbvfg5oBkm2eTFz6RlXxZPACv_xrGG1v3weOyZPWad4rNOB3sEUC4F91igweRWRiVZojsNC68PC675mKFo7NrYCL6JIX6zYySzvWB8cvwtPaJBqozV9XugvXUtz4T0kwc_J2R3aNQuEwKQsa-9JROMWWKDZ69ZzVA3s1DG4ZdnU5tk0DAZmAV4Z9UVN8RNnCmblLd2ZTUbwk3DjIbprcnMYgFWEi3DGwugQ4Ji77XdB4IDdMrgPomNO1lIXqq_ISs8kL-DlsICyPy0H2bGF5TP7Q8K1P3e2Ih-RLOoA6IQtlwHS_HTRucxmB68P2RU20e03G1xI9ah48vaG61yCXxVOud2exqqTyCgwpJtbcyc1kVoBziK6Ac64pnVjFHEL0MKdaqdVzuwSyC-L0Yxi9_QXIuhWWVtjRhFAPAXqoYBPip-xJie0i9yZzmDnkKTA%3D%3D&searchType=return&searchBags=0.0",
       "inbound_booking_url": "",
-      "previous_price_usd": 2458,
-      "price_delta_usd": -10
+      "previous_price_usd": 2448,
+      "price_delta_usd": 0
     },
     {
       "fingerprint": "LY83@2027-10-09:TLV>BKK-LY8409@2027-10-10:BKK>TPE||LY8404@2027-10-24:TPE>BKK-LY80@2027-10-24:BKK>TLV",
-      "source_provider": "kiwi_rt:single_pnr_2_22h",
+      "source_provider": "kiwi_rt:ideal_2_4h_quality",
       "price_usd": 2448,
       "pnr_count": 1,
       "ticket_structure": "single_ticket",
@@ -821,14 +823,14 @@
         "Single Airline Ticket"
       ],
       "summary_note": "Ideal 3.8h connection at BKK; Ideal 3.2h connection at BKK",
-      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HyJ2k9eINMwIn9VZtp3SaQzKeFPf8mlANHbGzN0dTb9TUILhIt3qshnE9GvtS0clB0Y3SdAOQHUA86N6u2D-DZloJ9awOuVuDNVIQMF3WBjrnkhjRq_OCHgsbKh40KUSRc2s1CidMSbuXFfdTSu4UZLKhVpmCm-pzh8fXmpqNjiDnMddRk3SAsffPtgfDt6QVipLC0ZxLCiXZt5JMLQDqqFuHmGHJvPNAY4UdFH6Y5ubM6d-mVHiuE8jR-S_eELEc410M5nl_Qm4WdawnY9WZiTokMmvvAHdw23nsin6ip93wvYpNzx8I7kL2d9Jt9kKXyk8zXcwiWO5dviiuYpvoK40-xu1sDQDavBylOri5x7c6IyPAc-upV-j4dr7iQsMD0KpUoLFcfDewzab6d-CenYAR65fUiU1bpc7Rnziq67VU-QsNAGQfQEyzbkDSCRKnXEcrJUQnniP6gUWvv7ViaUQK1edssURU7jtxrhr6ggtvE6Svj81zByHY7hPDl50a16uC_JDI1UqcVB2LbjPVtBT1IszgdUo2YdKTfNxt1eHOfSbJF-qXZ1ONiPkg0zMbMaw7_H3_uBcWkj6l8M7COUEOkuKvd07FqC_BR9UhNl89Xdhg9sXz1jXtBsvFXlvwbpmx62CY7sCB2rKilmVjEuCS2SKdas3-RSDpAEvLiXgTuE0KkOG2b7LcI9smfaCSiD6Wh4F4WpTAfaNZiUsyLiB9ZY8GDknU-5bZNoGVUo5PVqAI7VCzrOI-Ty00HACV_96XVjyFNFib3dGmmeAkuTvS-_-6STKHDrsavg4nSo8j3LSA_qkCL_LoyeQwXW1WztMPB6ya70IqAvbKjezb0GOs1zaNfC1Z0Xl54SAz2wqXxhXWuOj1pBFih9-AjPRHRwj0Skwm5xgDqmMGSKGLe02Lg4VlbLxjnK3wUnWv7kyJRc1a2QZCPfgzstXvDGoUZHToLaYU98IIR3mMFVrWzJEB1IBoKqrlLowepeM85P7H6AE3lSXZWqB1XaEM-i0fCTN75O5BUPckEkTUKmbI2RoiUBKJAHAz1Ma9xbryJouRUIBEbb3bDChwYRIueCOV89h6qAI37WIknHl6U5wKczvyAepUWfPr9vqqFw7H84ieyi_brENznBa72nKQv5wQ5NgPAZzKrqAHiRjqXSUFI8peD58_Rp-4ju10Tf3i402iRlHBE9znm4aZKj6bIKgfs5MveN-QQmyK9KLjTgJi7Q%3D%3D&searchType=return&searchBags=0.0",
+      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HwGBTkkiGDDWW5-pF7y87aCme8f2S6ApkK_6sAMjI3qJjLb0BqayxSDFYyW9bh05falMjZO_sdNEtaj7p-N18I2OXMo4X1qvYJ6kyCxayFBbS0A_Uie4in7W_97XZDwWBGHQzVdGhFjpdzYJOAa7n_xZd1yPdiaLRtWT2AHuZt_Nvt-ItD9y1gZGbFWbfNzxrBK8MdhWMlY1yJXcRUOEVOVqpZnCPgUT8zr8TwQYMVaJmXEpqWiinbXdlBpnRerfXDb3bVMm_9-GUirCHmdgvjsSbYDwzQjAnL2p5jCVUoZ2fAcrQ4pCfljhGdgAKlA8PCL6BIe5XUf0SN-R6-mYiY_evRp4f4j4csvfo61OsWfoS5tDLUywXWaoz3Q-PO3v4amasT3aOBZSr7x6a7WeCtH5qsvZRnKuAdQcvHc5_6uVtu-b5VJkQyClXfpcrgSldlfDezA4ErpMk5R6U3_1nnlEOt1I7ipsSJu5db2NIlthO6AQm07fNgH8ShEtTQn_oPkjASanf9kMMNNJcqMWpOGxxcm0Dbzjm1OwZHD4FKv6sLitP6nGnJebagzug_0GFF6AnmsqmbTg1n7hh2US6pb_KqatWqDuMsdjKbGvEgJJox1-bj4We1275JsS8KSXgz3bhC6UrWr36ELEUlJSOFSC60d3W61yTjIFFi7BRvhqBuXn8Ms3w5zKMG-CQsEftNvunez4HIorJS-TDgGXJ3frnR8sPh2E-8n6fg00MACZXxjNcbdjl7Uz5UMcO5JjUIQz_bnsq6mLZxRqfYgkA_O-7Xsbybj0UC0mURRPI_5iI5WvsPtawd_gRLwY5I80Yk2FHULVwpCRjGEOo359ALJZygHainVkNQaiJMOF2xD5HIhc6ou7i9qn4v-QxuQMWbD4v2a5TfG0vVBjG__8fzVgT5J-0mqWlzIFviLUg6_BGiaPffR9ng4KochGJ4thaBIOP9o3Q7VjoSxFGS00IiAUbT7qD6O9Ah5gajT0otiJPtCTs2_EnKZuYm5EtTm3AQq-8CRILlB-PzPpDFzu7S9kCWFH9msGyhTXRxIqrxjISP9rtJ7d0MimL07_EhGua1EIGxmrROpUFYpAmHDYyUhDkAF9PjR8z3-MNQSFlWJzjtns9IQZDF5XPWrTMYJZr_9jqvuGq8-LheChkk1VgRnMw2OpTjgodNOUXYeNlxPn9Q7rn33eTaXp_TpSjXsoeJccgCNMQZ4Ah1QQvPh40YA%3D%3D&searchType=return&searchBags=0.0",
       "inbound_booking_url": "",
-      "previous_price_usd": 2458,
-      "price_delta_usd": -10
+      "previous_price_usd": 2448,
+      "price_delta_usd": 0
     },
     {
       "fingerprint": "LY81@2027-10-09:TLV>BKK-LY8409@2027-10-10:BKK>TPE||LY8406@2027-10-24:TPE>BKK-LY82@2027-10-24:BKK>TLV",
-      "source_provider": "kiwi_rt:single_pnr_2_22h",
+      "source_provider": "kiwi_rt:ideal_2_4h_quality",
       "price_usd": 2572,
       "pnr_count": 1,
       "ticket_structure": "single_ticket",
@@ -969,14 +971,14 @@
         "Single Airline Ticket"
       ],
       "summary_note": "Ideal 2.8h connection at BKK; Ideal 2.3h connection at BKK",
-      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HRB5N-UuGtVZdUWRnW8pQDfillLVpym3T2oSCbA_6p8aA9UJoC2ZQNi0tdGIzGSdznbn1mrwcyc4bGEdenEI4reTgWFhYrbjHlUTjwULgdJU8zChyYe01ik3ivKJtvtvxzJzDvlNVDUISlBPnn-FQu4Ps7rxVYYFvzBw9xpJ67tQkBihslOigWmCnNj6hSYLJLPXS1Qz_LvgJ5tT5kgDa04HPOHOA_L9mEPlRQ_qHfF4f1UFUSKFLDLLqrYDz0jEIzLBL6t5c5M-89zSME5iB9T3iU8Juj2QNmsIRzO9cz8QcgTOFVHCZST0RUBQ9a-RTsvhAQlfK7QIRLb40opdNFwE5TMrSuICp1VG7WgbLRR9_fdosgrv85sWCOPa8pL5xb56ntwlFB93FmVnBZhnrXOWQdcy24vAgMI7TRJUkjR507QCE4UVPLFFU-BmpjgKU1PfUURdUWDhw72b27weul7MaCe8neIOA_o01VRrcrHFqvZ_bMM-HMfYZefrBM6_OcR7tFLEpP6NxFvHUWfR8lt0JCudHzKq2ks6k87HfEAJJS8iitIcbLzkeaqYYreiAVFXR7XfSnw9mbTkggOVKWpRvA-u_8BPC0DhB_6Ywgq3JdHHSWn9ZaMDJ9GBXXSgEnQM1ii9rczOu5adoRFABIpXciat2IS4_31WRysq2FBHyPeHpldf7F4qCPC5BXM8qsmgecj7gacKf0q9pve4mahw8CAghnspPlW5BdRS1sqPkDcX7aRx-g5oeNWKkgdbW0mgixLPyx5xCkXLV46Ni446beIR0-OTewYKaMIIgO2vyLkw1n0W8ua0kRf67qkAXLpWHRhdNxntVe7cyf4iDxefeCIgjQjaVEapgr4-UoGhCOTQ69t59mQUtBW4n9BCGRFhefdOKHO2ppKl0NstunOP39lVlsHlRHkabY0811OLGdFG-jdZX0-OgxDtaoRGRD7j6-dX2NLtHLiO4e21pRBgSSQvQ5lQlSk5Cs4yg6DEpvRKErom4JsqF5MbvKV36yQATRuEBdruUi9KW2keTnbKSW-SqHVVA6DDbhOcvgda6ARH91ktu3A_p_MPu1Iq_jJ8BBpkAa6dqLHjm3FB-pbQOBX-zm6xEnxqtUpAzaWJ9wBg7cWBf0bo0Tfplt-YWmk1AC1gK1NPOvfZoPoq0GmjS3YdZtZ9hOCh8VlpLM9UVIJZFW4xYhq1_Xi9LS5DiyBbRXEbJDFi0rwP3b2X7qw%3D%3D&searchType=return&searchBags=0.0",
+      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HD-p5PTmbk-zIWe78TpyS7mK1JZYOStz51B9Ig96POSnvJariHvwg3k0Gi3-WAbJ87U5_Uh843bMDPf9ZFHzkcRr2JKb5Nhp3pUq6ivHsLQzqgllsBVUaYC4IAq7GbZpE-BW_wPqWWnsY3kCJt00CE62mvLbxep5yxtCsUGtVlZhOG7Io5-MvrrpAtsFF3WMXGAHSBOMrfUJey_CRCe2pleUf7o6swbEyJQofcTEmTWaYfCf3aN9NpJhCS-om7mNHliZCWIVbEUKs8eFs3f74UwFZbTno0RK4F7LXEY1VYVchkZLzcyaZVrZoXXLjAvNVJqe2hjhwix43gMixTd3xvPXM2tX0tgW9khevnUUKY9AAb2T1PMhA0AV09cYgXx40KwuomvXHRRydXF9Lf5A0puiyFiPIyo3jcj2_Ntsu8FOQcDG-PuUjAufCXKfEerBAgDZSMQEYOnYcwGd0pzCSEqXe0qQ271osQGztUzkud7p6e5B6ZxZWm1ZdLhC2DY9hqX5DfrRMi55LGEerFtbEOB09Vd5IZ-Y3D6Lnq4aBejKmq4sUmL_sf4igS1-DgonxDNnYriu5J_AbRysbiE11aCqsU0U6F-hdyJQkbeAClYmJMV81KXF0ES0ItMZOs2Fe2PkImpKjZwuba46kH-gR4thD-9oQlsUBe_nVqHVfBYVNI-eRDHjViFPr8rFwgNNguAyHwmqw5RgOZ03SqG-gkc1fW30GghJLTBuI8mmbKX3WMVV7MQsXGmX2zfwN_b_VdUwWwyI6IIqZQG7GfqJf7W67idUfRCPW3_2269tTBV4mCGkKdCjI30fT4fHPykZiLkOEIeH4s2_eKeQy6k7-aHcr4f7mu7chni_G-fzuhqgZNP9LOGqXJy4m65N1rTrKTSZGYi4ZdfeonabrAlq3WqtnOsxEJnzPBnIgKKeuBVnvmKwJsTi-HPm_3ESvGQFW6XUwgK3IApOWmINRY1flEIwrVicfeFnBrw4LfJbA0EK7u47phO0tZPYi-CZJjqdNdvQBoE15gYENI-zweYzv5UblTCzlBA6lETsEF7_VliL4HwY8w4NwQ3Hxt2JgcuMdFFrou5IxqBwW0ckTeCZDB5BwzMaIsknHMu7qpCLB0Gbkh8g3z48oBdWu4S4yhKXZq77bGzPMAiwt_mbG1ZqNllta4muFMGDVambRpo2z0eBt9eaD7gVYysBK9vh4AXh0hGCLt_d8qrj_-bfWGxHpFg%3D%3D&searchType=return&searchBags=0.0",
       "inbound_booking_url": "",
-      "previous_price_usd": 2582,
-      "price_delta_usd": -10
+      "previous_price_usd": 2572,
+      "price_delta_usd": 0
     },
     {
       "fingerprint": "LY81@2027-10-09:TLV>BKK-LY8409@2027-10-10:BKK>TPE||LY8404@2027-10-24:TPE>BKK-LY80@2027-10-24:BKK>TLV",
-      "source_provider": "kiwi_rt:single_pnr_2_22h",
+      "source_provider": "kiwi_rt:ideal_2_4h_quality",
       "price_usd": 2572,
       "pnr_count": 1,
       "ticket_structure": "single_ticket",
@@ -1117,14 +1119,14 @@
         "Single Airline Ticket"
       ],
       "summary_note": "Ideal 2.8h connection at BKK; Ideal 3.2h connection at BKK",
-      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HZHlEGKMTE-9a7WXMneob0LNPv_qyulVl82U5SH9dPSqy9j4VPSNrUeBmrNuv38B0sX_RBNP6cZVNJSfY93J6fnfGthaqQQPENdfjT4dclrUPzgfeFsbHhrVNCMies5x487LYcGYqZQ9PtQbW_-W-KBmD2A7IjaBc1pA5pjnSTJ2L_5Db3yPblQCZ6l59HkBJ_76zS5WXERTMnIBBwxhyPyH6EsKEkcGsqZ7ZjvNsaEv4tSLYvQ5m1I_MMQD8sTDvztk4OLb09Nj7K_6B1PsTgt7pidAuGEu7mO2z9mQjJSBAy7zlnRDvOuAZ9CgkCwGC-Bk8tNYoGsCSlShgtd7ovQxI3kOc_p8AgyLq2f8dAbXCuLfC6Ply70iK5dSke2Uv2QODsb6g0Acvbdm6Aj7livpm00B2kT6EZRUryAn36EwCMedrVW77eVHJZsOFdLufn_2Dwdk7G9Vcrg29b6oRmQYnrKe0Xi0IMB9UNtDPu7NLPm21a13qDnvU5yh7ZXsYoXwbXg_75MhJuPwWlhlub2BIw_AMspV8F5-X87Vpzxgm7y-AWWhoBIJDfsidXcGp7Bbx-KTsq6tcKPamOuvUfbLz-uubPkF-lgg9oRhlMzx_INukD9_Bh9_stle4icyy3injaLqwBqLg8vIV9J122ftCxGwnoKgwCbTWGaOoS2-Sx3vOzUBguJjq5T-NTrPRWTKAQP_lfCf-SmiwX_ZDVpvjGNZZ06RE6wo7B_GQrepj-maJkvcRCBxgimF142csUSv99t6034Lux4Zu403MIrmZISxwTwo57YoDu8sLuZgxIfy2LQ14k1lxWKmPqsCKnAuEu60WPo7gM5e5nDrmfmbEMCDqXaaOiDUZhdU44lOsuGhmZ3L0N7tDg7Yak7UlyukN_eODPs3mMWLHH6hiXwIKpgX0H8YBevB14zYmAeRIcvEHyV1NPriT9TkVEWP4K63PajXZfqVXilyDOKW2jWNWY6UKeh0TniVCJGaaHnVh641hd7vsoj7g8LnDhHTmuVGiUqqPRL9azj_ayYWkYR4BL1sUvoitels6Pl11PMMKdKaFYPodi1oClKlj4Nr-9JOU6aIDxPZgyDWicA3flHKP4U4ugIDKAC93yEQnkaWjRL8rCtLyQtZfvYVa-1lALVEdu-dRkJtFm5gsYVHlrEaD7bc42zxvDkm7y8h-8oZdOduYeu7jWmtEtfxLe5kg2-U96RuMNGv7wyclG19QuQ%3D%3D&searchType=return&searchBags=0.0",
+      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=Hw12bZ6GuCRmUHCpi678Z_jpGLnIRGQNIaktYiOfqtFpuOihYrihU67HsJJKbqh4SMMdRqydDd-gDe3D_o-a6Z9gJy6wUQKLO8gHmyOxNvgOcyO4USJrKTSXV5KBiJ121DleHLIcWpKmOYKiHXih6W3AQUXka6R6sRbVMBGLzAwL3868O8JwQ0CsyOiJ-up97TL46mPluQpWz-gGlCeGndvJopZJaSRr7XMpeT68xXzOZ43u5hWEPrQ8jhKWe4aIoQcnO5SENi96m19mvCv5pfFGD_2HaPz92jExmvPUiXrADlHyK1X5fNlh4dYhU-L6Y9z80Ht5-W0CvimdomJZqazvOfiqkyTIcGvw-OIAcJZ1HVSXjRRJ9yn5IzmPItyRg46HIZuauCfBwKr08DurSVRTrSiYFd1xx9-qEQXnfBd6D3zU40gKiCtKJgKRhqt5NDp0bewBSTChEu3cU9MX1kn67hPCTOh_QSor9zO9JZh5_myQfBb6PHyI0BQIUSV8kUJWrHy8E8JRkPoHwVrDf9aEyP3o0Z2APO3L_v11P-yO_JvzSfXQVnAiFX-tzKWoYbrgZDJpZ8Q7mQi0FPyOffkrD_yMq2-q8uPTSfQULFzzD-1R8wkteWOuvef1EanFyO6wgC0znV0G9pHdPABF4Ts8zMeDCCNW1rFXREmb1hQD5F12u-rmbPZWLsd_Zy3-iC7iSHO6-ZyfPBWP4n_yiuenLQvp-gKKjJAoAMn5p6R4abicQV-HXFAWz9Y_7HcvWyR_b3JdD8aQprtDcBRWqevScRoHI_shxD1d6zuIU9v4YJ1Sk4-E2AaCSXKQucxmO7nJ6QQuHWc1EFSEwKVoeWy3qjTtmPH4s9uSs0GcQPxBJPkIkTXL-YQGAyNg8JWTuJpV-1VHDIzct7D8s1Z7WCKX10_hOCz-3BowesViq1kKrFnoIzERQvMEtGT_w19-8V0DM2CqtEvQEOIwV_f4P6b8Fzq0ITdT7o9_azYCKpJZfP3uab6GGKqB9DWfyk4AbpVOYOOhawZvymoNu3Bz9Ype5e2E6_J3RfxVLZ5hDvaz0lO5J1mHOfMZluOnHYhc9itW8YmCUNoqUj6SNHsao1yFhp7pPyLD6ZjO8lK0qaMd5oZYG_4Tieo675_7Xvzvv19wNLrCO28EWQ_QhTBftgxbr_iEd7a1sVqhV2ex_iAJep4qpJvqEtEA0MJBMDt-gkveP2pzQLrb5GOQQTS68mQ%3D%3D&searchType=return&searchBags=0.0",
       "inbound_booking_url": "",
-      "previous_price_usd": 2582,
-      "price_delta_usd": -10
+      "previous_price_usd": 2572,
+      "price_delta_usd": 0
     },
     {
       "fingerprint": "LY83@2027-10-09:TLV>BKK-LY8409@2027-10-10:BKK>TPE||LY8406@2027-10-23:TPE>BKK-LY82@2027-10-23:BKK>TLV",
-      "source_provider": "kiwi_rt:single_pnr_2_22h",
+      "source_provider": "kiwi_rt:ideal_2_4h_quality",
       "price_usd": 2863,
       "pnr_count": 1,
       "ticket_structure": "single_ticket",
@@ -1265,14 +1267,14 @@
         "Single Airline Ticket"
       ],
       "summary_note": "Ideal 3.8h connection at BKK; Ideal 2.3h connection at BKK",
-      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HZmTqHfijne0CzUN6uA57tJJBd1dXNqNzhi_qjAE-0-o7e_JAk3Vw6rr3oiHDulGqLMesjDkByR-jA__T5DiJMtoolWSzumVq2FF5_dEi4mXYeN3AhAJp7D5EsQET2ViftprQ5Z2hTyWEcy68dlnXYNch7w6wOD6AIvg-VSfIQ7Zy_UxrH3qEK0yaq38hhWBgpKBxKZs5lFZjfLuW9_pjVe9l-jxZ7wHUghXU_YEJJBOxMfmJnyeSyYwOy3tLyYobxJH0cWgq5BgFby2BgcalMaSFpCw1wL3Lq8_Qh-xf6-JwE6Rbesb_mtL4s25wFytWC9yWH-HjLyy3ObYABRbaNPJHDFm9wHdVN4eE12nxuPbvwkpRFgJwVmTNaFHTSrYJRnFEeZx7E9Cse9-SbiQvMvRtl4o4QQu2J-jeujFuBbapPqVJ3MSSBmQssWG7PCJwgAGqfV6l7-0eePOCNk7nammDgWy9PRXRy2TrqEqH5esnM90FYkWbUHmLVUuTP40MYXDrzc14SfFpW7QVyuoI3kSX4TIH_bFNuxcOSil0Eh-KX98rByqRSxptA0ypGEbczNFAMYzTcwoxWsm4F7ICCYa4vMEzr6WnTl9r5pYLu9cRdvrzpeliALcVj2AIMBCr0Lg0U0acZ5lArfSOfjg2xISd6XN64GFEjNY5JqkpQUqn0cKnSXZsKeTdUYq9dIvHUmNN9x2rkhCBljSKUW7tHcNl_FZzRLo1VMud9cPHb-AbcCzagLCHer9i0Cqz-6QDkNMY_Uc78fKVdNE-r1P8ATyxC22p8RkxNwRJ8rEBAhFkLpqeERc8g9hP9HpsCziUiXlEf2GUBsyGv4LZ5aW-8Y-RSyLwodp3vpr2V4A9cunAgxzLsWGWwbdgU2oetiwjAuHzQ5doaNFdThSlykp11m04-tpESmSoiNhsJ45dCgdYpTmrCCaJF8sdHHW0uLOFi4Dq48QBD5cLVLusj86XToF-GvfCuWS6Jqe3Z24LLxJSh-XG1Enc7Idn3tQ4IZuHx5cuxIXNVxQfYB4n0uD1aTPgsIB9XLTFPoHXs9OV1yD3eg-gp0erHlbbwHSNAZXNwbz6RWwB3P4QCCJkZ3RiVZdoyRWFqPUIuoVdzyGnibw2EBkUs7gHxpMutWIHpiGqu84-vYB22cVQY_anAvfzXog6QQ2UIeai1ej7MGtNqmG4mnBdzxfmRhuH97BfaNnrq_StJqaHm-n-UovdPsKPwM5ooV700ZuH9KoUU_sPO-U%3D&searchType=return&searchBags=0.0",
+      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HVNvxl4PqgJkT4qHbp-W-2lTVbvvUQ7pYJWSDOOSfAnvQgCyoyP6QY39vCgpxK8aafYePGjaSg4fu4IWPqVTILXISdTM6bPeeR_rI7zqFYknWXukPn8IDV2gLSTcXwzwkb_m9U4g4ByQvFujrUR8EyV1n39zeqYmB_AMK6E7l20JXN579Wtm9ro1gq_SbWQi_D06U2rSmc7PucvwFNb20kIdXiIuUAdYiDtZJjWHPPOz_UsCi3lUNN3Tciqc7CV9ZGStmPoUZPrs1_bA4zyqlE_YeDj2JoPLFVysCedr7TzPVh98K1DNbxherOmQUDZxiFME61FvahVFQRZKB6lloroJC3j8dXCZZwGwS72B7gCjsCI1U1n_TIGmzFo7U-pCzVOtIm4t7ITLhyTFgS1oo2Ayb4N6JcFLE3rebBcLaEBwmndkfO7FI-LM_05FUpHkXu6HspU7UrQ5u3wPGF6FfxzPApMI5jaq2TZT_zyrQL5U7RXUK4osUc6ly63yub5m-yZhfJMjBzHWQ6kXKx-37qhQZLnMIgkMbKR16hs5FZ-gcFyBOCUROV4cSqJz8NEvqTsrj-4lKdu1KkURCWK9QRCSiiY_viKWrJwl4oHaOic2MVOLhcpbfIkglhPTO48fBt4dIXXc4dDpUhuwBLhLMAujLK7vbQRsaxOqLBkeXrx8iSqRJKtROkoVIhL_054dphGvI7Z64Yc7P22hx4Tzwl6ZXM0O8m4nOSCW-B0JvTRocgvQBeh3gdgs4Nym7P1dLljx3pfJddPq-rw1NHBR9-VeEa8o6tZuWwNtDvFSQyWbQ8Hoo-EY_2-snBo4Iyrrr2VZqHhwdgkm-LVvbPetjMyljx9ua4S3X4-PH0BY45Tk9kcJMny2xgV8AgOFeMDADlN-DS58Jq7UL3azwIxoSykKbnM0PdHoOVZyFq6mDa8UeRWKn_qxRyPx_FCLVybnLoMuGmX9mm7-w8ha8-oBjTu08vqhnho-UcJZRDHPDyONXDe3wNs57ElmM2t7ek2bqLH9njvOOsxjVBxjzPbKkCoHAT-xvcuNM_n3ec0valV-MG3GgB0GQoUo5TYGVPQTEAPldgK1uxlYQNX_RzK6eLOv8V_6EiLAmI4JfVXsTiWKiQoyBkbFaZ9vEhejwoJbWDl4CW4GtGnNhz4W1tOheFeeVkXlo_pemBzwFrn26g8UBhTGfKHzCzDBDxw426dEdgXTo8SGeJsNM6nEYkBgEpaouETp33kIYHFjn57igL-I%3D&searchType=return&searchBags=0.0",
       "inbound_booking_url": "",
-      "previous_price_usd": 2874,
-      "price_delta_usd": -11
+      "previous_price_usd": 2863,
+      "price_delta_usd": 0
     },
     {
       "fingerprint": "LY81@2027-10-09:TLV>BKK-LY8409@2027-10-10:BKK>TPE||LY8406@2027-10-23:TPE>BKK-LY82@2027-10-23:BKK>TLV",
-      "source_provider": "kiwi_rt:single_pnr_2_22h",
+      "source_provider": "kiwi_rt:ideal_2_4h_quality",
       "price_usd": 2987,
       "pnr_count": 1,
       "ticket_structure": "single_ticket",
@@ -1413,14 +1415,14 @@
         "Single Airline Ticket"
       ],
       "summary_note": "Ideal 2.8h connection at BKK; Ideal 2.3h connection at BKK",
-      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HyWy-bz8vGNAc95P4ECRJLA5hvkGJD3NJ2tp8D220DuIMAMk7WKSEMFLsmEsZ4V7wuO7N-J-VjFJheXM8bTbDKePz3CdpmsKB5JooAMiza5LgJp4F9gcZdSuYz5KXywt-SjwHI5jz3dLO860OT4CVxMu5DZ-xwZ3PAAVjzyYR-zj7rS8LIQygz_C1f8Vd80xKvtpHaPbQiUrRx3CPSLrsPf5gdQZxWHisyV33nYQxQJmtJNtCfFgd1V2J0h02GBFAGj-2hD7ghUX-2-pOnz7kaMMf-oqL2CRvToIfdm5ZwhYYz64TQWuBmGuoyVYeT3r1Jp2xwgw6Cwg3HDQkgbHHj1fturiirpN71Y8sNwrXW2b_OXio3Tc907taVkj8MfPTeKWL1Xm9HAN2WTeK_KKtB3JKLX-yudUn5pngTo1z7LdKCImVd19-ZgPoN1wfqtJ-YpoMCWXYNrtOpqKl8zoILS4XZ-VTg72-XsfSE-x4cBhp2VG4Da041qnyjyFdaMT2bM82qJVl84Zi1hR9wTiJ4S7CVpf92w-LgZCH-y9Fq2izUmy9uyv7427zzu2IzS4K4X_DT6Y5ReLUeFDd3lVHWquu3jVeFZRg7TBnJu28oLZyd_jcSBaPD4P5YY01-k1Q2_hyPWa6dtJNdc-aK0-jMEFPjj1FlKOjNlk8Ls8Mkmxqgf-nCNWaLifOAhADuZdZByzqu_bQBXVxwZVYQFUivtl9o8RfAhHvKSjJu7SOGh_Ivfx3aLKMUr1KR02z10QJ_yILqpUbqn22YkSiXXhq-8rKO_8kMKS_lHnbUc1na0eRqExJs66dWaL8yG5cgZkqtws7MP6MKsgfLIF5qCDGex_eaZgnvWb3-XfXGECAGGKSwvmotmj3JnkSJsTDTn0DXs4Jz1LiAH8TRP_4h89WTWlE0cFdUxNA0kOYj0Nc3TULdZJK5-6mDfIZ2RlIkg8lnJO_wyxzaupfFGbG-g3AUxA_LcT7Zh5aFTSxi_sn-fFlwHP9RUUVPVeXotLe5SX5JZISVhbQod2ypMuqe7RFAb03bd6Z9ja4j3oWyUEhOuDRkJ_Slwvob2QMa6nJy24UCA6aGed20t8mURb7XcLotd44jvExK_gsNI6e6ng7NiePHR8dhPnMm0xXETflr_EauzdUwdQb6071Q99wWfCbwDNRSS9OtOY4ZGtPL1t4MzjqBdbq0vufx-yCzepVCB_e10XJwWOi4VatGdUC7Q_w2A%3D%3D&searchType=return&searchBags=0.0",
+      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HamhKNYiPQ53p52a-NhOqTcguMYyuUTYVoMTQFjYDv2brdai94IvGJ980UVO0dQQL1bWfVqfQVU5JJaKmtzQPElQi3v34OdyJKH46ySlwN1_eKw-ADeWOAhI-CQ8i0wWl5LVFzuCMmTvkO1SOAj2kitgHOuiTZ420n5zBQgmTxx06-eqbg068wZhkDC1GU6kqsoy7goqmwk7OFjxJkivT7tqhxX-Qh33kBE-mhU9SXdPsxeCf9H7kyUbQyisEuarAgZnD7gcGXiWLgOwFThtNfu8XUQ1rAmqK0ULwVFkfcyt5O7uUMCzyV-He88eQU8eUxxwt-_IIa5H5xwYQf33H4tRAjrB9XbIIWrbvNU1XN2HrotJHdqljN0sh-F0l__5yciaVK4YQZEGvf7aQybhYxGBbcx5864ulVBu81Q4BUqbZlcFbgl-FVZJO9-hJcrd1x5OWEq5bSoS24CuLXIFbklVfvyqatUtLRCJ90ubnBklU4m3-v9op57dmjVPzWJ9QCELWOkDyFlEmnDYw7QnYN-_TNTL5U_JBRqWjIJZL6z4ay2xTMeXRkCWRi3VMLH9KQY7iH7jxtVIFHOIZvBhvkCMu1ObMdgnHsI6y_T9zt5F1-goXi8Oof__04Xd0l_c19wpWHJjiVeXk3ErnuS5bXfHAqfwfM23qHPPg1MQaCuuECJSqE_Flmbd_Mf15ph28Y5snPsHx9xTk_xEvJOYKAx0YwGflZtiOdyeRK73yPx9NXLwOdl6LlBB4lGDCL6FtcFbLPqaObJ-6ifeZSQDd40AtrSLbAe59ufX3zHUJO56x3CtqWRwPsnhx74eoZ_i7LJq9O6zVYhwTWOvNLmmqwCPkJFt2fQpKRZWxlWHcsuqBXUAQ-WimsF1sPaTI2rFb9EH2Q4PuxZTXRQ-hSC4xExLkBmhTGgk6xHKk7TJY5yRRyvnVMOYd6UdyjTLXHI5dyuZnaSeQaue9kIdvZkF5KCPwj3vhav3el9SB-5FCcyl5SMA7fZN3I712s6uo1-OlAkn8J23eqauZHNK4rQLd2Yj0vRY8-7bP6-N39IzZQ0FBnVrqOLejH7PtBDaw7ToJ-dDfS-a51Ka_nWN1ejq8nNfPBpXLWLzVdmUjFTyzumkt6ekEGt4A1KiG5dqb1f_ghOIqd28KiHW2YT621-j6w8UWbCW0crSw5DAIAMAPadQcVB8OY72kVVZV51hfLncE3bMEb5EF8DecN76X3bU9LaL0RiMpmp0nGLc-tYNJ67I%3D&searchType=return&searchBags=0.0",
       "inbound_booking_url": "",
-      "previous_price_usd": 2999,
-      "price_delta_usd": -12
+      "previous_price_usd": 2987,
+      "price_delta_usd": 0
     },
     {
       "fingerprint": "LY83@2027-10-09:TLV>BKK-LY8409@2027-10-10:BKK>TPE||LY8404@2027-10-23:TPE>BKK-LY86@2027-10-23:BKK>TLV",
-      "source_provider": "kiwi_rt:single_pnr_2_22h",
+      "source_provider": "kiwi_rt:short_2_6h_price",
       "price_usd": 2863,
       "pnr_count": 1,
       "ticket_structure": "single_ticket",
@@ -1561,14 +1563,14 @@
         "Single Airline Ticket"
       ],
       "summary_note": "$659 more expensive than best 2\u20134h option ($2204)",
-      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HSXL5rhYvjJleFFwx8wnOkDaFtaq2vDvU1E888w53DS7C2PWcinByGPsjEnbSYJU2qx5FXT4TLHTwcVoaakBENxFo0tYME_ZYVIm26RXC3LMolTTMtNGV5VpNfR0MGiVT4YT9Oxo03RiA7py_JVd_8uPgyxqT2r0wbMRpZJu8hR8e3nEqGJyhGmYy6R5mkYClRmizFPMx0ZAioFoZ_kwrdiKeyuOVeY2EBy1NCUYw6fT8QwjCdLUH1mNa8FWUlrE-VB06cq3BacP8vOiW_BNIwzHJnHIYdoticqtp6peu29y5otgPz_d6OG_SQTCyMIpI-WYLQB18APiJiQ7kuZ3OVjj5Km2rpSV6hzoxKgSp5zP8i41vNzaWAUzkHXf5zmdejNkYdyTZbXO-q8Im35OwlTvaiYc0p_1sKuR_tEDbj2P0phSjvbgvuZbqaxYjnHKAvFXQVMzetX3mdXYKTSbRxpMy8sJ2fvQ04PRO9QuCGHbThmTZejB6A9xl2X0NtjCA5m-CadXafars7k3M9eEDAy9b_lr0ff2OgS1VeDB02z5ED0_G0EF9eg--qQq5FGentaZ75Z5rNB7vxsUByugDgq-RC14Tzis62sLOtnpy8NBW66t2ZOtCsA1rkH1umCUCMwC8HqDQMtSlpcHniRYRuqvwiCOV9NeQ0aiNZs48y3jcAHn5N7Uw3dEn0HDdF42WlwsrNzZKjmoBckcsy7KrkwXJhvZCN04QBMydzTS16JRRKGupIaj3oSwjmiw4Y5M-KDc5yrWALLCMHunHMJyIlMPP6wxm9dY-Q9tQJClM17D-oR9ch_RQvicU-MsQIGRPrfaWlNytpmdmoaTu83EVkHeHzKw4Jzyzg3kqFwmy66OCHBo9Tqng7nhNzPTHXBS1U06-WZkqhvu-4ERrEJtwYnMHPBI5Q6aSrBWOpR97mYoOgtCbSd3Q2nW6h2k_W9eOGdCR9-s2iM44ssHpL1PpZxqxbNx7JtlEi5fqicaYNYDgtdBL_b4MXHyCGnJ-kyPGyazypMf7S-mQsMsDj9zw6xtJPCX9Xa0VmLJKvhwlOGoFnj9eXh_1g_t9I3ZLu_mP8YbNMjn-B8VYwGdDbyHj5HQ533CrPlYuDEA2SNr5DwSLUh6ZdzmaWUbV1LnsBYXcFylXfjng9VW9X58ahaXXBGXxBLEC5v2njI7X1-HSl2_kyAWs-_En1HxsDhc3d1o9_2v46af2qUue9lXlhl-SwGGfiBX9FLzFpbypCTHIGw4%3D&searchType=return&searchBags=0.0",
+      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HfAhpEIYl-RwUT_YiLhSxWZEyYyvIIJv6RAA6PFvhM5WBLPGtCbb_bwja0w9EFZJovb9EAzd9QJ_-1ObhIrQvfD5ZfYhG6jDWs-SAHJPnM6VE8C3lIDEDD-elUc5jjsbhwAfYu8DEQRx_oHuXGXprjlic_Xjzo0EQAEN0BL0vxBF4JyFEITDJQZbtasPwk_uZdyQDpXb8u0x1mHaegWn28rTjpGIA8vAf39YBXulnYoVGIFaKbWJDCclC3CcCssrz2SFR9QBVjQkJL5yRuK49puZMyN64xlf8qgXxo9SbN9e1SjP_JtuSCDMr1uRisIg87WDVdmSHFrnWPEdtwuCJRfgTA6ydowQNoF0CgySASaM1zaLM8M4VA0Bw2qVWKv3AgP7C3MhcpicOhwlyXrwySj2hv-8usVL_32tyQTkSfpirhbOGFLkSbcU9JhDNXrpGIqpseuTAi1aYv2B53P9bmOIy59PGqsUWKXq7akvHfn5IpQpt3CLdZiQBne3BLbFwk2au55oS0eKTvnrniABVoHsbCZzWtei5ZtuX3Kiwkpq-UFIKCimKd2lCheQ9pdxBib2aX2ae-M_Oa_C91-Zvp0BLkGtHW3r6h-3pAejoy8B04MamiN7-Sm8KyoyxrmesF_EFjGJPBv1CpDdNIhtYHYBspKBSMt2zv6epxwjigPmGcwRXJD1C__oU_y0HqTf-kE4cDIB_cmbYKotjCsLdvNTCu9gynl7Z3G2qTGobX1rmWlQyELRXYbVL9jS1fAdRvs6K_bFHb4oiXBjE0KfG1y61mYZplBmuDvlwQu049Lo7wql8ezru1moFeKO8PN2LQZT5tpbaXzAGEzicCVw0mM7CyGQjIEwk0aMPPuDMRwzVWS6p645cIONRsjcAO5jBRe5eIxHXgeNzCRPwpr1k4KdqCGpNC2IKHQawLDm7QdcO8hgv53A2eIs8A9SHwcDsktxCGXI3lCCV495_JAy5ZtEXdBDuSD3cNWs_9RuYnVi62n8jWjfZreCN_sSldVqZe-FAiFCwEfJH3Ofr50alMrbQQB6wwBgQSZyOISZHKn-UaCh7npBzb9w08tIE4z0XE___kVKLBO2py30QYdeQahf9nuOcEDwtGDK0k9ddh1KMYrRvr2ReWLDz_46I6J5khp8S8tcvTsnDiMc8UojAymRCd2eX2hi_Ylm558QBpolHqcN9ZfMayoFZe1VvbLvy9KpSVKDyvuevqzhdVJSmjECR-NuUKf9TMoXJjtq6ipY%3D&searchType=return&searchBags=0.0",
       "inbound_booking_url": "",
-      "previous_price_usd": 2874,
-      "price_delta_usd": -11
+      "previous_price_usd": 2863,
+      "price_delta_usd": 0
     },
     {
       "fingerprint": "LY81@2027-10-09:TLV>BKK-LY8409@2027-10-10:BKK>TPE||LY8404@2027-10-23:TPE>BKK-LY86@2027-10-23:BKK>TLV",
-      "source_provider": "kiwi_rt:single_pnr_2_22h",
+      "source_provider": "kiwi_rt:short_2_6h_price",
       "price_usd": 2987,
       "pnr_count": 1,
       "ticket_structure": "single_ticket",
@@ -1709,10 +1711,10 @@
         "Single Airline Ticket"
       ],
       "summary_note": "$783 more expensive than best 2\u20134h option ($2204)",
-      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HMOmsBRB6bA-vnzKS63osBSQMM-f7uz-79w-z47qcAKjR_yCs0It25JkdTwmvTbug6KP0BeK3TG7PFQKxsF3LMIYwYMWq2oLJdXHCOFU68k1-Zh4gbwLyLZq3ouDgx5ecYJNa-XvM0JhF6KJZgZjHPmPjtm0j_duFoGmBpHzINdxiJqTaWBPutNHkU8PCUQb2N3AdEPVLmJRW1_FXQT6fJ_rVs7Q7PeHAxChYrc85EzYTsQaFoSezQCgtrGwDKfGQmiGoVycrXnPZNMk0tfyJUgdKw9_fGmr5rdsIzF2Rfztu7OaZznMVP6u5IhG1yDYwhaK8roMokRSP14pkVUCWKcJOcTOts4AT_yub3dpIrIb4TlaojSBkNDMrUuYQieXgOsk8glJODmPuyd_hfzWPQ2im-O0SLoWR_f5g8fjEYK-bq8f7Qq4h-AQ4sFa9ickngHfYFZnBvbe6SxOWGW7RG-hc3o8KU0kE_D9OjQL4YI3qTyjvBLQP-NlOIlJXzTa5xkrj9PjMVYVQQzvMgOwFLkeTMvvAtCtGlI3vF635UBDWGk7LyvC6wcfejV9hbKSl3YD3BfuZ97UyEl8I00Wkg6rv4op0VMTBFwW01oD9cFy4YlEqdwUmvFaai5nRJYP7CZ0fXUoC3CmQeIvNv9ua5EzSz9dk1FZ0l3Hg6NsCWtwJtRa4uXg2TTF95qtPWoC1gISMC0H99PmqNXp5FF-xqyUMUk9TJJYN6uF3cBdwyiAd0OXjxlwIlKxpD1NDTG11StowgfXEipwGpOwwGszQe-NCrOSb9H_HajvD3Qnz7wo_YOpjRtlJA-qc8khvXuE2aLSJQE9aBYp3ffPXsQRrhaZ1-YpyC8qXJviuIS9B0GU7xwU5i77LZWvvdL7bRAWdVeUlXhg-yQB3QtDdsLjOkPU1kU0PP-lcQ35GFpEjwK3N6WG8RPnoMPAWebQZlA3d4IZLKejwiBVqm3ephCyzh4aujc15ZO39vocQUOcYgcYplxjC6FHvtsVbRIrrpXNJWlpwWrfvnJLQLajfgvkcjQhrjjfIUr6fQ9GmGaevHYJTuiXChaz8qSgkMs4Lg1rCLOVEKt1zynfhi8idEZaqG8XSZX42Zec-J3Oq91FzsA6_oHCRu7PZxf0WMLNCpDG5lcyI8DcputXLD_6GPPYmOph_EzoRzlWVULGWJhHNa90ZL8CuVD0rvgNFjGk-Lbl_dJ9kC6vpsTVqWISiT0metg%3D%3D&searchType=return&searchBags=0.0",
+      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HfOLB3Pd0TYFDMImXFABEEeJpu87u4W1TDXR_c53ZEzYs-ZlU6nbdWiidMibS3G-PpACx21jufPZSElqjWjCCDMmGOw6cpoNNSFOJ63q62hAZsn0Tco_VSfVC4sS1Ro8r_a9RPsVrbRnxVMdmmfHYYpOAo7S--03QhpB6QrEbfwdNpOesMYc55KWg7JILPzYfiJbJn918pag-iNM2SZK0rZzeq7-Pxls7c3m72s3SsHpJ-Zlk0Fgwj_FULTocdJd9-O_Nu_WGemvPP7Qn-2m9kmOPpG5qMpwRQ5p9bLIGh--s6iDJKrAo6NpPFtf1D6_Q7dDJRjvc07GoYRctlosGKe_oohIJ6HcMkGJ5QYSdldxCwUgRz-6I-o4a-lFUdp-LEeESczSYICPoWJneKVmTClyZ4kIvO-QTZIz5T5GTKhSd01XRVPo2u24ZTib5o721z5zI4AbjSR9ly00MqgZ9taQsHg8tVrLWSC9JyVqmj5mWnzSgvQe5tGpfgorBNFhgLMgxpvqR3LBDUlhvuX7kKlu_6vi486jLC-JdDD8jjQbJW76IoyyxIHXeFFenZOtUlYob3oURYGXlzvzOC-s-UyJqI9ETjcspKTPBx5CzHY-elaVXgRhw54NDV9ei2jrpj3bVrOb3w5lM9TYlEZJB2TdIY-T5WofntdOJ69l5fNl45V0cqbGSxmqtK9m3gBW0C4355ZOrBa9ALOceDMAfFcfv7R9i0rTly5zoeFTvY4xUvfhlxWLZ37LTRDitXfMDUcOb8pO7ZAnaFPdEUrWw6H6D1o64ytO8skESVPXuZpeFREE9PPxbowbcJ9Xw2HZYbcbpo6WxLO5ROwF-dX8X2tHZcrDQGmz8OdRij1rhxIa5RRn90lrU-iMYH7eVLipTvfO3ckxBj4hIfHGWKI4p9A6SE0vNXWGpLTCIG_sLxK7OOHVlpO2VZXM1yK9TjfpQ84l995leZc-BAbLKubWaaHNLCQjZGfT56aspU8DZr1uijKBDl_02rzJOeYt-P_g-Pj1Z4X0QixAFBYvLq_lfdwXFflMVnYkFHHcs0OhZ7a-mCG5uu5YFlruds6X9XNLGu_inDZQxaa7vY45OiT5IFBILF7V58IxdpAWvdDVUJpnzuSkNyST6MO3VfLNa2a38Thp5xzYg7JXwSkVQWgVPeqoq6-GCUautO6YgZ6hUpxra3M7VVoFPLq-RsPceJnx9JTC5qymh-c3CCxYDXiTMHYAXl72LPhkKneUqgqZrbSA%3D&searchType=return&searchBags=0.0",
       "inbound_booking_url": "",
-      "previous_price_usd": 2999,
-      "price_delta_usd": -12
+      "previous_price_usd": 2987,
+      "price_delta_usd": 0
     }
   ],
   "watchlist_matches": [
@@ -1858,10 +1860,10 @@
         "Single Airline Ticket"
       ],
       "summary_note": "Near-miss 6.6h single-ticket layover at BKK (slightly outside 2-6h)",
-      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HRxmZVP9VQeokVKPakKxpkkm12XVBTu6U7fxbAnE8AhR9kiRJYjgN6UfBotAYL5eWx1rIwKlUxijWIoWhyarCvenq5gPO3m93YzJa2NmYBu8yc302V8TTkpkPpj-gvWp1XpAcXFXQJkwJEuXE4AXX-DF3cjvwPnkxboIQqckmL8qo4SAKF96JHzpWvUTbRYrHZ3H0xVQPKf9Ne7TC7T5KmVevOus4RY_rkjO7IYf0OQMqw2CQlLXRO8mZKlyYvgubzc4x2Ay2C4I0hc5l2qxOiTsivmirRetx9X6q3rQ40oUXSaB6dSk9wFQ3zR68crukAjnAZGwnvt5rg0BjikkrBXuaTcJJdcioeWMotG6ZIrws1DTBmobt5Jfiaj4JN-kIkKTnLZn2zRvHqWdEEytdrAIeZIzQSB1QSjPG4zvp2cjcqMcGjc6e-cmn0_UZEJssMcsixSAlj2mgAFbxcFIbY82dj4BTKGTuIJIUoocYhvF7qiz6jiNWI3B4mU9PueATwb-t2d8srmPcWo_WwPSXj2sNRP0iMdQ5xrjT3TPj5-z38HzhCjivhau-Crs4n2JtwrS7URNeH9dtT8dkart6A6jC5buTOdoYIm7KO4YZg7brQQi5OusQSo_D_1fnR125lyZagv-4DWo900gKG_BYyVBEC4mPctHdzIEegV47lVbLZDJGdBP2CAc-yhuCb6tbpKste8-yGT39P_ksVaOsWieqcGhILWuD-5dWIE9KHVJSiqRXWrSuOkPQ59VRpJbXE1E5eHxDeBj9NAAV2se2cUzaggDR2fbV3hB4TaX6RYbkq4ziir4ZSwNVYze4gYT0aPG7BYkUV-vpWw7-ZYuyCyNe-kfCy-DIhdgo0N4Ybe6rmaTEVX-U_Zeo4AXc57YKFZ7IRAV8I5QVlBpuyC4mJZVHCR5rvInpN1a4yxdtdTe5Dm0GQZ9lr-Ad0gIN90k5WpBy1FfYMW6CyOlGI4ebmDiTkU7TfDSyq8zprQKlEQPnTeG89iS_qYQ3CPX88SFQnZGozKyHjX5Y05udOW25lSFWhCD05ucZouzUlI28KNu2SZ5dbnaAVkq0Yt-bCxtbvMWzC9t0szw-XZMlyBMLLGq5EPl0ugEt0oU385CbWoZLNK3lGDJsUzY1EM_EG0nGsP2S-34b2kU9Zo3KpHBjhhKnaQciGgIukGTV8rpu8ql7_46vbG45IBF0TVTPZjZj3wzzcVypUh5YPoeuNFk-uw%3D%3D&searchType=return&searchBags=0.0",
+      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HUoh7gC-gBrsLbA8Gq7c99gCUTK1jq2xfNoVWj6yldBo4pKehR0yx6tLSDyNSxRZSdsDcUtUAr1sVQ0QX45IF3ldd-Oim123CYGkpX3M2Vv2a0o_u6ebanswQDc_YXAJJ-2U7sDJk2vZIaR8BihpF087d2U2u2sV7wPZnZVqE2NcFhDfZU0BmPMv3zLoYn6RUweWTJHfi6HkWU8tzkyIMN2bZZFnOJXUTMvFxdnl9QVyyM7WQGAgyiHHMhg8cKgAyCoWNgj6QDptGgEsqe4-hND5NCtPTcaOuIy7yahBeWcaBhkzjEvGO28sGgXJrjcf43Y0t2k4CyLg3nxZad99l0x2DjpyMXN4rtBi0LElFYBXUa7Bl11doEyhDvNXLcZjVjiZPYsPmr1UcZI9eCvyj85r9Ija3u4cENVOeVSrjIdlIbdu6bJXNuJip-nGV9dZbI1Dg-nlY9DeSXcnYOS9TP5RvxA49KtqiNQDzhYmBLw_ZRJPZKsapNabOlE_tZZ0iiq47A8lhAi0bJZKW9iZyUbWoozPuuO6ISmpStSccoHeDsIeWgDDHOWuodnBwZUFVLmWvzOYxJrMittDE7YQ-DeS0_ixGtJqacOGX8izLuKGmcOP_Fw3tql-DwUvjwba2lFB6kXlGe7UqDUdgHvMoZoTcNmzQMW0oSc8o5Wy-L67_zELqj7cKGoX9NScvR865MPlhB70VDb0XWZxMaiw_XftsFmPxjzc8VCQW3KiaoiVu3FZBEjKfJTHlBwKdnQj-RB2gHEA7yjmyExL1jl_KMuFgrbUbRdX-a-bqqa09wCBZHqKo7k24oZQp40yHx06l680gBBCWuUtWAHDvri00R4PxG4Ywgl5RwJGQK18Lg-RgdxUpjZKmSHEZVqyjOVlDiZhTJOiqV9Dz2UoesZ8ms45pCtGuZRslxW500u0ajmSPr5leddwFJ1IPppGKskyR7nctdsrE_JGg3zpZcC2Zn2qrGeHO18Tv7x9LLJ-asoVOggsI730_AYmBx8goxlc-75C4ouCKfI2vYhQOOZ4RmPIp_3q5-brjH4-RkSLG_jLkei_gN4tHJI-AzCruguSophVzMAZ3ZY4pfqlT3VzJi3AWFZsAUvE84n2qlbCyo1x0Pw0PlC2Bu7CHcwPhjWC4u-cDU-FANb2L8nWB6_asyr1B7wyrBEkluog3QOiuUSlci_3fPy_FxfqHHa61iC_V&searchType=return&searchBags=0.0",
       "inbound_booking_url": "",
-      "previous_price_usd": 2328,
-      "price_delta_usd": -10
+      "previous_price_usd": 2318,
+      "price_delta_usd": 0
     },
     {
       "fingerprint": "LY83@2027-10-09:TLV>BKK-LY8409@2027-10-10:BKK>TPE||LY8403@2027-10-24:TPE>BKK-LY84@2027-10-24:BKK>TLV",
@@ -2005,10 +2007,10 @@
         "Single Airline Ticket"
       ],
       "summary_note": "Near-miss 6.6h single-ticket layover at BKK (slightly outside 2-6h)",
-      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HBcKbJsQPOswMjCzL9WXHEbJy8fWOIaB55WTYQlOfrq6sod9jX4x1bmWJiVY4k1iyorRIt5YV8d1YdwUvPHFE1LvaujrydluHqXQqt2EKfuDfVmRSLw-GRQvUNHkJH1FTytQNMrCP_Hr15ILS7sYPGeL7PFwUjGC4lrm1MguWdB9RSzOqVv7OSXB0BGjg2gr74f5hO_PEUUERcXWKxkKiT8Ub0SS6Kr6Y_QKXRaZyCnIiVCZpFXSyTy-wzgQR5mLYLGKvwFBIxruw3h4aVyt2e7NNGJh00lOZnBtPBQvmDFJKKDnKAoU0TSYrAnuUQjcoOV-73K1w6B52xrV8QBRPEpyI6y0HiEg8FGdfGFOGkBTgWtiblSipor0El8tuxXba1Tz8VsmBnzkU2pBWjDX15DEqgU6eMAvJD68A8kCejhZD9x7MtcwffJ1Y9Ld1KDyPx-E_W5sdxDav_3Rdn_GpsTJF3BaMpnwy-UqNjOgZ7Hjx6J6Mzah5RHFF_ug590EvIV8bucbPlU7d-CENQP_0rJ5JwO77kVgw9mWYDJANUtqvkFOE97i53--5K4-WsAO5xP1BSG5dIWGu5cqNu06GzfeLjDPmPNZQhdDvaipDS7i7dZO8RR0kckYTfTMGc6oX3Z7tQ3mvawPD3Qm0NFWjPh-MWvBQkJM8z56Yn7qRCcyHuvckJlm_LsCCaWKugGcvBrEKsItaeREXmNaUlWICQPYudP4OvYxQf5pWNdnBNjY-MMihUygLIH77_ZhJCbbqpQBmau5F38C5PD0ZXwtbr5CoJIWAZvpXlbBmedXyRiPcoiB55XSc9EPJbNGtuoxh0RxB-CWLs_9QG9C2mGugTndHQhw0CWJhq_WhcPH4cNJ8Sl4s_VTnIgS2b-tLgKLzoF3ePfouwUkP6lDkTTzAyM2oq02VqBpba0AoGHJBNgoN3WRHc3_Qdg7pVn2EBntUv7uHxdu8_KRigpYhwEPx7GnpfSla4-nGaJ8mmcKDVzZE9ojNmC6EALQTTtorJdUsFHlwxUEUWJgqkzienol4qjHJgE--6TyfP92X3VBaqARtfgzx6frlCqIf2dOCA6r23r_4n_skzPGNYhoAOa2QVtAyq1kp2OZnUzdF2PHjIb0iK_w7V17FHvZacNgL2ZQ3Xh_wrxT1ZVbeueXTuo3VvgbJ6GNb2rz6CdIb1bUy1OdkMfbkufvDQlwwa3J1--_g4ehXi1eBNvVnTBDShH79Tw%3D%3D&searchType=return&searchBags=0.0",
+      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HO1dWxIIVXyWKKuPPzjoLqmfiipYV-QVj7whDkJEsYCfVyDEqqfnGb8YEvUomni3vc7oGyi3t5R5vKXdxoTm4qganA7W5vPNZMkvFMIN4FehQWDUWMGmuriqT4tmemfJxC7VZzrIdy3JYgQeqkCDB-Hz2Ao4vr5vA1X-3b4SBLzc7Ka75hGqngGzfljZPmep31JOJSiAh8anAtHTA67SFQsRUikQIYOA3SkAtHIRqzpf6fbA8q4bvvTvJcRckR3Y-MGN2YCcmQUkvCwxqbZL9vlEqiv7fgRfqSdnr-ixdSAexoemQZs8JAQQIOtTpbkTLjtMNo9lgTBAo6k4TjoAgxzBbClMZsJbGtyq_NVzkOhwB4hSp9cuNNqK7yq4-JukFrpv-fNcroQFLszO-YKURy1mOGkXoM_9glt9a2aFLVIA8GnzlgJCmRdzgKGXfwePZOocz_BWLw5RwAeqy6Q9DLlbe_xax3mzDp5G9H_b7iACSdTf_FkUl52YpNYsG2JBklOPCqiiLOI2Tfl-4HB-OGLAzSqrjbgtjPcYRLdIVHlJnt5qTk3aDQCRNj3POJjouPI2LpR1GWeuXRCJJJhWMs9vZM0AieSQGFTmG2nhjCqYzHm1YvugTKMF_iWDVFEuNhUHEdcNFsWZSB48Ns1_PXsM4Efh7FZSiXxnFWscQtmiD_tyrML4te7ZOfYjvYhFdGGPu-nkm4a_a_B_w1CwYFQj-WJ_ynIwSx6pMHSLd2Y7wKgAniA3OpjC45NUIU9YBRJ2fOfJGH4HDCSQYdw14B1t0VF7Csud9Qou1lPNmSlTC1MDJp_k4thTYkotZagJqNvsaJtOa7pe1Cf_6mXKCir4d3QLrCWdseZQGaUNm5GlzTnpVMarqSL2rlIyW4RD4RcFXR_-YLOMQaiCmf1f4GL5yLU8oKWeQqfWrXdvtMBz7RDl5feq1NiLs3EDNAohrZTBbgZzMhB8G9AwAg2JSy8sEDyWxMRpvyoic3SXBq8X_oYD59EMDO485jplM4VNmcdq7FTxUODW0JHt29ttZJsKUORnijtnSCd2IF8vYnRymnrFYTfCH65ofib90FEzTBKlmj7mO6f60lsKDJcqfDC_oKO8zp-rr4xhn1YBLL_-LA0E3FcLaCW5VleoYA7r3lwJkxqEM2oiJHyZHHccHFr5n7ErYHMUf_Q382KCzXbjC76v0a4qZlJa6KippSy_wbrQVulN0OlFKd-O9cVJ7VA%3D%3D&searchType=return&searchBags=0.0",
       "inbound_booking_url": "",
-      "previous_price_usd": 2328,
-      "price_delta_usd": -10
+      "previous_price_usd": 2318,
+      "price_delta_usd": 0
     },
     {
       "fingerprint": "LY81@2027-10-09:TLV>BKK-LY8409@2027-10-10:BKK>TPE||LY8403@2027-10-24:TPE>BKK-LY84@2027-10-24:BKK>TLV",
@@ -2152,10 +2154,10 @@
         "Single Airline Ticket"
       ],
       "summary_note": "Near-miss 6.6h single-ticket layover at BKK (slightly outside 2-6h)",
-      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=Hnz9Twk_URFEKkPVeu1B4wqRkkoQZZsb9XzzhmDo_AROx8nsDnNeBPCTF0OS8C65AMxbUHKIYaWtYPWkmOHmrG2oYTyUGMWeaA2_j18jKh3GlI7mZrbCB_0C5NDpTQGhUJVAk43F4E01ESIGogYprAHMnB45mtyGGUjNpBHFWuWLd_ijnQWBWl142s_xiu1ICGpEJKHtz1Ljlx4aEIbLrsQVz6UKkUuAwGfvhyfRiRpxsa5Q65S9FwAx3OB9T1DQyptgQS7K7sXCLA0DYE3RgQ3iEQG0-wTZ-mrJBCs3K17D_o-1reOUbCYKH5jleouDsVFqOdheStsPH-lqetRjsNwqz3PEl3hS2nKqBOTnoAxcuCa16rhvV9lzoKuXrH7jau83nTjsqlFrBtxB38dUVFG4jxaEDGrAQx6lUdvwDw8ysWEoU0sCbFYxU3T9uyK_6P_AsSZ0WwFwXc6fSz1hQ8AhTLn35xO1TNv1E-MPxQ74wAGQApjrbY9m3inVXoKQQANFqXkluu0tq0yooIiSg9tDd9kS3kR41eIDQ5oUaB6LcRZaBF2D1jN3M5p8g-llJMEGWuye8tEZT8V2mINh627_QOECIruZq3-qhRaYLA7JneYDvp0wTuPsCNPKor_Ofht-76uAA_-O6vGbLSnMmAWwhtxJukXWEHvYpL_krwgdTJ_ya89QEVSdy_KQOPjfvpSsZP1V5SJvFwBdISjYouO3oYYIfQ_OJ6jxnKdRlgk3-y3ZGO__5vaErXN8pV04gIJejuRLuilWH_sV3wFhWv4ODaB31U_omJMK2hWerusMKQTnqME0i6SDWna1udtPonpQ4IIlbWmgrB3f34pOBnW1f_CHdNdtpSxEEdfdBfmpEOV1TTqrXR33UvwFr3gxzruOW8be6i6MfRv_jZilB9JmjLPL1NWISepMLTGBXYV1rgcgMGz0T_Rw7Qjki2cfYgZSqgZTaUdxN4SbX6k467LIylNNej1jwV3JBJ-HyFKXPstlF4QFE25s0d_kXKDTePXWoXUiu37e6fx6qC9OguGNYUE5AaPemMC9eYcNNBAzK0AImMvXvlEXcKSCATlZ52euged8pTocH9gkW9NkfL0ualON8dXhncx24DuB8ls2nkQYD5XammzqPQ8i7cykUyo_0jxdrLnwP0tf8Y7dOjonxvfdhtSGIucy67YJuhLHwqsJUTJH0zS_w7iGeMuQfIy04ZGeBh-CK2XzNTr-bFw%3D%3D&searchType=return&searchBags=0.0",
+      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HWRDMzxGTlOYlPrkEFEu4TbHFHRzQ5Bsxj_vFqxG26IQcLyn5aqtjQleTlydmNagQruteUfMhF6OIsthHDgueNr8fhzDn4qOQq7tpYn8ZEhUHxLvjGsJvj0H4cH5tGECAnUeiiO8cBXKAnQNJ2t4IO1FLgHnr6uXpB9KljAHqMMqUfwIwi4AINy3P4VkYKgyzMATyIbh-i-ybJZVdiy1EnikERMjGC2x5qMvNcusIcx4cVoylujCLEEFIbWk9HWbPM6DLrrkVjYxiy36D5ytf0dyGBs70ybhiU3ALPzyBiTOAzGHZQUcYedzrAFT-XF9Vq4FgGRzzTZoJNE8VeeVrQxTcgaTQ9QDgtNfYc9MbjGhzjYArUXroXO6CUoYZ-1_gILQ9jt3ervjELpGs-yAzBMfH1hC3yVBkyHX4vbCteT_wV4oOY91ZdywmU34hGWaLZGxnBahxPGX16hc876badbdaSFMp_vvPL0TndSDi_VaEfsJVadgyXtp96s6CHezUoa_s6ExzL7bNxr6tPuLPS1vUugiX_Uhy4YZPHYPGhiCcgap3VU0ZUe-iTHSVfJJuQVudfkdEJ7l3Gnq4xuk2zegFf5dr8cn8MlFsuRzstWErTtksmbHE7u06lyPlfE9UdS_uF_GzkxNIwxamEnUiUX-MHeurNmTDb2YNQEUa_4rohztvZLEoMu2uDjFjlTG8HXrKxbB3UGTiUZiR24L4Yc9cHEJOFaD-8lJAUFqlLA08gC5tnSgekmUCcFCt8QkbiAQA_QJz2ylqG-g4kA8nfvmaoqCyqSAAfJPzoxtPTKRm3CpnM1QYsIZbvS0K29jVEM6SLB9B0Y0EKBuz6zwZczofNTjzrTpgKwlrOq_poSL9pgzVL9IHg1cYyOwndHc-axwmj_AL1d8PO_F7BNNpp2sVcTCSDgPa2ukQpNBTj_RqLoQ_53j4X4inEwHnaLZQRiClvsHOaOmC37CbJqicWOVcgvrZUWHIJfVyDyn64UvvKzQzhtJY-zz5S5ATQBoiDpJQK37fDLH4zGq26Vd-CxOU4KAyyef1PZQFO5Tth78VIkFaYv1CZ1KQubSYUSUdcxzGG2udDsRhRRHQs57RGz92HfL2Ywoh_hfZMxsoyAEtE8L-nxyaRxJN-tFrgzj1Qyy9AR9t3z7ohyQMIvZ84YD-UZMznxldABBVTQpP1k0_fDDNu1gYv4L8rKUVCoZRdlD5iyCQcLhbdu3RCMvVKA%3D%3D&searchType=return&searchBags=0.0",
       "inbound_booking_url": "",
-      "previous_price_usd": 2453,
-      "price_delta_usd": -10
+      "previous_price_usd": 2443,
+      "price_delta_usd": 0
     }
   ]
 }
