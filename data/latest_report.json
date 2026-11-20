@@ -1,51 +1,51 @@
 {
-  "run_id": 3,
-  "run_date": "2026-11-19",
-  "checked_at_utc": "2026-11-19T13:57:51.582311+00:00",
-  "checked_at_local": "2026-11-19T15:57:51.582311+02:00",
+  "run_id": 4,
+  "run_date": "2026-11-20",
+  "checked_at_utc": "2026-11-20T12:52:31.906042+00:00",
+  "checked_at_local": "2026-11-20T14:52:31.906042+02:00",
   "schedule": {
     "timezone": "Asia/Jerusalem",
     "daily_time": "06:15",
-    "next_scheduled_run_local": "2026-11-20T06:15:00+02:00",
+    "next_scheduled_run_local": "2026-11-21T06:15:00+02:00",
     "rationale": "06:15 Asia/Jerusalem captures overnight European & East Asian airline GDS fare-bucket recalculations, T-330 schedule rollovers, and expired 24h ticket holds before morning in Israel."
   },
   "summary": {
-    "raw_candidates_scanned": 396,
-    "strict_total_count": 11,
-    "strict_ideal_count": 8,
-    "strict_acceptable_count": 3,
-    "watchlist_count": 3,
-    "min_strict_price_usd": 2204,
-    "min_ideal_price_usd": 2204,
-    "min_acceptable_price_usd": 2354
+    "raw_candidates_scanned": 340,
+    "strict_total_count": 8,
+    "strict_ideal_count": 6,
+    "strict_acceptable_count": 2,
+    "watchlist_count": 2,
+    "min_strict_price_usd": 2405,
+    "min_ideal_price_usd": 2405,
+    "min_acceptable_price_usd": 2812
   },
   "providers": {
     "kiwi": {
       "provider": "kiwi_umbrella_graphql",
       "status": "ok",
-      "raw_candidates_fetched": 396,
-      "valid_oneway_outbound": 10,
-      "valid_oneway_inbound": 4,
-      "paired_combinations": 40,
+      "raw_candidates_fetched": 340,
+      "valid_oneway_outbound": 11,
+      "valid_oneway_inbound": 5,
+      "paired_combinations": 55,
       "pass_counts": {
         "overnight_hubs": 0,
-        "ideal_2_4h_quality": 8,
-        "short_2_6h_price": 10,
-        "ideal_2_4h_price": 8,
-        "1stop_mixed_quality": 50,
-        "single_pnr_2_22h": 16,
-        "1stop_mixed_price": 50,
-        "day_2027-10-06_1stop": 43,
-        "day_2027-10-05_1stop": 45,
-        "day_2027-10-07_1stop": 45,
-        "day_2027-10-09_1stop": 45,
-        "day_2027-10-08_1stop": 36,
-        "ow_in_1stop": 15,
+        "short_2_6h_price": 8,
+        "single_pnr_2_22h": 12,
+        "ideal_2_4h_quality": 6,
+        "ideal_2_4h_price": 6,
+        "1stop_mixed_quality": 40,
+        "1stop_mixed_price": 40,
+        "day_2027-10-06_1stop": 32,
+        "day_2027-10-05_1stop": 37,
+        "day_2027-10-08_1stop": 24,
+        "day_2027-10-07_1stop": 37,
+        "day_2027-10-09_1stop": 43,
         "ow_out_hubs": 0,
-        "ow_out_single": 11,
+        "ow_out_single": 13,
+        "ow_in_single": 5,
         "ow_in_hubs": 0,
-        "ow_in_single": 4,
-        "ow_out_1stop": 49
+        "ow_out_1stop": 48,
+        "ow_in_1stop": 16
       },
       "errors": [
         "overnight_hubs: Cannot define both stopoverCountries and excludeStopoverCountries",
@@ -56,17 +56,15 @@
     "google_flights": {
       "provider": "google_flights",
       "status": "awaiting_330d_return_window",
-      "days_until_outbound_start": 320,
-      "days_until_inbound_start": 337,
+      "days_until_outbound_start": 319,
+      "days_until_inbound_start": 336,
       "google_flights_return_unlocks_on": "2026-11-26",
       "google_flights_full_window_unlocks_on": "2026-11-28",
-      "horizon_note": "Return window (2027-10-22..2027-10-24) is 337\u2013339 days out; Google Flights' 330-day window unlocks 2026-11-26 through 2026-11-28.",
+      "horizon_note": "Return window (2027-10-22..2027-10-24) is 336\u2013338 days out; Google Flights' 330-day window unlocks 2026-11-26 through 2026-11-28.",
       "outbound_candidates": 0,
       "inbound_candidates": 0,
       "paired_itineraries": 0,
-      "notes": [
-        "TLV>KHH@2027-10-06_single: missing_ds1_script"
-      ]
+      "notes": []
     }
   },
   "daily_trend": [
@@ -85,457 +83,21 @@
       "min_ideal_price_usd": 2204,
       "min_acceptable_price_usd": 2354,
       "strict_total_count": 11
+    },
+    {
+      "run_date": "2026-11-20",
+      "checked_at_local": "2026-11-20T14:52:31.906042+02:00",
+      "min_strict_price_usd": 2405,
+      "min_ideal_price_usd": 2405,
+      "min_acceptable_price_usd": 2812,
+      "strict_total_count": 8
     }
   ],
   "strict_matches": [
     {
-      "fingerprint": "LY81@2027-10-07:TLV>BKK-LY8409@2027-10-08:BKK>TPE||LY8404@2027-10-24:TPE>BKK-LY80@2027-10-24:BKK>TLV",
-      "source_provider": "kiwi_rt:ideal_2_4h_quality",
-      "price_usd": 2204,
-      "pnr_count": 1,
-      "ticket_structure": "single_ticket",
-      "is_open_jaw_taiwan": false,
-      "taiwan_arrival_airport": "TPE",
-      "taiwan_departure_airport": "TPE",
-      "outbound_date": "2027-10-07",
-      "inbound_date": "2027-10-24",
-      "inbound_arrival_tlv_date": "2027-10-25",
-      "outbound": {
-        "segments": [
-          {
-            "carrier_code": "LY",
-            "carrier_name": "El Al Israel Airlines",
-            "flight_number": "81",
-            "operating_carrier": "LY",
-            "origin_code": "TLV",
-            "origin_name": "Ben Gurion",
-            "origin_city": "Tel Aviv",
-            "origin_country": "IL",
-            "dest_code": "BKK",
-            "dest_name": "Suvarnabhumi",
-            "dest_city": "Bangkok",
-            "dest_country": "TH",
-            "departure_local": "2027-10-07T22:20:00",
-            "arrival_local": "2027-10-08T14:00:00",
-            "duration_minutes": 700,
-            "layover_before_minutes": null,
-            "is_baggage_recheck_before": false
-          },
-          {
-            "carrier_code": "LY",
-            "carrier_name": "El Al Israel Airlines",
-            "flight_number": "8409",
-            "operating_carrier": "TG",
-            "origin_code": "BKK",
-            "origin_name": "Suvarnabhumi",
-            "origin_city": "Bangkok",
-            "origin_country": "TH",
-            "dest_code": "TPE",
-            "dest_name": "Taiwan Taoyuan International",
-            "dest_city": "Taipei",
-            "dest_country": "TW",
-            "departure_local": "2027-10-08T17:15:00",
-            "arrival_local": "2027-10-08T22:10:00",
-            "duration_minutes": 235,
-            "layover_before_minutes": 195,
-            "is_baggage_recheck_before": false
-          }
-        ],
-        "total_duration_minutes": 1130
-      },
-      "inbound": {
-        "segments": [
-          {
-            "carrier_code": "LY",
-            "carrier_name": "El Al Israel Airlines",
-            "flight_number": "8404",
-            "operating_carrier": "TG",
-            "origin_code": "TPE",
-            "origin_name": "Taiwan Taoyuan International",
-            "origin_city": "Taipei",
-            "origin_country": "TW",
-            "dest_code": "BKK",
-            "dest_name": "Suvarnabhumi",
-            "dest_city": "Bangkok",
-            "dest_country": "TH",
-            "departure_local": "2027-10-24T14:05:00",
-            "arrival_local": "2027-10-24T16:50:00",
-            "duration_minutes": 225,
-            "layover_before_minutes": null,
-            "is_baggage_recheck_before": false
-          },
-          {
-            "carrier_code": "LY",
-            "carrier_name": "El Al Israel Airlines",
-            "flight_number": "80",
-            "operating_carrier": "LY",
-            "origin_code": "BKK",
-            "origin_name": "Suvarnabhumi",
-            "origin_city": "Bangkok",
-            "origin_country": "TH",
-            "dest_code": "TLV",
-            "dest_name": "Ben Gurion",
-            "dest_city": "Tel Aviv",
-            "dest_country": "IL",
-            "departure_local": "2027-10-24T20:00:00",
-            "arrival_local": "2027-10-25T02:50:00",
-            "duration_minutes": 650,
-            "layover_before_minutes": 190,
-            "is_baggage_recheck_before": false
-          }
-        ],
-        "total_duration_minutes": 1065
-      },
-      "outbound_layovers": [
-        {
-          "arrival_airport": "BKK",
-          "departure_airport": "BKK",
-          "city": "Bangkok",
-          "country": "TH",
-          "arrival_local": "2027-10-08T14:00:00",
-          "departure_local": "2027-10-08T17:15:00",
-          "duration_hours": 3.25,
-          "is_self_transfer": false,
-          "category": "IDEAL_SHORT_2_4H",
-          "strict_valid": true,
-          "watchlist_valid": true,
-          "usable_city_hours": null,
-          "transit_summary": "",
-          "luggage_note": "Bags checked through automatically",
-          "reason": "Ideal 3.2h connection at BKK"
-        }
-      ],
-      "inbound_layovers": [
-        {
-          "arrival_airport": "BKK",
-          "departure_airport": "BKK",
-          "city": "Bangkok",
-          "country": "TH",
-          "arrival_local": "2027-10-24T16:50:00",
-          "departure_local": "2027-10-24T20:00:00",
-          "duration_hours": 3.17,
-          "is_self_transfer": false,
-          "category": "IDEAL_SHORT_2_4H",
-          "strict_valid": true,
-          "watchlist_valid": true,
-          "usable_city_hours": null,
-          "transit_summary": "",
-          "luggage_note": "Bags checked through automatically",
-          "reason": "Ideal 3.2h connection at BKK"
-        }
-      ],
-      "tier": "STRICT_IDEAL",
-      "score": 2204.0,
-      "badges": [
-        "Ideal 2\u20134h Layovers",
-        "Single Airline Ticket"
-      ],
-      "summary_note": "Ideal 3.2h connection at BKK; Ideal 3.2h connection at BKK",
-      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HEE9yuFsaoYlYEEPYt5DeCo9jG7KPBF-HIoL3fHWAU-v3CZv9K-hPeaw6_im9tCLbES1Anmocv-Lwzz8LSDfKymNqaHnvmA6ND9XoqkqErQ2Y80MYzMPOQ-IBBrIYvYiVhM18a_G-UO4aQrI498JvqbPVGO7sa3vEJAUHinevvF7BESwxncUNDv5BxpRxav4_gzfs_YmC8tdnNaJooM4-QJBzisud8m8JmlTx12_fyNsRoiFm7s4Yf7GS6ep1bCOgNoQJpIaJc7MfDknMaj7AfaMf74bfPdFV9KX-4X93i8q1fRf13TbxBKXKTzXYFSuwUr6SukwwoyJsKorcJoBtDQzXSq7WISyDfuABwVBUWt1sjqu4weNXMjKmWbR6L7HNb4MfFhwCc1v2Bfkawub0TiYyUU4kFwFd_pQ33Qg3g7o8_4-0LT3iCwLXePo5Dg1TuRp2GHCygWjUoGa_zb1rtLEQKE0-EzMAkxF66KFPT2KqNAarYtcYRFccIlvrnW1-eGY5Kcb8VPsv8XoquJju3dvyU0T_cFMfDgfAphUgGj9CJdK22kgLAHQZ5xi6XRe_EX5oij0WDQ5ap7rKN09yXNqgkSJHNI2Rg0b98ajZnpvCLXDZykPCwb9Vh--Zl_hs_SOY9xDSLuQEydI8bPnONbc-jWZaDQ7GnOrhSMH5ZOXQbvM0-ajQkQp_4D7Eq572eR9sI7xd4eIuZMulNZK1sCJ7-v81Itd8X8msi-m-qzyaV9vXnbsK-8g3JYgCANblP5SFyZYYf1XiU5KI0IGYopzEZm-fkLpuIk2VgBzh0MAJNDLACFls1BT3XmxpPGQqtnoyxLxq2GcBtW1Vw3fN5TJSMR2O1uE8_qYe6pVWbHw3au-N7sPVJvUEANoDmVNag1QsJ1Ux2whhs2BKKeHSI1nVAs1NnxDmOs05LC-mNW0yj3WTCWIwd1B2rlKF1r4DQzZ1qeeiPSJ8VanpZ6HsA6Iz06YHinYxeNSUGLz3ACnzMbEH8SzvyOTXqs0jLiY9fysLh5q4aJLe3TnlTjpoLTFh0-UAysRbbjR-3kTmfRUsZcPac79LXZ0iw_2ESHA5Fh5DnRtmp5YuWoEAgjyIaqIt8hjuFuOsYOT0V19wnL3AH8eAVEZQPqvD130t81CZ_vLRwLJzU04SVbvyMr-1BA9EugH-37Yca7-XSDOeiB9kBRCTISsmRFQEkzSkdZhFAj3DOAhYiGpDsIdxs0Fx0Q%3D%3D&searchType=return&searchBags=0.0",
-      "inbound_booking_url": "",
-      "previous_price_usd": 2204,
-      "price_delta_usd": 0
-    },
-    {
-      "fingerprint": "LY81@2027-10-07:TLV>BKK-LY8409@2027-10-08:BKK>TPE||LY8406@2027-10-24:TPE>BKK-LY84@2027-10-25:BKK>TLV",
-      "source_provider": "kiwi_rt:single_pnr_2_22h",
-      "price_usd": 2354,
-      "pnr_count": 1,
-      "ticket_structure": "single_ticket",
-      "is_open_jaw_taiwan": false,
-      "taiwan_arrival_airport": "TPE",
-      "taiwan_departure_airport": "TPE",
-      "outbound_date": "2027-10-07",
-      "inbound_date": "2027-10-24",
-      "inbound_arrival_tlv_date": "2027-10-25",
-      "outbound": {
-        "segments": [
-          {
-            "carrier_code": "LY",
-            "carrier_name": "El Al Israel Airlines",
-            "flight_number": "81",
-            "operating_carrier": "LY",
-            "origin_code": "TLV",
-            "origin_name": "Ben Gurion",
-            "origin_city": "Tel Aviv",
-            "origin_country": "IL",
-            "dest_code": "BKK",
-            "dest_name": "Suvarnabhumi",
-            "dest_city": "Bangkok",
-            "dest_country": "TH",
-            "departure_local": "2027-10-07T22:20:00",
-            "arrival_local": "2027-10-08T14:00:00",
-            "duration_minutes": 700,
-            "layover_before_minutes": null,
-            "is_baggage_recheck_before": false
-          },
-          {
-            "carrier_code": "LY",
-            "carrier_name": "El Al Israel Airlines",
-            "flight_number": "8409",
-            "operating_carrier": "TG",
-            "origin_code": "BKK",
-            "origin_name": "Suvarnabhumi",
-            "origin_city": "Bangkok",
-            "origin_country": "TH",
-            "dest_code": "TPE",
-            "dest_name": "Taiwan Taoyuan International",
-            "dest_city": "Taipei",
-            "dest_country": "TW",
-            "departure_local": "2027-10-08T17:15:00",
-            "arrival_local": "2027-10-08T22:10:00",
-            "duration_minutes": 235,
-            "layover_before_minutes": 195,
-            "is_baggage_recheck_before": false
-          }
-        ],
-        "total_duration_minutes": 1130
-      },
-      "inbound": {
-        "segments": [
-          {
-            "carrier_code": "LY",
-            "carrier_name": "El Al Israel Airlines",
-            "flight_number": "8406",
-            "operating_carrier": "TG",
-            "origin_code": "TPE",
-            "origin_name": "Taiwan Taoyuan International",
-            "origin_city": "Taipei",
-            "origin_country": "TW",
-            "dest_code": "BKK",
-            "dest_name": "Suvarnabhumi",
-            "dest_city": "Bangkok",
-            "dest_country": "TH",
-            "departure_local": "2027-10-24T18:50:00",
-            "arrival_local": "2027-10-24T21:35:00",
-            "duration_minutes": 225,
-            "layover_before_minutes": null,
-            "is_baggage_recheck_before": false
-          },
-          {
-            "carrier_code": "LY",
-            "carrier_name": "El Al Israel Airlines",
-            "flight_number": "84",
-            "operating_carrier": "LY",
-            "origin_code": "BKK",
-            "origin_name": "Suvarnabhumi",
-            "origin_city": "Bangkok",
-            "origin_country": "TH",
-            "dest_code": "TLV",
-            "dest_name": "Ben Gurion",
-            "dest_city": "Tel Aviv",
-            "dest_country": "IL",
-            "departure_local": "2027-10-25T16:05:00",
-            "arrival_local": "2027-10-25T22:55:00",
-            "duration_minutes": 650,
-            "layover_before_minutes": 1110,
-            "is_baggage_recheck_before": false
-          }
-        ],
-        "total_duration_minutes": 1985
-      },
-      "outbound_layovers": [
-        {
-          "arrival_airport": "BKK",
-          "departure_airport": "BKK",
-          "city": "Bangkok",
-          "country": "TH",
-          "arrival_local": "2027-10-08T14:00:00",
-          "departure_local": "2027-10-08T17:15:00",
-          "duration_hours": 3.25,
-          "is_self_transfer": false,
-          "category": "IDEAL_SHORT_2_4H",
-          "strict_valid": true,
-          "watchlist_valid": true,
-          "usable_city_hours": null,
-          "transit_summary": "",
-          "luggage_note": "Bags checked through automatically",
-          "reason": "Ideal 3.2h connection at BKK"
-        }
-      ],
-      "inbound_layovers": [
-        {
-          "arrival_airport": "BKK",
-          "departure_airport": "BKK",
-          "city": "Bangkok (Suvarnabhumi)",
-          "country": "TH",
-          "arrival_local": "2027-10-24T21:35:00",
-          "departure_local": "2027-10-25T16:05:00",
-          "duration_hours": 18.5,
-          "is_self_transfer": false,
-          "category": "OVERNIGHT_EXPLORE_18_20H",
-          "strict_valid": true,
-          "watchlist_valid": true,
-          "usable_city_hours": 7.3,
-          "transit_summary": "26m via Airport Rail Link to Phaya Thai",
-          "luggage_note": "Overnight hotel stay \u2014 take bags or use hotel/airport storage",
-          "reason": "18.5h overnight in Bangkok (Suvarnabhumi) (lands Oct 24 21:35, flies next day Oct 25 16:05)"
-        }
-      ],
-      "tier": "STRICT_ACCEPTABLE",
-      "score": 2424.0,
-      "badges": [
-        "18\u201320h Overnight (Bangkok (Suvarnabhumi))",
-        "Single Airline Ticket"
-      ],
-      "summary_note": "18.5h overnight in Bangkok (Suvarnabhumi) (lands Oct 24 21:35, flies next day Oct 25 16:05)",
-      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HZ-X0T0-37Ty3RUiUySp1DcmYNjmsvMI9zTUllkJ-ziNW7qJz7mQmu8rSgBzi6RD0fwj8i_PKL4wHDnLMSOVU2MbEl_2cuQBGhXCla0YkGhIrj_62Hp2m12H4PzGFRigSs5vwS8QzdChGG5kQFHp_05TPNf_FUEDNBjRi7TK07swLqW9FRAWsKliL45X6_gak1Rad6G9QrUkHl5L6h9xRPB501_Fh5vpe3fsVa7gERjVEs_tFWyb3-rqywa-Bo7iOvW4a55gusra1ilD8hiAI1btL4OlaSjWbBGkI_nEcw_6xsO6FlIv7i77t1jwJ9CXRa9tEnMVHvNfHOWx3rzkdMuZ3rtq2KPq4KV4O36gUDwO8y8p0LwL8Q6fkOJK0F62fyR98Vlf7HDDhj295msf4g2UMAuNjNrEDIuYUf_5LureHWr8MGkB2rUAutarsTSRol-GWXCHGKmo4n4OV8wHVqh-dgulUSx6vx4tuWVn-1otksuOmQ8KCdowzYCOCyzos0RFLBjzTpFPb3GWPVfkFpz9Qkhq8Ou-upcV3DSm9x8kTOb0-m_PQ1Vkg0wm-7kQd2H0VXgEMOaKeMEHsYEReFbANet5ZhWPeT6ftiMgEMIMpk1BOqxqCLz0_LG3ldGvE6apfeUMtGctiLJrGYhmnEqBMXYdFf61MnUbK2ek4HgPkQ_uNNnwTYrFHmSvUhdiKtca_zek-UxPqM0rGq6VGXZoYR6Rfg4cs68JpOF4TYvRlkZcwKBJ__s--m7rgnDBaFo7nzxHMJXvFY71XAZJW7ln33De5XTIXUpUq4UD7pswyIeOYDjFbOdFzLsch8TDAlbQX6Z6RLE2SbQr0BPurJm_ovBXTa0QnfFyz6rBr7vyNjRTjN5XG3RSN3lBbuC11WnO0VPFIl_tgFEk2u5iYaGMwKNMpaJE7Me6N5SPpsy5FUYUlpzcHcVnDYIVbb0Bgb2ADBKjOZuih3PP61tFQxphU850SM8WEyGln472t7Hvw1lht13cWn_KwMtD0WDsRlKPT6lU7X6Kig2sIGgMSYWiavNz2uVAIVtvru0bO_8PBySilDN_09tcAbB38jEtXzFXkPWBqvaztE8Z3RprgIKhAJhM3AgoM3NYle9A9aDjHezoU_JQEaTiTW04-8-7U3QhzNaJNbsR8E-8aVyEzwVYrRCiOGaWGW489g2dyw7kEC_-8RYdsmbmq8EJbReRkXE-bMwr-mcovj3wjz2eVhQ%3D%3D&searchType=return&searchBags=0.0",
-      "inbound_booking_url": "",
-      "previous_price_usd": 2354,
-      "price_delta_usd": 0
-    },
-    {
-      "fingerprint": "LY81@2027-10-07:TLV>BKK-LY8409@2027-10-08:BKK>TPE||LY8406@2027-10-24:TPE>BKK-LY82@2027-10-24:BKK>TLV",
-      "source_provider": "kiwi_rt:ideal_2_4h_quality",
-      "price_usd": 2448,
-      "pnr_count": 1,
-      "ticket_structure": "single_ticket",
-      "is_open_jaw_taiwan": false,
-      "taiwan_arrival_airport": "TPE",
-      "taiwan_departure_airport": "TPE",
-      "outbound_date": "2027-10-07",
-      "inbound_date": "2027-10-24",
-      "inbound_arrival_tlv_date": "2027-10-25",
-      "outbound": {
-        "segments": [
-          {
-            "carrier_code": "LY",
-            "carrier_name": "El Al Israel Airlines",
-            "flight_number": "81",
-            "operating_carrier": "LY",
-            "origin_code": "TLV",
-            "origin_name": "Ben Gurion",
-            "origin_city": "Tel Aviv",
-            "origin_country": "IL",
-            "dest_code": "BKK",
-            "dest_name": "Suvarnabhumi",
-            "dest_city": "Bangkok",
-            "dest_country": "TH",
-            "departure_local": "2027-10-07T22:20:00",
-            "arrival_local": "2027-10-08T14:00:00",
-            "duration_minutes": 700,
-            "layover_before_minutes": null,
-            "is_baggage_recheck_before": false
-          },
-          {
-            "carrier_code": "LY",
-            "carrier_name": "El Al Israel Airlines",
-            "flight_number": "8409",
-            "operating_carrier": "TG",
-            "origin_code": "BKK",
-            "origin_name": "Suvarnabhumi",
-            "origin_city": "Bangkok",
-            "origin_country": "TH",
-            "dest_code": "TPE",
-            "dest_name": "Taiwan Taoyuan International",
-            "dest_city": "Taipei",
-            "dest_country": "TW",
-            "departure_local": "2027-10-08T17:15:00",
-            "arrival_local": "2027-10-08T22:10:00",
-            "duration_minutes": 235,
-            "layover_before_minutes": 195,
-            "is_baggage_recheck_before": false
-          }
-        ],
-        "total_duration_minutes": 1130
-      },
-      "inbound": {
-        "segments": [
-          {
-            "carrier_code": "LY",
-            "carrier_name": "El Al Israel Airlines",
-            "flight_number": "8406",
-            "operating_carrier": "TG",
-            "origin_code": "TPE",
-            "origin_name": "Taiwan Taoyuan International",
-            "origin_city": "Taipei",
-            "origin_country": "TW",
-            "dest_code": "BKK",
-            "dest_name": "Suvarnabhumi",
-            "dest_city": "Bangkok",
-            "dest_country": "TH",
-            "departure_local": "2027-10-24T18:50:00",
-            "arrival_local": "2027-10-24T21:35:00",
-            "duration_minutes": 225,
-            "layover_before_minutes": null,
-            "is_baggage_recheck_before": false
-          },
-          {
-            "carrier_code": "LY",
-            "carrier_name": "El Al Israel Airlines",
-            "flight_number": "82",
-            "operating_carrier": "LY",
-            "origin_code": "BKK",
-            "origin_name": "Suvarnabhumi",
-            "origin_city": "Bangkok",
-            "origin_country": "TH",
-            "dest_code": "TLV",
-            "dest_name": "Ben Gurion",
-            "dest_city": "Tel Aviv",
-            "dest_country": "IL",
-            "departure_local": "2027-10-24T23:55:00",
-            "arrival_local": "2027-10-25T06:45:00",
-            "duration_minutes": 650,
-            "layover_before_minutes": 140,
-            "is_baggage_recheck_before": false
-          }
-        ],
-        "total_duration_minutes": 1015
-      },
-      "outbound_layovers": [
-        {
-          "arrival_airport": "BKK",
-          "departure_airport": "BKK",
-          "city": "Bangkok",
-          "country": "TH",
-          "arrival_local": "2027-10-08T14:00:00",
-          "departure_local": "2027-10-08T17:15:00",
-          "duration_hours": 3.25,
-          "is_self_transfer": false,
-          "category": "IDEAL_SHORT_2_4H",
-          "strict_valid": true,
-          "watchlist_valid": true,
-          "usable_city_hours": null,
-          "transit_summary": "",
-          "luggage_note": "Bags checked through automatically",
-          "reason": "Ideal 3.2h connection at BKK"
-        }
-      ],
-      "inbound_layovers": [
-        {
-          "arrival_airport": "BKK",
-          "departure_airport": "BKK",
-          "city": "Bangkok",
-          "country": "TH",
-          "arrival_local": "2027-10-24T21:35:00",
-          "departure_local": "2027-10-24T23:55:00",
-          "duration_hours": 2.33,
-          "is_self_transfer": false,
-          "category": "IDEAL_SHORT_2_4H",
-          "strict_valid": true,
-          "watchlist_valid": true,
-          "usable_city_hours": null,
-          "transit_summary": "",
-          "luggage_note": "Bags checked through automatically",
-          "reason": "Ideal 2.3h connection at BKK"
-        }
-      ],
-      "tier": "STRICT_IDEAL",
-      "score": 2448.0,
-      "badges": [
-        "Ideal 2\u20134h Layovers",
-        "Single Airline Ticket"
-      ],
-      "summary_note": "Ideal 3.2h connection at BKK; Ideal 2.3h connection at BKK",
-      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HakLKjDvvrltaFGt2lup0COuC-qWiDji1oPBrlvbzLV49fsbRhEe_AEdIEQxUDmJ3RHAH12FCEI_QvHkwH13NmRIsXMjra_HS9vJquDBWN43KUQgdp2pUkhsMHGRgMDl3NuLwmLoQWkCAgF0T0HrEImf74W4AGrhX0C4kP76ii04L9rWCjp85Y0O1gm6qbasS2-39JoaQ8JiOyUdzkdBumrVHz6qJyIahpqq7fE_VkBNtHmSuHlezJkTebJmaAMTm-_UH7UgqqMK7XwlJcdIdR-y-YEZNqNwOKuW5t9EqThzEmj1TxmVhOJsX-EQxp3R8ks9fLO5P3AfU64l1taJN1ItlfX1uxI-6D-M1hbyTK3WTiD4sR3Pj7UKJ-EO7ShiS58c08sQhFgKla0UDxa9wnSIwRmgJRC5xIo1YXE0yk5Ul1GI0yXmzjApUK9voROcA7Ge-8evR59j1Si9LKY3Ut_ZGyWy-cCRf5tvSCg69Udr4ZGA-Y3PM18ic4TscFbBUzLJF_s1Paabm7-9klS3avgLb2rg6-xDezToT6cJpi0PdUGuieAdyNjJ9jqaNsfT3EHmP-QBhEbyP-V0kRMBB3KTa9n3r_IP-qQD4m0NGpDvPO7MTIkXrUJAp9Qgw1biCLHaWYKTpHrOdHAmerWy3NlXmj9-HlPNTVj5tpH6mdRtoabOsFvJQJLPHCJB-a-LJUuFy_vfaJkRhWx64kZvE64-H2QEpzz1ZQ9oy-nRi2F3UMcmBSnLW2TfRWl8GMXKzZDamUHfzqkHSUaz3JrDnqQuF8EFACUiepPdKE2jOfz3BNyfNpuBlyJpMImk-2Ylf5JP5mlHaj8Ez9-i3ORjFiaVKBxNgXLQn9McyybmKfMCbl8sES2K2cI8igKYolN8GMUH75VumWlRLbJCpK3HLLwe0W0OD-u7mA2e8xuxp_1c5mFP4h3gOahAHAwGPxUzYAsRuICkcgS3ISWBZfM08oqPdWFRhZEzFQwGNt1TAU6MhJBZZR82bsY8j38p24qkjEo4SHyuvZ_y_45CMRSCIR0S7TTRGRT8OCKfs6S74OZfIzsPVyHEt3_4yR8X7VE9OJ5cSplaScC6uPOB2I11IbbYcvU4jLxoyts4LJ6ClMHIZvSdaveM2YWd-yqrPzr7EOrzPlRTF6sZocwS5_z8YW6vowDqJd6jnGAENZ0lT2VCJ4jLUkq5Q2W33iv3X17Drihh78d3ZiocFj1QDbY3lWQ%3D%3D&searchType=return&searchBags=0.0",
-      "inbound_booking_url": "",
-      "previous_price_usd": 2448,
-      "price_delta_usd": 0
-    },
-    {
       "fingerprint": "LY83@2027-10-09:TLV>BKK-LY8409@2027-10-10:BKK>TPE||LY8406@2027-10-24:TPE>BKK-LY82@2027-10-24:BKK>TLV",
-      "source_provider": "kiwi_rt:ideal_2_4h_quality",
-      "price_usd": 2448,
+      "source_provider": "kiwi_rt:short_2_6h_price",
+      "price_usd": 2405,
       "pnr_count": 1,
       "ticket_structure": "single_ticket",
       "is_open_jaw_taiwan": false,
@@ -669,21 +231,21 @@
         }
       ],
       "tier": "STRICT_IDEAL",
-      "score": 2448.0,
+      "score": 2405.0,
       "badges": [
         "Ideal 2\u20134h Layovers",
         "Single Airline Ticket"
       ],
       "summary_note": "Ideal 3.8h connection at BKK; Ideal 2.3h connection at BKK",
-      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HDQULP0iMSvKu4WfRA-vbtOH5wt5Pm4L-xqOJZV05-IQvGfsHgMrjQ1RwSXf8UU51jRkjC9AQ4ny7_0ObzqKwaTALbvLFjXEbiYwHWuD3-UI31_v34QydJGP8xf5dTN_p0odrxyPXys65XscV7AtZ96ZFNwHkrruaUXKFgC_eQUCO6t_MK8qEoUhszEWHoWo6aJIGJGTMoqDDDO7Behn3ZyIsc1adehrJNDtD6WD3hwrkcuuThkOtGRZwtf9kbQ8iED-leaOApoOZAg9qMx0HfFCsm55DANjEhilRREOlvT9WHj1b7m1Tf6Hn_OTUYugE3gxvBLy9Bcvo_TMGR2cSMHpKEreI2JYKJqcjOBX-RCcRBff5TfM4fOe3F-ve1H-W8XtPOFGHcwND8MAogpZXGrRkc9RpkimAqDz6peUzARkfP2BIpHDt57H_-9FfcDAFLf_bT4oD_Kq5bgUlWQjvYd87ifRiijR0aI9ONZU5AVOtLu8VLQkBwp1D-P11JnDp9YSx3CiSihUN-ULcoPB1Laa14K97j_BZTk4rs1WPVS3qyYDHlEudlHInmQiBxFcVP0HEWAEBRrpqOsOCqB2WM6dOjzLUaBgDHTHylOiaLSy0GyFVXbuAP7mR_1PC8H8Ox2vciO0PmcLgJOrjbaO89A7fdIGnOkk3lIGqXJplzkOM3XRnh-EST6q4Juime0GVwEp6Or_KxF797QE6ovEIx1obNZQJ7xQxd6kSIDe2vkuRoj8iUDAwzGcs8PMivHY038wUa2yB9KL5kQv39id9ao-Bbvfg5oBkm2eTFz6RlXxZPACv_xrGG1v3weOyZPWad4rNOB3sEUC4F91igweRWRiVZojsNC68PC675mKFo7NrYCL6JIX6zYySzvWB8cvwtPaJBqozV9XugvXUtz4T0kwc_J2R3aNQuEwKQsa-9JROMWWKDZ69ZzVA3s1DG4ZdnU5tk0DAZmAV4Z9UVN8RNnCmblLd2ZTUbwk3DjIbprcnMYgFWEi3DGwugQ4Ji77XdB4IDdMrgPomNO1lIXqq_ISs8kL-DlsICyPy0H2bGF5TP7Q8K1P3e2Ih-RLOoA6IQtlwHS_HTRucxmB68P2RU20e03G1xI9ah48vaG61yCXxVOud2exqqTyCgwpJtbcyc1kVoBziK6Ac64pnVjFHEL0MKdaqdVzuwSyC-L0Yxi9_QXIuhWWVtjRhFAPAXqoYBPip-xJie0i9yZzmDnkKTA%3D%3D&searchType=return&searchBags=0.0",
+      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HIyL-5UbnoFk8n7R981uAb8sdcwWmgOVd9jZtSceoOGH1PrXBKYfgfyvk9ZcE1tM6XC4cTkpoAcsg6qovUGqKD9INQVe3uy2ovHzIJha5C55El5YmUg7R4MqGk7g7pXdFHg3GB15wPkkVyZPGE8oLr6v901d9IDc1gAGvIGuMTX7ff5gR5WJ43taol9_-Nbcy4VgjYMMpUexhPJWS106AfkU0_Tx_16IEubCuYmB4pF2NNmpt35VSR-vrz40QrpWc-uJS7-0fk98w5b4FhFcHIp6v8PAJAFavyMItLyUic-oT8VcnYmHLg22kUf8z54W_UTCkwm756en-mPOVCX1d7db8VJPk_NPvkSCnIUzUFEm9c-KGxHl6MYyd815twvw_Nu3FMFWxCSHOQF75aVADcdKbGI0KMWweiucmxo-DUgbHpxjwTJ8uQF_06wwm0CR88DWqvS9tgksZL8gZdBBcVBhySrFgtZQFQR-lOkdHZ8EOm5A6qam5Ak8dLtOMD9PyASDws6X-FOtIEeE179TtGrEP1cq3QHwRsHNCBvpxwB58uz8fAExzV4eoeRT9GLlZB-Bg4Ia8VWyVO7qoIBIOVzEP4sQ9Y2T-WuYapx6CSRh_gbb2nXguN3XJcB0H8tvGHOwX5WpNuESXR9QXP-YHvUfJEUyBhLMLR58vsUGS7P_g4HfeONXqji5DwwBcv7L5BWc9wWAW1iGRDfeG5n5B764-22O9N1LGKK8kSPG69AZpHKcC10RZ2ndP-qGOBE5-WgJzuWYzwshydamCi7cxzGE9FTIg8-wMPgfbSr4buRlhfkLkRMm9VgdieKncakYM1G6yIykoGqFOno8z-QbnbNLuO9dHkkXvqdo1GxJx6OraqErAJA2-rQKzvie0ZmVtkvQPkiP-3v1vr-BSi5BL86unNz0GyFzuD7_dOvaXtCgZOL0ZZvBYk2Gx31-txUnaEXXPlLR8KHVdsF8FFTcJ7k74KIjriVy6MSKFCAef-YRT13Ni-RGu-PM67u7F5BdFBR_vepjLZdw59yWdmuVbs50QzAh_Amz8QVKx1iD2OUk5vg9bltpIw3bk_oxsFhXQ_P51hvMm2IGXEYit5aPagM9nVLnjlbPEpHsgE52l9th3p9rXUyHYE4iWaWNzxNP84Zd3Yxgyi71Jjy5gIBbLDv6LEPE1OrDIWCefQc3cdT4IGv9zmAGqOVav4iMA85XIVUsE-lmXtYEiMXajcXepNw%3D%3D&searchType=return&searchBags=0.0",
       "inbound_booking_url": "",
       "previous_price_usd": 2448,
-      "price_delta_usd": 0
+      "price_delta_usd": -43
     },
     {
       "fingerprint": "LY83@2027-10-09:TLV>BKK-LY8409@2027-10-10:BKK>TPE||LY8404@2027-10-24:TPE>BKK-LY80@2027-10-24:BKK>TLV",
-      "source_provider": "kiwi_rt:ideal_2_4h_quality",
-      "price_usd": 2448,
+      "source_provider": "kiwi_rt:short_2_6h_price",
+      "price_usd": 2405,
       "pnr_count": 1,
       "ticket_structure": "single_ticket",
       "is_open_jaw_taiwan": false,
@@ -817,21 +379,21 @@
         }
       ],
       "tier": "STRICT_IDEAL",
-      "score": 2448.0,
+      "score": 2405.0,
       "badges": [
         "Ideal 2\u20134h Layovers",
         "Single Airline Ticket"
       ],
       "summary_note": "Ideal 3.8h connection at BKK; Ideal 3.2h connection at BKK",
-      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HwGBTkkiGDDWW5-pF7y87aCme8f2S6ApkK_6sAMjI3qJjLb0BqayxSDFYyW9bh05falMjZO_sdNEtaj7p-N18I2OXMo4X1qvYJ6kyCxayFBbS0A_Uie4in7W_97XZDwWBGHQzVdGhFjpdzYJOAa7n_xZd1yPdiaLRtWT2AHuZt_Nvt-ItD9y1gZGbFWbfNzxrBK8MdhWMlY1yJXcRUOEVOVqpZnCPgUT8zr8TwQYMVaJmXEpqWiinbXdlBpnRerfXDb3bVMm_9-GUirCHmdgvjsSbYDwzQjAnL2p5jCVUoZ2fAcrQ4pCfljhGdgAKlA8PCL6BIe5XUf0SN-R6-mYiY_evRp4f4j4csvfo61OsWfoS5tDLUywXWaoz3Q-PO3v4amasT3aOBZSr7x6a7WeCtH5qsvZRnKuAdQcvHc5_6uVtu-b5VJkQyClXfpcrgSldlfDezA4ErpMk5R6U3_1nnlEOt1I7ipsSJu5db2NIlthO6AQm07fNgH8ShEtTQn_oPkjASanf9kMMNNJcqMWpOGxxcm0Dbzjm1OwZHD4FKv6sLitP6nGnJebagzug_0GFF6AnmsqmbTg1n7hh2US6pb_KqatWqDuMsdjKbGvEgJJox1-bj4We1275JsS8KSXgz3bhC6UrWr36ELEUlJSOFSC60d3W61yTjIFFi7BRvhqBuXn8Ms3w5zKMG-CQsEftNvunez4HIorJS-TDgGXJ3frnR8sPh2E-8n6fg00MACZXxjNcbdjl7Uz5UMcO5JjUIQz_bnsq6mLZxRqfYgkA_O-7Xsbybj0UC0mURRPI_5iI5WvsPtawd_gRLwY5I80Yk2FHULVwpCRjGEOo359ALJZygHainVkNQaiJMOF2xD5HIhc6ou7i9qn4v-QxuQMWbD4v2a5TfG0vVBjG__8fzVgT5J-0mqWlzIFviLUg6_BGiaPffR9ng4KochGJ4thaBIOP9o3Q7VjoSxFGS00IiAUbT7qD6O9Ah5gajT0otiJPtCTs2_EnKZuYm5EtTm3AQq-8CRILlB-PzPpDFzu7S9kCWFH9msGyhTXRxIqrxjISP9rtJ7d0MimL07_EhGua1EIGxmrROpUFYpAmHDYyUhDkAF9PjR8z3-MNQSFlWJzjtns9IQZDF5XPWrTMYJZr_9jqvuGq8-LheChkk1VgRnMw2OpTjgodNOUXYeNlxPn9Q7rn33eTaXp_TpSjXsoeJccgCNMQZ4Ah1QQvPh40YA%3D%3D&searchType=return&searchBags=0.0",
+      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HZHzCIhVjrVkUML29CY4mMJdB3rVnqCIW1ccdAMGDRs6Ua4bnBQGCTruZiehHXoSvut3zbhcQr7Ug-lLAbTe7ppD944AFNjiLOW420YgOrHFXKDNqKpi3m_1dX9-1JXqkhy599B5swXK_fcQsJ6doTGq8daEoeTl3ZgOmWMX66Fd7Ief2_MDTLzsiwsti2oZSOTl0DmX_zitCQfItgFKvRrhCH1p3LRZvGyqpmORkiqPNLJlO7jWtiEfD2Wlail0zGh732-Cso9SGgADgD73H9l9hHWwfcIFR4L-o8ZAHTB68n7kTyvPvg4fVM3N-9TM_R_SRuTmb93eiUid0RIKgpYSSqWwt8mwPnBrfzlLZujgPOjlDTCaOOpZPiWe_GJ9i1Ine82JVVP5m2kFI6b39CNfzhhqx-ZtgJAkCNluYqR-WzTLU-dw-vLL6Tp25HEbZS1psLmiOOUEf0YpFUrNxWP0DsxK5sX_0B7kLpRxZj_h17keOh6np1mFUFJemwiQ0v0Vu_pz5VM2Bgv9vnduleJstDfCHHnpDyDoNodsIlC0wIFXIDOePM9BFgtwJxYao6K_e9KN2eRjuenHuvlkev3SscEhYKWITvl62QmL4yMKzwjH1OPWl7lj7S19TDQYRsIKzCBRqQk_rGYAt4qkxe03edg69Eg0P50cjBxKMLMjlzYCE1i_qzspRrK8-hRMVrCo-kv_oWmOHuGBmO7MSXkkLAIpSwjm9qUqgYnEbirPUpyWD09LtpSWocCWVmyEH2UIEh6OyOp_o_ICQDMMGb7xqm7R-XOFSrQGBTkiTShL5jc4cC4-51kFN8iebedK2e5w-DjKDk6Ee6orGAbqCVpBeZgQNMLPkzTu1veJ0OvP7AxKyORkLI1ghTyKKebTdwNCHjYowXYHuchOsFjlT5g5exDnAFcgPZMkFuxNomwtExveNYS-G8pNSVd49qdOtRWsKNe9eYlJuQBVwCwG0-vp1zi6GNP-aDHmYWtZ0X0m6McC2PuvHCmFOIokkBJi_WsFjfsLBO6OIc2EwpOTb-m7oDiUNJ-hlj2JLqiAK3BMoIgYDPI4sYqHKzIEc0haqGWNX8mirmhOzEDvgD7UsFnju4TLRFeqRtbiBNsYZjnvrMe_pqsSzt0JGOIKSoK64XMmELi3sU9lyzSrUyKOAgvu1jeLcVrenIzPAmrJWIYoPQrx5EYO6AOBM5ZzIZGN0WuuWUS6_B6XEBEqM1RJmOQ%3D%3D&searchType=return&searchBags=0.0",
       "inbound_booking_url": "",
       "previous_price_usd": 2448,
-      "price_delta_usd": 0
+      "price_delta_usd": -43
     },
     {
       "fingerprint": "LY81@2027-10-09:TLV>BKK-LY8409@2027-10-10:BKK>TPE||LY8406@2027-10-24:TPE>BKK-LY82@2027-10-24:BKK>TLV",
-      "source_provider": "kiwi_rt:ideal_2_4h_quality",
-      "price_usd": 2572,
+      "source_provider": "kiwi_rt:short_2_6h_price",
+      "price_usd": 2527,
       "pnr_count": 1,
       "ticket_structure": "single_ticket",
       "is_open_jaw_taiwan": false,
@@ -965,21 +527,21 @@
         }
       ],
       "tier": "STRICT_IDEAL",
-      "score": 2572.0,
+      "score": 2527.0,
       "badges": [
         "Ideal 2\u20134h Layovers",
         "Single Airline Ticket"
       ],
       "summary_note": "Ideal 2.8h connection at BKK; Ideal 2.3h connection at BKK",
-      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HD-p5PTmbk-zIWe78TpyS7mK1JZYOStz51B9Ig96POSnvJariHvwg3k0Gi3-WAbJ87U5_Uh843bMDPf9ZFHzkcRr2JKb5Nhp3pUq6ivHsLQzqgllsBVUaYC4IAq7GbZpE-BW_wPqWWnsY3kCJt00CE62mvLbxep5yxtCsUGtVlZhOG7Io5-MvrrpAtsFF3WMXGAHSBOMrfUJey_CRCe2pleUf7o6swbEyJQofcTEmTWaYfCf3aN9NpJhCS-om7mNHliZCWIVbEUKs8eFs3f74UwFZbTno0RK4F7LXEY1VYVchkZLzcyaZVrZoXXLjAvNVJqe2hjhwix43gMixTd3xvPXM2tX0tgW9khevnUUKY9AAb2T1PMhA0AV09cYgXx40KwuomvXHRRydXF9Lf5A0puiyFiPIyo3jcj2_Ntsu8FOQcDG-PuUjAufCXKfEerBAgDZSMQEYOnYcwGd0pzCSEqXe0qQ271osQGztUzkud7p6e5B6ZxZWm1ZdLhC2DY9hqX5DfrRMi55LGEerFtbEOB09Vd5IZ-Y3D6Lnq4aBejKmq4sUmL_sf4igS1-DgonxDNnYriu5J_AbRysbiE11aCqsU0U6F-hdyJQkbeAClYmJMV81KXF0ES0ItMZOs2Fe2PkImpKjZwuba46kH-gR4thD-9oQlsUBe_nVqHVfBYVNI-eRDHjViFPr8rFwgNNguAyHwmqw5RgOZ03SqG-gkc1fW30GghJLTBuI8mmbKX3WMVV7MQsXGmX2zfwN_b_VdUwWwyI6IIqZQG7GfqJf7W67idUfRCPW3_2269tTBV4mCGkKdCjI30fT4fHPykZiLkOEIeH4s2_eKeQy6k7-aHcr4f7mu7chni_G-fzuhqgZNP9LOGqXJy4m65N1rTrKTSZGYi4ZdfeonabrAlq3WqtnOsxEJnzPBnIgKKeuBVnvmKwJsTi-HPm_3ESvGQFW6XUwgK3IApOWmINRY1flEIwrVicfeFnBrw4LfJbA0EK7u47phO0tZPYi-CZJjqdNdvQBoE15gYENI-zweYzv5UblTCzlBA6lETsEF7_VliL4HwY8w4NwQ3Hxt2JgcuMdFFrou5IxqBwW0ckTeCZDB5BwzMaIsknHMu7qpCLB0Gbkh8g3z48oBdWu4S4yhKXZq77bGzPMAiwt_mbG1ZqNllta4muFMGDVambRpo2z0eBt9eaD7gVYysBK9vh4AXh0hGCLt_d8qrj_-bfWGxHpFg%3D%3D&searchType=return&searchBags=0.0",
+      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HDBJrgVBDA7fW541ZwB4iqg4pqFOQetIZFblmggUsybgDWY06IaqycxWh96TomkGS36EJ9H9XjwvUPla153P9GpfwI7farN8lMk7IbhRbQUWP8ukpVLf_OU8bGjtwk-7QBBGd2qAnejm1ySH_PaTItccZdH6Hog9nNBC0PcSi2kaIT4HxcaBfSKAZxptfzqi7xpdh2h7kWDhknyuhv6IkOCP5kcHUeKYnopqDHecHRV-o4f_eZLC934BG3FwTs00C0_4T2a_B5e1AfeCwl-H1FvzuKU5w2ngCLnACd-S-ZtSBsgMJifY3H51Qew88_LPWKdm2tSt7cI3e-h1OAd3Vq40yhwZgD1cDPcAnT5_0Yx1OdN2QW6ro_sgKzn4qf3xBIadkzzC82XYE8PdPKVx9hwyWAivzB262Q1AnywDHQposRGcYeeE8yX_bbouP7oISBNoRd5ACDz9QMipws22uuUvFZ0DmNYoX_AXPn-UK-JyqFb-_oBtU1HXsEHBm6XPsoCyg9p3kqX78MqkZNX7T4QLstn-3jyxE672IM2WP_5bbfewJt_YLwIzwqqnm69560BbFzxbFcUu1Iyjxt6sW8pqaZ__kCu6AkIS7qTo6ROkKPtRHBwd6s938NLbe4Xm5yZDMLX8nnBL4FNgaVeM7T-p3sj8baySsLlL87J05LKY1SqrHRlU6l8hz8M1-qVkbod1G1YxNSDh3DR2RTuM0Wly1LBm_9e4aub0lll9rAW4lKseGjI3Y7tN2D4PmPSsJ09GBjRhU0EEJih17lxL9MN1YE1ekurWQXNJbm4_LhFZ4ZM3WLI3VGstzibP4A_w-Ma7i-xd3uGq-ZDtoayqokBxn3IILp3A9mR_C4A2zDuqVb1Ao7CxcoHmcVgphoCnvAeoItvhtpnPd7Z9SnasWyBQiEVmKBZyupeoGwqHAK-LV_i4diypRDPTYdm3qGuMeyAz6EGVeJkDC8sme6RZdtI9D_jjHG6ovXMFE2Ofu9sRJ7TWoO7dgQmZX_JechejfegrQXvzAM-IOYkwsNQQCRjl-qHd6tBQdHYMJIdFZlmVxKIZm-11yJu_-CL3RLTCcCkcCBGc-kRqwJ3S61YbQ3UQ2HNr_tdjFbDr3ygLi67sQee5BqgDqlMmcr2mk_6qsc5vDZHV8IJcA6J_DPQNX_NmIeE4nUxeaKsiN2HMX2ufHn71l0dwJcdw1ke8ZL33aH6fhcd2eODECv8oZq2uNMQ%3D%3D&searchType=return&searchBags=0.0",
       "inbound_booking_url": "",
       "previous_price_usd": 2572,
-      "price_delta_usd": 0
+      "price_delta_usd": -45
     },
     {
       "fingerprint": "LY81@2027-10-09:TLV>BKK-LY8409@2027-10-10:BKK>TPE||LY8404@2027-10-24:TPE>BKK-LY80@2027-10-24:BKK>TLV",
-      "source_provider": "kiwi_rt:ideal_2_4h_quality",
-      "price_usd": 2572,
+      "source_provider": "kiwi_rt:short_2_6h_price",
+      "price_usd": 2527,
       "pnr_count": 1,
       "ticket_structure": "single_ticket",
       "is_open_jaw_taiwan": false,
@@ -1113,21 +675,21 @@
         }
       ],
       "tier": "STRICT_IDEAL",
-      "score": 2572.0,
+      "score": 2527.0,
       "badges": [
         "Ideal 2\u20134h Layovers",
         "Single Airline Ticket"
       ],
       "summary_note": "Ideal 2.8h connection at BKK; Ideal 3.2h connection at BKK",
-      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=Hw12bZ6GuCRmUHCpi678Z_jpGLnIRGQNIaktYiOfqtFpuOihYrihU67HsJJKbqh4SMMdRqydDd-gDe3D_o-a6Z9gJy6wUQKLO8gHmyOxNvgOcyO4USJrKTSXV5KBiJ121DleHLIcWpKmOYKiHXih6W3AQUXka6R6sRbVMBGLzAwL3868O8JwQ0CsyOiJ-up97TL46mPluQpWz-gGlCeGndvJopZJaSRr7XMpeT68xXzOZ43u5hWEPrQ8jhKWe4aIoQcnO5SENi96m19mvCv5pfFGD_2HaPz92jExmvPUiXrADlHyK1X5fNlh4dYhU-L6Y9z80Ht5-W0CvimdomJZqazvOfiqkyTIcGvw-OIAcJZ1HVSXjRRJ9yn5IzmPItyRg46HIZuauCfBwKr08DurSVRTrSiYFd1xx9-qEQXnfBd6D3zU40gKiCtKJgKRhqt5NDp0bewBSTChEu3cU9MX1kn67hPCTOh_QSor9zO9JZh5_myQfBb6PHyI0BQIUSV8kUJWrHy8E8JRkPoHwVrDf9aEyP3o0Z2APO3L_v11P-yO_JvzSfXQVnAiFX-tzKWoYbrgZDJpZ8Q7mQi0FPyOffkrD_yMq2-q8uPTSfQULFzzD-1R8wkteWOuvef1EanFyO6wgC0znV0G9pHdPABF4Ts8zMeDCCNW1rFXREmb1hQD5F12u-rmbPZWLsd_Zy3-iC7iSHO6-ZyfPBWP4n_yiuenLQvp-gKKjJAoAMn5p6R4abicQV-HXFAWz9Y_7HcvWyR_b3JdD8aQprtDcBRWqevScRoHI_shxD1d6zuIU9v4YJ1Sk4-E2AaCSXKQucxmO7nJ6QQuHWc1EFSEwKVoeWy3qjTtmPH4s9uSs0GcQPxBJPkIkTXL-YQGAyNg8JWTuJpV-1VHDIzct7D8s1Z7WCKX10_hOCz-3BowesViq1kKrFnoIzERQvMEtGT_w19-8V0DM2CqtEvQEOIwV_f4P6b8Fzq0ITdT7o9_azYCKpJZfP3uab6GGKqB9DWfyk4AbpVOYOOhawZvymoNu3Bz9Ype5e2E6_J3RfxVLZ5hDvaz0lO5J1mHOfMZluOnHYhc9itW8YmCUNoqUj6SNHsao1yFhp7pPyLD6ZjO8lK0qaMd5oZYG_4Tieo675_7Xvzvv19wNLrCO28EWQ_QhTBftgxbr_iEd7a1sVqhV2ex_iAJep4qpJvqEtEA0MJBMDt-gkveP2pzQLrb5GOQQTS68mQ%3D%3D&searchType=return&searchBags=0.0",
+      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HUa9CGKrMFNB484FMbDSAdGzjg50rMwVw-l_BC6h28U9L6vf30k2wyDvK5SW9DBS8Tn_USD86fY5YyEhgBindGGnb3kJEAQ6eMUMAqnv61boTnl17leyW2nKUCHPN_ZVc_g6nvGazIw-Nf3MDMfHGIjHyQFK9fOIngsrrNn1JnYof5xZjBxGxu_sDr9rw0JtakF0l2Z6awi3XyktSryLv2Gr6i_VcyfIPEWcVbT8nZsfPwsb1iQ628VXVqnOOZ6W_ZMFzlb__epkDehkUOBHqhf2YflvmybVSw-AkVRGfkg_ci9EyCv9NWs2SbADIY0NCdpbR5vEFMsQAes3Y5YyMvCxocOPHCxRxCWzcIr57Ycala2UI8Q4ZW94VVetp3Zwmj4B3_x1gaFeOVOu0RWKzYj9OSXknz9AVFnGScYZdx5jNEYfYVJqusQr1C2XR0eDZRsr2SwoUEV5yZAPxUlM93Qw6ei13wvGSofPR9Zo1qPi6IP2WZlNF-u94IPqJo2gjjRx2I723RvXj08Y-kturB5an2rwOOMCArZVZpNl9G0f_XoPXT1g76Sl4eKSi_797D0qpUzbr8R8o6X3itq-LV0Xcc8QBamf4n4kNmtAeXeXb4Q75y-9U5dPyBdP6bkcfggk-4tZ6RHQJf3SxMf0DJ4F-CMmFzABMOZ8EITpDHqmveaNv2rGlQBZa5XIogZn1u9jbYtjQQ11O5AmC6yi-b5gLpL8Z8A0IcTEJetKJfl0buU9O1Xykm_x3RXDZy4YvncnNKnrxrq_AmSTAyJZXh0T2lC0pngaKMZ9U5eOCz3BHkUNqDMq7hcX_m3b7p1PC4hHrwLSGgmDmW5qX-zsgg1VvwF8DweRdoA6D3VCGvmJcIPCdG71H_z7Hq6O2KgbkZNnWm5MDtA03cxTnlFU94SL4JF6qZGRztZbxx8wHgH9-7iJGZuu-7fPiTIEwsNcwn1yUM-pnWl8RWZJoDIPVCl3sz23dak7HFlCVommV3Jxj9wTbMzirV1U7mmvhfL1ufKmtH_DZIY7vB1T2B0PVuX--1sn6LaRDfbEPR0m1BSwJS05JX0sbTWvuaLGr0gFs3WY8PFqBL4HgSnS0as0Nf99tQerp3JhovBAY2phoeO4sePbUHIKEVuuGyUNnwL2TZwd_i4i7vpOPSLz4-DDBYV3cJc3qXdrdWwQCrrwC6rApENV0QSpTS3bx0Bjqa16YgplEP5lJOIIayXNF9v9QMA%3D%3D&searchType=return&searchBags=0.0",
       "inbound_booking_url": "",
       "previous_price_usd": 2572,
-      "price_delta_usd": 0
+      "price_delta_usd": -45
     },
     {
       "fingerprint": "LY83@2027-10-09:TLV>BKK-LY8409@2027-10-10:BKK>TPE||LY8406@2027-10-23:TPE>BKK-LY82@2027-10-23:BKK>TLV",
-      "source_provider": "kiwi_rt:ideal_2_4h_quality",
-      "price_usd": 2863,
+      "source_provider": "kiwi_rt:short_2_6h_price",
+      "price_usd": 2812,
       "pnr_count": 1,
       "ticket_structure": "single_ticket",
       "is_open_jaw_taiwan": false,
@@ -1261,21 +823,21 @@
         }
       ],
       "tier": "STRICT_IDEAL",
-      "score": 2863.0,
+      "score": 2812.0,
       "badges": [
         "Ideal 2\u20134h Layovers",
         "Single Airline Ticket"
       ],
       "summary_note": "Ideal 3.8h connection at BKK; Ideal 2.3h connection at BKK",
-      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HVNvxl4PqgJkT4qHbp-W-2lTVbvvUQ7pYJWSDOOSfAnvQgCyoyP6QY39vCgpxK8aafYePGjaSg4fu4IWPqVTILXISdTM6bPeeR_rI7zqFYknWXukPn8IDV2gLSTcXwzwkb_m9U4g4ByQvFujrUR8EyV1n39zeqYmB_AMK6E7l20JXN579Wtm9ro1gq_SbWQi_D06U2rSmc7PucvwFNb20kIdXiIuUAdYiDtZJjWHPPOz_UsCi3lUNN3Tciqc7CV9ZGStmPoUZPrs1_bA4zyqlE_YeDj2JoPLFVysCedr7TzPVh98K1DNbxherOmQUDZxiFME61FvahVFQRZKB6lloroJC3j8dXCZZwGwS72B7gCjsCI1U1n_TIGmzFo7U-pCzVOtIm4t7ITLhyTFgS1oo2Ayb4N6JcFLE3rebBcLaEBwmndkfO7FI-LM_05FUpHkXu6HspU7UrQ5u3wPGF6FfxzPApMI5jaq2TZT_zyrQL5U7RXUK4osUc6ly63yub5m-yZhfJMjBzHWQ6kXKx-37qhQZLnMIgkMbKR16hs5FZ-gcFyBOCUROV4cSqJz8NEvqTsrj-4lKdu1KkURCWK9QRCSiiY_viKWrJwl4oHaOic2MVOLhcpbfIkglhPTO48fBt4dIXXc4dDpUhuwBLhLMAujLK7vbQRsaxOqLBkeXrx8iSqRJKtROkoVIhL_054dphGvI7Z64Yc7P22hx4Tzwl6ZXM0O8m4nOSCW-B0JvTRocgvQBeh3gdgs4Nym7P1dLljx3pfJddPq-rw1NHBR9-VeEa8o6tZuWwNtDvFSQyWbQ8Hoo-EY_2-snBo4Iyrrr2VZqHhwdgkm-LVvbPetjMyljx9ua4S3X4-PH0BY45Tk9kcJMny2xgV8AgOFeMDADlN-DS58Jq7UL3azwIxoSykKbnM0PdHoOVZyFq6mDa8UeRWKn_qxRyPx_FCLVybnLoMuGmX9mm7-w8ha8-oBjTu08vqhnho-UcJZRDHPDyONXDe3wNs57ElmM2t7ek2bqLH9njvOOsxjVBxjzPbKkCoHAT-xvcuNM_n3ec0valV-MG3GgB0GQoUo5TYGVPQTEAPldgK1uxlYQNX_RzK6eLOv8V_6EiLAmI4JfVXsTiWKiQoyBkbFaZ9vEhejwoJbWDl4CW4GtGnNhz4W1tOheFeeVkXlo_pemBzwFrn26g8UBhTGfKHzCzDBDxw426dEdgXTo8SGeJsNM6nEYkBgEpaouETp33kIYHFjn57igL-I%3D&searchType=return&searchBags=0.0",
+      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HKV2fO_rqQrpLKY7Abe-zFmvFtSdFnSvMGvXkEhcli1t9zG8_Oi39f_K6Z-wAiOdbjlHvIR2DRBaM6SVqktR_YeMz6P0VNi1ygm2DmZXZvfZoNOP0tpd1JIxNdelPnrJIIzvfjB7_g_r_ftagwf7pdQAX9bcXjRWI6LdHOXFV5rfcFI8oFLpMcNjjmLa1GLI9YL32G1fYWLIBP_bc4rM2sbHMY1t2fIBNE5GVzhqj4MhyjWgbdJ12GwO8YKeZVk_gz1wSgaTgjuDWZPuGksbNci7BE2XSTCYglqY_Q4wiswqgNZ6E0Sfi6Qi7K0_6gqg7oCl9Qd_EG6mPPPp6-CcCV9vmM74iRICmOZhsoitGzhCJFDHOfw5YE3RSq0qcmyQcCAUnZup48-XpnI35mYYV2nqF4tP8L7NJufpoLjhyFxlAzjdfdeU6hOi-_vHh92a_3yNjBm42xSklDc2f-5a8ZtRzuqJTgMOuWwLs0Jv0uGKD2RLg7y9GkYE9v7p-uS7hnSpglwgjrMffRTpl8__co769XfM7cV4VdUY27SnfcfIUolO8e2ZvGo9yi1VtrCxYxbDwb8mFaPi0BgmVDKD7NNNjOu6CVXp73SkH6LB5jSNgvqbCrgdYpj_fo9nMtb1cThMsaKPTjVlNbcrDOZNlWb2APjbnRqZocqxc4Dj0fEAYelnJu54WkAInvi3OX38LHA_He12BUcssQ_ULUgc4IfQo4ZN4ourDN8mWYmJIXI19-4BKOgxCuQhVaq4FVEYRW5EoACkV0nK5DMnrUv-bOnndRb3DX8sTK4fCMlaUgq6E0Jjzcci9ADzwMbLgMX5huCaM5LMo9Q0iUKScdUOeCi5OLYa06VsqowUWgEn-RHv39vbSxpzqB6q4Ld6GUzdjc6dViGkGVtU2450l4llxD0j0bJMXcUyimjcuC193732YvxEnd5tHuWLcjZfB419lwaqul6jhj3up8LSNUsudv_VyN44G71W4sm654pw9eJ1_myk4KCpVSyWLcqM6snZkghUR-uevIeH3rCMxqisKMy0S9qO1UCjPlF1SG0xIiLQtDjg7NZB6XBqnIPsrFfol4XWaNyF134jEICUDioHuHkSZ7tuO7na50UELNNhZbONmmvtAlYj26_vZbb2wOUah3iFxFFEpGD3x1Gh4co4uwaO3Su2EQ_ILPr4dZrSHPi3pPAuj9NTXBmnAKsVtHNM_EPhfFvhySPY5FwAbBTGNQqzfz8yX_zXF-91qbTLUSGg%3D&searchType=return&searchBags=0.0",
       "inbound_booking_url": "",
       "previous_price_usd": 2863,
-      "price_delta_usd": 0
+      "price_delta_usd": -51
     },
     {
       "fingerprint": "LY81@2027-10-09:TLV>BKK-LY8409@2027-10-10:BKK>TPE||LY8406@2027-10-23:TPE>BKK-LY82@2027-10-23:BKK>TLV",
-      "source_provider": "kiwi_rt:ideal_2_4h_quality",
-      "price_usd": 2987,
+      "source_provider": "kiwi_rt:short_2_6h_price",
+      "price_usd": 2934,
       "pnr_count": 1,
       "ticket_structure": "single_ticket",
       "is_open_jaw_taiwan": false,
@@ -1409,21 +971,21 @@
         }
       ],
       "tier": "STRICT_IDEAL",
-      "score": 2987.0,
+      "score": 2934.0,
       "badges": [
         "Ideal 2\u20134h Layovers",
         "Single Airline Ticket"
       ],
       "summary_note": "Ideal 2.8h connection at BKK; Ideal 2.3h connection at BKK",
-      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HamhKNYiPQ53p52a-NhOqTcguMYyuUTYVoMTQFjYDv2brdai94IvGJ980UVO0dQQL1bWfVqfQVU5JJaKmtzQPElQi3v34OdyJKH46ySlwN1_eKw-ADeWOAhI-CQ8i0wWl5LVFzuCMmTvkO1SOAj2kitgHOuiTZ420n5zBQgmTxx06-eqbg068wZhkDC1GU6kqsoy7goqmwk7OFjxJkivT7tqhxX-Qh33kBE-mhU9SXdPsxeCf9H7kyUbQyisEuarAgZnD7gcGXiWLgOwFThtNfu8XUQ1rAmqK0ULwVFkfcyt5O7uUMCzyV-He88eQU8eUxxwt-_IIa5H5xwYQf33H4tRAjrB9XbIIWrbvNU1XN2HrotJHdqljN0sh-F0l__5yciaVK4YQZEGvf7aQybhYxGBbcx5864ulVBu81Q4BUqbZlcFbgl-FVZJO9-hJcrd1x5OWEq5bSoS24CuLXIFbklVfvyqatUtLRCJ90ubnBklU4m3-v9op57dmjVPzWJ9QCELWOkDyFlEmnDYw7QnYN-_TNTL5U_JBRqWjIJZL6z4ay2xTMeXRkCWRi3VMLH9KQY7iH7jxtVIFHOIZvBhvkCMu1ObMdgnHsI6y_T9zt5F1-goXi8Oof__04Xd0l_c19wpWHJjiVeXk3ErnuS5bXfHAqfwfM23qHPPg1MQaCuuECJSqE_Flmbd_Mf15ph28Y5snPsHx9xTk_xEvJOYKAx0YwGflZtiOdyeRK73yPx9NXLwOdl6LlBB4lGDCL6FtcFbLPqaObJ-6ifeZSQDd40AtrSLbAe59ufX3zHUJO56x3CtqWRwPsnhx74eoZ_i7LJq9O6zVYhwTWOvNLmmqwCPkJFt2fQpKRZWxlWHcsuqBXUAQ-WimsF1sPaTI2rFb9EH2Q4PuxZTXRQ-hSC4xExLkBmhTGgk6xHKk7TJY5yRRyvnVMOYd6UdyjTLXHI5dyuZnaSeQaue9kIdvZkF5KCPwj3vhav3el9SB-5FCcyl5SMA7fZN3I712s6uo1-OlAkn8J23eqauZHNK4rQLd2Yj0vRY8-7bP6-N39IzZQ0FBnVrqOLejH7PtBDaw7ToJ-dDfS-a51Ka_nWN1ejq8nNfPBpXLWLzVdmUjFTyzumkt6ekEGt4A1KiG5dqb1f_ghOIqd28KiHW2YT621-j6w8UWbCW0crSw5DAIAMAPadQcVB8OY72kVVZV51hfLncE3bMEb5EF8DecN76X3bU9LaL0RiMpmp0nGLc-tYNJ67I%3D&searchType=return&searchBags=0.0",
+      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HEzu240PNDnP4vYgXSryPGAJZGNvZpwPOBLtyZSnHmbhtcIhw_HjBw7cxCXOsucl38rDf3tgVd83Wx_uj7zZZok_ZpWcp5dRlTxgHlibzB8RYAAXPeWr4Nl0pVQUcZZpWNysa6oE1oZngYNho-m8p1XDxavl-YN3i1VD2ufdxo-FCsf64pLYy5Za-XAkXwpCEPK_dl1Iw_yKDzwCF3UocwtShiXzKdgYJZ9SO3eRk3f_6427SwXaZhL8sI7ijwQU44v2X44eAdsc4bjbFi6dEf-rGntRYgKvZ5vxEW7rG8Az_tTqewm2piR9apVlT2xubUe0DX2QHSj5M5FPHnrXaszbfuEW-EEXePXuj4nV6FPgI3WyrGGjCYrNUm6qqqE_wBGN_yO0ht6hoIKMRzyvSonuLcT1pJNSNJmxck32jIVQcuAL8MymZHejz38JCAmvbfieSsBfiumPMo5f0f9ovDmIwRinC4CVpZK53N3CDltj0tE-xnGryxFmkCBJD5IvCvma7bqu9ndSgWA9ohxxqHf9WaybVHeiDkL6ODMxfhiaQLnS07R_9clR_FwdcA56dCgrYd-valH_YFSZV6xv7uG23NpvTV_4gUFNq7LNdwJiTHcuzV_afoY_2v1XHfHTk8R2IJAKcfpSubs6VJAN1LiwFf9Dr9MMFEXYVYsOTHN2JyVA5jnKyXVXLuvEEVrRvvXd5z7VTmgpZcBrUuX-BAM_DfahDdPxAJJdfifwftlSC4jz2KnqGH4mSpkHkFB-pzmc8wUaiK4zN0HuJSR3TQws2-n4XQLE-tJ_Ul7_mgMvSTc5czBmemgpXuksvbqAcLmX-W_FISFfnbP37T-bhhpt0MRkUshUJMRQ3vHTVZfbu9DCzCwMglTJwXJosDV7qd8dpzYr3BRPMVcusnYfH92wtJe9L2NNoVBHmFZ7vJbMnBaEB-p9YJGHwEZZZ4SMNyi1lzqtiX3rfyDN9Q66JzfUL7CurnxE1rN4k71Ir0dA0JsioWjk2ynr68ZTs9c5g1-ucf8fOr5Z1D6zCwmFpTaIbFfsHEPip4EP5ohkV-FtrkgjKz7BA4jiWWHPW3e8Z_1mme5E06eSlJKWeFHpEqve8EICWRY8Yuu2vMxB7kxMve80YWyCuLCT7tqRPOCx16dS3K60FlWfMeVaD8azyBwnCHVU-zmwS31cOOZLSM3WrLwmzPwCNxFR2JaHYi2m5frOZvLcwv-lGq0Qvl6WxX4lU1gcIBiwXlp_syeKRO00%3D&searchType=return&searchBags=0.0",
       "inbound_booking_url": "",
       "previous_price_usd": 2987,
-      "price_delta_usd": 0
+      "price_delta_usd": -53
     },
     {
       "fingerprint": "LY83@2027-10-09:TLV>BKK-LY8409@2027-10-10:BKK>TPE||LY8404@2027-10-23:TPE>BKK-LY86@2027-10-23:BKK>TLV",
       "source_provider": "kiwi_rt:short_2_6h_price",
-      "price_usd": 2863,
+      "price_usd": 2812,
       "pnr_count": 1,
       "ticket_structure": "single_ticket",
       "is_open_jaw_taiwan": false,
@@ -1557,21 +1119,21 @@
         }
       ],
       "tier": "STRICT_ACCEPTABLE",
-      "score": 3083.0,
+      "score": 3032.0,
       "badges": [
         "4\u20136h Layover",
         "Single Airline Ticket"
       ],
-      "summary_note": "$659 more expensive than best 2\u20134h option ($2204)",
-      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HfAhpEIYl-RwUT_YiLhSxWZEyYyvIIJv6RAA6PFvhM5WBLPGtCbb_bwja0w9EFZJovb9EAzd9QJ_-1ObhIrQvfD5ZfYhG6jDWs-SAHJPnM6VE8C3lIDEDD-elUc5jjsbhwAfYu8DEQRx_oHuXGXprjlic_Xjzo0EQAEN0BL0vxBF4JyFEITDJQZbtasPwk_uZdyQDpXb8u0x1mHaegWn28rTjpGIA8vAf39YBXulnYoVGIFaKbWJDCclC3CcCssrz2SFR9QBVjQkJL5yRuK49puZMyN64xlf8qgXxo9SbN9e1SjP_JtuSCDMr1uRisIg87WDVdmSHFrnWPEdtwuCJRfgTA6ydowQNoF0CgySASaM1zaLM8M4VA0Bw2qVWKv3AgP7C3MhcpicOhwlyXrwySj2hv-8usVL_32tyQTkSfpirhbOGFLkSbcU9JhDNXrpGIqpseuTAi1aYv2B53P9bmOIy59PGqsUWKXq7akvHfn5IpQpt3CLdZiQBne3BLbFwk2au55oS0eKTvnrniABVoHsbCZzWtei5ZtuX3Kiwkpq-UFIKCimKd2lCheQ9pdxBib2aX2ae-M_Oa_C91-Zvp0BLkGtHW3r6h-3pAejoy8B04MamiN7-Sm8KyoyxrmesF_EFjGJPBv1CpDdNIhtYHYBspKBSMt2zv6epxwjigPmGcwRXJD1C__oU_y0HqTf-kE4cDIB_cmbYKotjCsLdvNTCu9gynl7Z3G2qTGobX1rmWlQyELRXYbVL9jS1fAdRvs6K_bFHb4oiXBjE0KfG1y61mYZplBmuDvlwQu049Lo7wql8ezru1moFeKO8PN2LQZT5tpbaXzAGEzicCVw0mM7CyGQjIEwk0aMPPuDMRwzVWS6p645cIONRsjcAO5jBRe5eIxHXgeNzCRPwpr1k4KdqCGpNC2IKHQawLDm7QdcO8hgv53A2eIs8A9SHwcDsktxCGXI3lCCV495_JAy5ZtEXdBDuSD3cNWs_9RuYnVi62n8jWjfZreCN_sSldVqZe-FAiFCwEfJH3Ofr50alMrbQQB6wwBgQSZyOISZHKn-UaCh7npBzb9w08tIE4z0XE___kVKLBO2py30QYdeQahf9nuOcEDwtGDK0k9ddh1KMYrRvr2ReWLDz_46I6J5khp8S8tcvTsnDiMc8UojAymRCd2eX2hi_Ylm558QBpolHqcN9ZfMayoFZe1VvbLvy9KpSVKDyvuevqzhdVJSmjECR-NuUKf9TMoXJjtq6ipY%3D&searchType=return&searchBags=0.0",
+      "summary_note": "$407 more expensive than best 2\u20134h option ($2405)",
+      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HdKhEKLzhRSdL3cnDEGvaX0csH4sFjaG9jAp0grmiaUlN696QGB-LMqAGcvcxJpGG9rlpSBydUVyymYtRTM47qWxA5GUBWRBnde-Cmh-LhDz7H2B69f1eJ8NsNAGtu-y7IGBs-FkHSavua1FHwiAWw6FxnYMd2NCGhU6ZT47kNvyEvZMaP34ID_jP3u57jqFMACQV1keQaYfu_F0w8ymoGQYK0NTKYE_2-CuPRoABQBqufch5wm5lXYbMPgWYaVgOMCwKG8pf85NfK5QVGuBgCYDBS6LsB6TNzJziHpOo8xqScL9JWvnixU_mViIm7nI7_vwtGacH71MOSOO55oumkaiGb2Nb6AZdZuflEfz9-znlYEe2Cxa19qh3NpAtRCnPhE53EmfYsZu2X6UoPvbArAOjht_lpFd8FbKUR1YEdy0By33tGAtNKrBgiWVuPv_kzo6SEky9mA_TyULPbeOkg83RGx8AT5Jbxpi60Z2COSHOvqrCe63rruJ1PBBJMxkQ-AwiNjGwZPuGKz9uXnFBBbLKKEYur2kpIkNDiBW5HMuN2vxeRkTN_fEM8J2sn5GHtxhwGkig4fJSI50t_pcIgMSFAjzkscqHrvsZ-pBefQ4AGM-OUK_yLlTblLEXP6rVxkzJMecRT-wNH2L_EKwStLdo0coZnnBzzOp_hMBaTWlQBiVzs-yaEycLXv5yfmstdbG1V5qnRD-e_yNs6_39QxtM3wVojpmXC7C7gZg71XHMqSNwp1K5xL2OEu4Gt6UDPGqfasfc-jLXYJ-hQ_h_IwOPzNOvoXseukUuydqusuOE_8n1pQ_FAIW3nZjvFJgZxfo6MM4yiXaBMjEKoRO2e4MjZUt2ByQtYbg_q-wJdRHNyF8zUiTr7ZxnuL9EnFe6rysaXTScPlPhufETvFMOL5wQ0EYD4qgWz1gwvRw_O3Tofy85kjuoy12ArWjiV3Hdd2zT1kb1EPP6rNqQA2QuKtUkwkXGL2KDa6LGSIgpnI-ZVJQ0wmnpu-t6t8u02geyzohY1VDDI1Ou7E4dwwXJRNV8ZQ32ce7iM2UhbpztvqgiBm3SxUXS0FeQ06Y1C_GmyU2lJ_NMXnEojH-hLeuWyJdIi7D2L9i2VteBXQ-z3A7m6vOhGXwx4pRPfMUAplOeyqC_dyFyZ0gidv0eR2iGJ1AGHW_C2LQVbpdkFUxoJrqGjsjHePITlMXCIMlE0DQW2NTkorMC4KAN9E16K4pLU8Bgf3E2i7KUzJID-zbpgldzt-7pjR_TZd--XK61ssOv&searchType=return&searchBags=0.0",
       "inbound_booking_url": "",
       "previous_price_usd": 2863,
-      "price_delta_usd": 0
+      "price_delta_usd": -51
     },
     {
       "fingerprint": "LY81@2027-10-09:TLV>BKK-LY8409@2027-10-10:BKK>TPE||LY8404@2027-10-23:TPE>BKK-LY86@2027-10-23:BKK>TLV",
       "source_provider": "kiwi_rt:short_2_6h_price",
-      "price_usd": 2987,
+      "price_usd": 2934,
       "pnr_count": 1,
       "ticket_structure": "single_ticket",
       "is_open_jaw_taiwan": false,
@@ -1705,170 +1267,23 @@
         }
       ],
       "tier": "STRICT_ACCEPTABLE",
-      "score": 3207.0,
+      "score": 3154.0,
       "badges": [
         "4\u20136h Layover",
         "Single Airline Ticket"
       ],
-      "summary_note": "$783 more expensive than best 2\u20134h option ($2204)",
-      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HfOLB3Pd0TYFDMImXFABEEeJpu87u4W1TDXR_c53ZEzYs-ZlU6nbdWiidMibS3G-PpACx21jufPZSElqjWjCCDMmGOw6cpoNNSFOJ63q62hAZsn0Tco_VSfVC4sS1Ro8r_a9RPsVrbRnxVMdmmfHYYpOAo7S--03QhpB6QrEbfwdNpOesMYc55KWg7JILPzYfiJbJn918pag-iNM2SZK0rZzeq7-Pxls7c3m72s3SsHpJ-Zlk0Fgwj_FULTocdJd9-O_Nu_WGemvPP7Qn-2m9kmOPpG5qMpwRQ5p9bLIGh--s6iDJKrAo6NpPFtf1D6_Q7dDJRjvc07GoYRctlosGKe_oohIJ6HcMkGJ5QYSdldxCwUgRz-6I-o4a-lFUdp-LEeESczSYICPoWJneKVmTClyZ4kIvO-QTZIz5T5GTKhSd01XRVPo2u24ZTib5o721z5zI4AbjSR9ly00MqgZ9taQsHg8tVrLWSC9JyVqmj5mWnzSgvQe5tGpfgorBNFhgLMgxpvqR3LBDUlhvuX7kKlu_6vi486jLC-JdDD8jjQbJW76IoyyxIHXeFFenZOtUlYob3oURYGXlzvzOC-s-UyJqI9ETjcspKTPBx5CzHY-elaVXgRhw54NDV9ei2jrpj3bVrOb3w5lM9TYlEZJB2TdIY-T5WofntdOJ69l5fNl45V0cqbGSxmqtK9m3gBW0C4355ZOrBa9ALOceDMAfFcfv7R9i0rTly5zoeFTvY4xUvfhlxWLZ37LTRDitXfMDUcOb8pO7ZAnaFPdEUrWw6H6D1o64ytO8skESVPXuZpeFREE9PPxbowbcJ9Xw2HZYbcbpo6WxLO5ROwF-dX8X2tHZcrDQGmz8OdRij1rhxIa5RRn90lrU-iMYH7eVLipTvfO3ckxBj4hIfHGWKI4p9A6SE0vNXWGpLTCIG_sLxK7OOHVlpO2VZXM1yK9TjfpQ84l995leZc-BAbLKubWaaHNLCQjZGfT56aspU8DZr1uijKBDl_02rzJOeYt-P_g-Pj1Z4X0QixAFBYvLq_lfdwXFflMVnYkFHHcs0OhZ7a-mCG5uu5YFlruds6X9XNLGu_inDZQxaa7vY45OiT5IFBILF7V58IxdpAWvdDVUJpnzuSkNyST6MO3VfLNa2a38Thp5xzYg7JXwSkVQWgVPeqoq6-GCUautO6YgZ6hUpxra3M7VVoFPLq-RsPceJnx9JTC5qymh-c3CCxYDXiTMHYAXl72LPhkKneUqgqZrbSA%3D&searchType=return&searchBags=0.0",
+      "summary_note": "$529 more expensive than best 2\u20134h option ($2405)",
+      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HNM0MhhD1fuowThSTyAkUdsEg_ilV2K9Ixvam9p8zL8F58gwT9Z6dAeoKQLq7fA5dbxh2INDq78DehxIouzGy2yoEnnOtzGLXel7GDy6fZjvLuhBPzKDDW5RmI25pH4Dmz9AAHu5uGq9RJVIncxPeekth0FTMyi7B0ha0PdogajHgV4m6o9NIM9uINes5qxQVvlIfw1Yg2bbScjmmcX0BTNHmMwcdZED1EZZMpXmODQcrprBt9RuP-TgFywQPeDA6h94ngDRCrAnMJXL0xm-MrNsNMulk3J4DVd2b4l_3odtITZLJdjvkJGzYhwjeFLx7kPQkAGr-ZH2jRPwKj8f_caMiyP0M93pOf-gt8qNsC-MnI13tk-ViadGGe2xSFBYg9Ta8t5xktjtgKPDXn1gOnMIn2iMzaRta1kwo1hegGIaiZ3slHWx4ET2l7TWvQWYD94pbFrcO69J_LWkPPLbjk8Ih85-u2mE_8q8TAdOPY0LpcYy3DmNiyDrUmsI_iz-46ok2gclp7JwfnP3YOHS49QivMxReH17Z1gkeL82AYlN3YaKlNfiJSTw4cd6h7gOOId1yZ7fjq1E4lJI8ugRpVfi8Lpgu-Ey1RKb30QSSCBmio7IQQXdcGJx0i9kEddH8TUShwYaWwLkTB3LsT9QUJ4BI4Wkc5Ilbp3N80NjgI9LDpNPm8_6CdOAsJYWi6MnxJoIV3_avtHOinudScUr8w-HlSkI0QvmJWE9YHUg5lHjjSq5W0AEfZub0QMKvPZlGbSghSc6nmKw2nqPAd5UaY0jYilZpGX3o15RAAd4Wo4Xt53nAStt-tvA6kBvCtLywMlaMydayxQYML-RSAgloEncSLm_pjKAqzRed960-EzqN0IbHZtsi1bems0W7Uf_BNem_I45XwKMjGGkBXHAqxUCQgKyGnnn_EDU4yr6RFmtkUxXU10g4aj8fi9QllNSKvxWkkEEWsYLVTe9bV5S3ugv1T_K7G8XMOkORog4L6BpLjTzts8gIj_sy9cWx9lpYwXx8mHjXer0LIkVPb90kYd25gHDamydG6xRWMi2K_X2dUa6v1B78jt3sgTzReJKIA6DiVpbh73fr-MnYP_oWUN0PxkfMDyZz-TDa3YyQpbR5PqJtwNiSORmZhRLKJP545aGsmiqX8kSYC4OGXSA6SI7CczBbpgBZpvdFAIlzM5YA2HWaQi7nfUXF-En5yWdjnsJgwUnazTAmFWxyt8jtXEwQebwnxvKwlkWbQs8wyRQ%3D&searchType=return&searchBags=0.0",
       "inbound_booking_url": "",
       "previous_price_usd": 2987,
-      "price_delta_usd": 0
+      "price_delta_usd": -53
     }
   ],
   "watchlist_matches": [
     {
-      "fingerprint": "LY81@2027-10-07:TLV>BKK-LY8409@2027-10-08:BKK>TPE||LY8403@2027-10-24:TPE>BKK-LY84@2027-10-24:BKK>TLV",
-      "source_provider": "kiwi_rt:single_pnr_2_22h",
-      "price_usd": 2318,
-      "pnr_count": 1,
-      "ticket_structure": "single_ticket",
-      "is_open_jaw_taiwan": false,
-      "taiwan_arrival_airport": "TPE",
-      "taiwan_departure_airport": "TPE",
-      "outbound_date": "2027-10-07",
-      "inbound_date": "2027-10-24",
-      "inbound_arrival_tlv_date": "2027-10-25",
-      "outbound": {
-        "segments": [
-          {
-            "carrier_code": "LY",
-            "carrier_name": "El Al Israel Airlines",
-            "flight_number": "81",
-            "operating_carrier": "LY",
-            "origin_code": "TLV",
-            "origin_name": "Ben Gurion",
-            "origin_city": "Tel Aviv",
-            "origin_country": "IL",
-            "dest_code": "BKK",
-            "dest_name": "Suvarnabhumi",
-            "dest_city": "Bangkok",
-            "dest_country": "TH",
-            "departure_local": "2027-10-07T22:20:00",
-            "arrival_local": "2027-10-08T14:00:00",
-            "duration_minutes": 700,
-            "layover_before_minutes": null,
-            "is_baggage_recheck_before": false
-          },
-          {
-            "carrier_code": "LY",
-            "carrier_name": "El Al Israel Airlines",
-            "flight_number": "8409",
-            "operating_carrier": "TG",
-            "origin_code": "BKK",
-            "origin_name": "Suvarnabhumi",
-            "origin_city": "Bangkok",
-            "origin_country": "TH",
-            "dest_code": "TPE",
-            "dest_name": "Taiwan Taoyuan International",
-            "dest_city": "Taipei",
-            "dest_country": "TW",
-            "departure_local": "2027-10-08T17:15:00",
-            "arrival_local": "2027-10-08T22:10:00",
-            "duration_minutes": 235,
-            "layover_before_minutes": 195,
-            "is_baggage_recheck_before": false
-          }
-        ],
-        "total_duration_minutes": 1130
-      },
-      "inbound": {
-        "segments": [
-          {
-            "carrier_code": "LY",
-            "carrier_name": "El Al Israel Airlines",
-            "flight_number": "8403",
-            "operating_carrier": "TG",
-            "origin_code": "TPE",
-            "origin_name": "Taiwan Taoyuan International",
-            "origin_city": "Taipei",
-            "origin_country": "TW",
-            "dest_code": "BKK",
-            "dest_name": "Suvarnabhumi",
-            "dest_city": "Bangkok",
-            "dest_country": "TH",
-            "departure_local": "2027-10-24T07:55:00",
-            "arrival_local": "2027-10-24T10:40:00",
-            "duration_minutes": 225,
-            "layover_before_minutes": null,
-            "is_baggage_recheck_before": false
-          },
-          {
-            "carrier_code": "LY",
-            "carrier_name": "El Al Israel Airlines",
-            "flight_number": "84",
-            "operating_carrier": "LY",
-            "origin_code": "BKK",
-            "origin_name": "Suvarnabhumi",
-            "origin_city": "Bangkok",
-            "origin_country": "TH",
-            "dest_code": "TLV",
-            "dest_name": "Ben Gurion",
-            "dest_city": "Tel Aviv",
-            "dest_country": "IL",
-            "departure_local": "2027-10-24T17:15:00",
-            "arrival_local": "2027-10-25T00:05:00",
-            "duration_minutes": 650,
-            "layover_before_minutes": 395,
-            "is_baggage_recheck_before": false
-          }
-        ],
-        "total_duration_minutes": 1270
-      },
-      "outbound_layovers": [
-        {
-          "arrival_airport": "BKK",
-          "departure_airport": "BKK",
-          "city": "Bangkok",
-          "country": "TH",
-          "arrival_local": "2027-10-08T14:00:00",
-          "departure_local": "2027-10-08T17:15:00",
-          "duration_hours": 3.25,
-          "is_self_transfer": false,
-          "category": "IDEAL_SHORT_2_4H",
-          "strict_valid": true,
-          "watchlist_valid": true,
-          "usable_city_hours": null,
-          "transit_summary": "",
-          "luggage_note": "Bags checked through automatically",
-          "reason": "Ideal 3.2h connection at BKK"
-        }
-      ],
-      "inbound_layovers": [
-        {
-          "arrival_airport": "BKK",
-          "departure_airport": "BKK",
-          "city": "Bangkok",
-          "country": "TH",
-          "arrival_local": "2027-10-24T10:40:00",
-          "departure_local": "2027-10-24T17:15:00",
-          "duration_hours": 6.58,
-          "is_self_transfer": false,
-          "category": "WATCHLIST_NEAR_MISS",
-          "strict_valid": false,
-          "watchlist_valid": true,
-          "usable_city_hours": null,
-          "transit_summary": "",
-          "luggage_note": "Bags checked through",
-          "reason": "Near-miss 6.6h single-ticket layover at BKK (slightly outside 2-6h)"
-        }
-      ],
-      "tier": "WATCHLIST",
-      "score": 2718.0,
-      "badges": [
-        "Single Airline Ticket"
-      ],
-      "summary_note": "Near-miss 6.6h single-ticket layover at BKK (slightly outside 2-6h)",
-      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HUoh7gC-gBrsLbA8Gq7c99gCUTK1jq2xfNoVWj6yldBo4pKehR0yx6tLSDyNSxRZSdsDcUtUAr1sVQ0QX45IF3ldd-Oim123CYGkpX3M2Vv2a0o_u6ebanswQDc_YXAJJ-2U7sDJk2vZIaR8BihpF087d2U2u2sV7wPZnZVqE2NcFhDfZU0BmPMv3zLoYn6RUweWTJHfi6HkWU8tzkyIMN2bZZFnOJXUTMvFxdnl9QVyyM7WQGAgyiHHMhg8cKgAyCoWNgj6QDptGgEsqe4-hND5NCtPTcaOuIy7yahBeWcaBhkzjEvGO28sGgXJrjcf43Y0t2k4CyLg3nxZad99l0x2DjpyMXN4rtBi0LElFYBXUa7Bl11doEyhDvNXLcZjVjiZPYsPmr1UcZI9eCvyj85r9Ija3u4cENVOeVSrjIdlIbdu6bJXNuJip-nGV9dZbI1Dg-nlY9DeSXcnYOS9TP5RvxA49KtqiNQDzhYmBLw_ZRJPZKsapNabOlE_tZZ0iiq47A8lhAi0bJZKW9iZyUbWoozPuuO6ISmpStSccoHeDsIeWgDDHOWuodnBwZUFVLmWvzOYxJrMittDE7YQ-DeS0_ixGtJqacOGX8izLuKGmcOP_Fw3tql-DwUvjwba2lFB6kXlGe7UqDUdgHvMoZoTcNmzQMW0oSc8o5Wy-L67_zELqj7cKGoX9NScvR865MPlhB70VDb0XWZxMaiw_XftsFmPxjzc8VCQW3KiaoiVu3FZBEjKfJTHlBwKdnQj-RB2gHEA7yjmyExL1jl_KMuFgrbUbRdX-a-bqqa09wCBZHqKo7k24oZQp40yHx06l680gBBCWuUtWAHDvri00R4PxG4Ywgl5RwJGQK18Lg-RgdxUpjZKmSHEZVqyjOVlDiZhTJOiqV9Dz2UoesZ8ms45pCtGuZRslxW500u0ajmSPr5leddwFJ1IPppGKskyR7nctdsrE_JGg3zpZcC2Zn2qrGeHO18Tv7x9LLJ-asoVOggsI730_AYmBx8goxlc-75C4ouCKfI2vYhQOOZ4RmPIp_3q5-brjH4-RkSLG_jLkei_gN4tHJI-AzCruguSophVzMAZ3ZY4pfqlT3VzJi3AWFZsAUvE84n2qlbCyo1x0Pw0PlC2Bu7CHcwPhjWC4u-cDU-FANb2L8nWB6_asyr1B7wyrBEkluog3QOiuUSlci_3fPy_FxfqHHa61iC_V&searchType=return&searchBags=0.0",
-      "inbound_booking_url": "",
-      "previous_price_usd": 2318,
-      "price_delta_usd": 0
-    },
-    {
       "fingerprint": "LY83@2027-10-09:TLV>BKK-LY8409@2027-10-10:BKK>TPE||LY8403@2027-10-24:TPE>BKK-LY84@2027-10-24:BKK>TLV",
       "source_provider": "kiwi_rt:single_pnr_2_22h",
-      "price_usd": 2318,
+      "price_usd": 2277,
       "pnr_count": 1,
       "ticket_structure": "single_ticket",
       "is_open_jaw_taiwan": false,
@@ -2002,20 +1417,20 @@
         }
       ],
       "tier": "WATCHLIST",
-      "score": 2718.0,
+      "score": 2677.0,
       "badges": [
         "Single Airline Ticket"
       ],
       "summary_note": "Near-miss 6.6h single-ticket layover at BKK (slightly outside 2-6h)",
-      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HO1dWxIIVXyWKKuPPzjoLqmfiipYV-QVj7whDkJEsYCfVyDEqqfnGb8YEvUomni3vc7oGyi3t5R5vKXdxoTm4qganA7W5vPNZMkvFMIN4FehQWDUWMGmuriqT4tmemfJxC7VZzrIdy3JYgQeqkCDB-Hz2Ao4vr5vA1X-3b4SBLzc7Ka75hGqngGzfljZPmep31JOJSiAh8anAtHTA67SFQsRUikQIYOA3SkAtHIRqzpf6fbA8q4bvvTvJcRckR3Y-MGN2YCcmQUkvCwxqbZL9vlEqiv7fgRfqSdnr-ixdSAexoemQZs8JAQQIOtTpbkTLjtMNo9lgTBAo6k4TjoAgxzBbClMZsJbGtyq_NVzkOhwB4hSp9cuNNqK7yq4-JukFrpv-fNcroQFLszO-YKURy1mOGkXoM_9glt9a2aFLVIA8GnzlgJCmRdzgKGXfwePZOocz_BWLw5RwAeqy6Q9DLlbe_xax3mzDp5G9H_b7iACSdTf_FkUl52YpNYsG2JBklOPCqiiLOI2Tfl-4HB-OGLAzSqrjbgtjPcYRLdIVHlJnt5qTk3aDQCRNj3POJjouPI2LpR1GWeuXRCJJJhWMs9vZM0AieSQGFTmG2nhjCqYzHm1YvugTKMF_iWDVFEuNhUHEdcNFsWZSB48Ns1_PXsM4Efh7FZSiXxnFWscQtmiD_tyrML4te7ZOfYjvYhFdGGPu-nkm4a_a_B_w1CwYFQj-WJ_ynIwSx6pMHSLd2Y7wKgAniA3OpjC45NUIU9YBRJ2fOfJGH4HDCSQYdw14B1t0VF7Csud9Qou1lPNmSlTC1MDJp_k4thTYkotZagJqNvsaJtOa7pe1Cf_6mXKCir4d3QLrCWdseZQGaUNm5GlzTnpVMarqSL2rlIyW4RD4RcFXR_-YLOMQaiCmf1f4GL5yLU8oKWeQqfWrXdvtMBz7RDl5feq1NiLs3EDNAohrZTBbgZzMhB8G9AwAg2JSy8sEDyWxMRpvyoic3SXBq8X_oYD59EMDO485jplM4VNmcdq7FTxUODW0JHt29ttZJsKUORnijtnSCd2IF8vYnRymnrFYTfCH65ofib90FEzTBKlmj7mO6f60lsKDJcqfDC_oKO8zp-rr4xhn1YBLL_-LA0E3FcLaCW5VleoYA7r3lwJkxqEM2oiJHyZHHccHFr5n7ErYHMUf_Q382KCzXbjC76v0a4qZlJa6KippSy_wbrQVulN0OlFKd-O9cVJ7VA%3D%3D&searchType=return&searchBags=0.0",
+      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HqWpyuwhGI_hLfPG53uK91MW0wDZxX7uICFN8slar2BZB1jAkecj4d9oZeqOkXXprFbgIEeRzl4vAVHh80gMp-VWM3sOndZ1yrt7m6fIWte5JDnQD17_UCSYtUvS5hE5sAKjstKzBuwBH9BrATIqa9Uf5DadqwtbxXOmz5VOk8FAduUVTPc5QspZtaZDE8TSnaEtdMUV9QSPh4PHW15Qy6CXmhY6AQcEq8nu_TSQeJag5dwALdXw2MCW2pnvdURrxn9DNCx7ThcKxCy_M6TXFNFKd0tRXXiBzD-_P0VtFdSNml4d6DteE-gf7K3BaGUphB-dxECNjCJWsq78MeuyLatPgrmNwJujtnC_vns7WxrFgULiyuh1X_MXIgN_9ON_z7QeBFtEQbVq4hoHqxm0QuzDIO5iWDCCD3paQGT0wYduIhK33pqUrkhNFckRmO_X3j76DoK8yeVtWqynlyTv7rjm-4GNeamaJ7ywphB0_4HBfmfKe24653howC2dpM96jh72wag7KZ9Cttc5-1NjAZcFTVOfNRZ3kCDiJltrqx_uJ4aef6IlbqmHTTRosqqMgdKABCI7jToHX1OAbgsSC2LnLec1tHmOarDNyYpV4Rx2uHy4nHki1iE-SnhGSVLhsMcKG9wWEvwg6X6AGJ-uxq8hmZOilLctwx6CgRiGsONN7URdMfN_LNmmvst0_2OgAp0y1s5vBBewYVDxcBusVpYLySB2EfseJl65xzXbMIMigAIopiCQy9zLjlfLkRrru1lVA_Kd_NDTBIbnpOl1w-c6vVcVndbVh9yYJm8diWhhTnP4NrexO6NgrXKt7EgjWmkgjnK9GMEaGbaRnxv5bj1IK_vtuuzT8uFfFqCdzQTdy1-UpuityOhM5DDHoEEPiR3NkCnWeBb-gD6FilwPa-0nwyGqZasJcy5bv-_4KnBRjszwRcHZhatGkPF7B3_oWYhuUzLYArSvfyACdG8iEo9gpidkxGPa_Jkve5dKCsbyvkZsSOLruGKhjBmlOYnSlCHovUhTCt8nqp3nAgCoco5MBMMUhGlstugNT20L_RDWIlgWFErieRN30h2bwdii0G3hQs4Wx2K9uGZofn2BQ-_9v9C10Zhh6ORRLRiyvfmHtcPnKV8XpA1P14Kt9XEnrIphjoOPOSlZ6x6Z8uxMSEVqiiflnIuLO1L1usA-zfF-HX6eU2lWfMj6m-BA7E-Vq-gJzLiIFcIhOAbVlkIMU2g%3D%3D&searchType=return&searchBags=0.0",
       "inbound_booking_url": "",
       "previous_price_usd": 2318,
-      "price_delta_usd": 0
+      "price_delta_usd": -41
     },
     {
       "fingerprint": "LY81@2027-10-09:TLV>BKK-LY8409@2027-10-10:BKK>TPE||LY8403@2027-10-24:TPE>BKK-LY84@2027-10-24:BKK>TLV",
       "source_provider": "kiwi_rt:single_pnr_2_22h",
-      "price_usd": 2443,
+      "price_usd": 2400,
       "pnr_count": 1,
       "ticket_structure": "single_ticket",
       "is_open_jaw_taiwan": false,
@@ -2149,15 +1564,15 @@
         }
       ],
       "tier": "WATCHLIST",
-      "score": 2843.0,
+      "score": 2800.0,
       "badges": [
         "Single Airline Ticket"
       ],
       "summary_note": "Near-miss 6.6h single-ticket layover at BKK (slightly outside 2-6h)",
-      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HWRDMzxGTlOYlPrkEFEu4TbHFHRzQ5Bsxj_vFqxG26IQcLyn5aqtjQleTlydmNagQruteUfMhF6OIsthHDgueNr8fhzDn4qOQq7tpYn8ZEhUHxLvjGsJvj0H4cH5tGECAnUeiiO8cBXKAnQNJ2t4IO1FLgHnr6uXpB9KljAHqMMqUfwIwi4AINy3P4VkYKgyzMATyIbh-i-ybJZVdiy1EnikERMjGC2x5qMvNcusIcx4cVoylujCLEEFIbWk9HWbPM6DLrrkVjYxiy36D5ytf0dyGBs70ybhiU3ALPzyBiTOAzGHZQUcYedzrAFT-XF9Vq4FgGRzzTZoJNE8VeeVrQxTcgaTQ9QDgtNfYc9MbjGhzjYArUXroXO6CUoYZ-1_gILQ9jt3ervjELpGs-yAzBMfH1hC3yVBkyHX4vbCteT_wV4oOY91ZdywmU34hGWaLZGxnBahxPGX16hc876badbdaSFMp_vvPL0TndSDi_VaEfsJVadgyXtp96s6CHezUoa_s6ExzL7bNxr6tPuLPS1vUugiX_Uhy4YZPHYPGhiCcgap3VU0ZUe-iTHSVfJJuQVudfkdEJ7l3Gnq4xuk2zegFf5dr8cn8MlFsuRzstWErTtksmbHE7u06lyPlfE9UdS_uF_GzkxNIwxamEnUiUX-MHeurNmTDb2YNQEUa_4rohztvZLEoMu2uDjFjlTG8HXrKxbB3UGTiUZiR24L4Yc9cHEJOFaD-8lJAUFqlLA08gC5tnSgekmUCcFCt8QkbiAQA_QJz2ylqG-g4kA8nfvmaoqCyqSAAfJPzoxtPTKRm3CpnM1QYsIZbvS0K29jVEM6SLB9B0Y0EKBuz6zwZczofNTjzrTpgKwlrOq_poSL9pgzVL9IHg1cYyOwndHc-axwmj_AL1d8PO_F7BNNpp2sVcTCSDgPa2ukQpNBTj_RqLoQ_53j4X4inEwHnaLZQRiClvsHOaOmC37CbJqicWOVcgvrZUWHIJfVyDyn64UvvKzQzhtJY-zz5S5ATQBoiDpJQK37fDLH4zGq26Vd-CxOU4KAyyef1PZQFO5Tth78VIkFaYv1CZ1KQubSYUSUdcxzGG2udDsRhRRHQs57RGz92HfL2Ywoh_hfZMxsoyAEtE8L-nxyaRxJN-tFrgzj1Qyy9AR9t3z7ohyQMIvZ84YD-UZMznxldABBVTQpP1k0_fDDNu1gYv4L8rKUVCoZRdlD5iyCQcLhbdu3RCMvVKA%3D%3D&searchType=return&searchBags=0.0",
+      "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=1-0-0&token=HPfWomP3BtSqKv-yTvHkwYlTr8---MUpgnYMBiYAPbqJJ_j17LGATXKgdPP7-pUitXZNuI6D65W_AOs8V68993YAq6Fj-Vk6PGf4RtRyu4O5FqduxXvv87iFd88vAsopBnM9jV3BgUBLZlRrJkwtLnwCr5zXYtcO9eQz6B_HZtKkCwdhcTbIII6glj4Lo63Dy5EL5mXaobfskr1TJ8LKhc4bPWheU3Pm4NEMEPG_PbAyKdE5n-4yRZrzR3sjzarOzvcfb_-cAv_fOrfla85z5UoZ52OtbEZh_djtYyM5IX3X-BbGBucnkzMSWd-AKLXB489Mqe_cNqTJoSka48rFWg0SBTE9hYDIKQkdezDUClyfGr8k-af9J28F63IXPZeHkZiOvmMvyxFqFc3dpUK_OLgdybQs-lN2Si26MbYvWgUtVV6nj3VoEZUokjmu5w3DXrTA7vCVkjTFIvT7GCSgf8OKPfAK7NVAA3gpoz0sFb78u0je5os-EXIz2jz3sbxcnaF7g24Jzi49h8sbK8_5YRmX4BBDCEXUFMre1ckg8KwqPezDukofAV2oM6pixkvZgPDUeNNNDtjKITYoBkesL_HZ0YhZaULqJxJMCR9XaYjcc3wiOkOdErnML5k2LLX0y8WXNF1gEBcgFl9nQS_Lk3P0Uv_aFL39m6cTKn4CK-5a8UnqarlelDCyOiGQTtYJteAz0U3lbyxRK3mLrwVq2FlfvWVSTSJOThcrbbMoBjNDzY97OwxKTeeRtzzZ-vS4C8HgV8pdud83omqNBOrJUSptcz94zBehOVNIna4KPJT6TZo53ZnBUkB2LRpeGo_ljPVxmJk7M2jOS3VBUyONW_R3ezOEF7j-510_vRY2EnpfCMgTqtFGVa0CRyuhxqWfMuC561E2gU8b7MW_qLF8dTD_i6zc27DK2IXLNnA_E0m3lQjky842mnsZRa6bd3K0EXY2g6xYdoRIh_BOqiZlSzuxIPE1P_TPKNejHjiuEF4SRmIqvE98TKCckGNfgRQ9tFhYxX8BDI9rwVY0Yh2VVxy5VgdwJkKE3hGcS_ALXQZm0rC47csw6exfpnBCLrP4oltsm5x8X0pmt6RTqwn_GLbhCzKPpw8Mpg1mc8hORFXAqojF7uJ5qVJ0TF5GihDuCARrWYeLW2nSEmerg8ltw41sdEvFvEuVuwxqg6won9fO4dpmo9CL3bZBELT1xqh_VUnQI1FFRxH6mWRILHIkt9g%3D%3D&searchType=return&searchBags=0.0",
       "inbound_booking_url": "",
       "previous_price_usd": 2443,
-      "price_delta_usd": 0
+      "price_delta_usd": -43
     }
   ]
 }
