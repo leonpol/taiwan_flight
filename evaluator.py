@@ -124,23 +124,28 @@ def evaluate_layover(
             reason=f"Self-transfer landside entry restricted at {arr_code}: {profile.notes}",
         )
 
+    # Rule A3: Block self-transfers under 4h (high missed-connection risk)
+    if is_self_transfer and hours < cfg.min_self_transfer_h:
+        return LayoverEvaluation(
+            arrival_airport=arr_code,
+            departure_airport=dep_code,
+            city=city or (profile.city if profile else ""),
+            country=cc or (profile.country if profile else ""),
+            arrival_local=arr_local,
+            departure_local=dep_local,
+            duration_hours=hours,
+            is_self_transfer=True,
+            category="REJECTED",
+            strict_valid=False,
+            watchlist_valid=False,
+            reason=(
+                f"Self-transfer not allowed on <{cfg.min_self_transfer_h:.0f}h layover "
+                f"({hours:.1f}h at {arr_code})"
+            ),
+        )
+
     # 1. Rule 5 (Preferred): 2.0h - 4.0h short layover (Single-PNR only, same airport)
-    if cfg.ideal_short_min_h <= hours <= cfg.ideal_short_max_h:
-        if is_self_transfer:
-            return LayoverEvaluation(
-                arrival_airport=arr_code,
-                departure_airport=dep_code,
-                city=city,
-                country=cc,
-                arrival_local=arr_local,
-                departure_local=dep_local,
-                duration_hours=hours,
-                is_self_transfer=True,
-                category="REJECTED",
-                strict_valid=False,
-                watchlist_valid=False,
-                reason=f"Self-transfer not allowed on short {hours:.1f}h layover at {arr_code}",
-            )
+    if not is_self_transfer and cfg.ideal_short_min_h <= hours <= cfg.ideal_short_max_h:
         return LayoverEvaluation(
             arrival_airport=arr_code,
             departure_airport=dep_code,
@@ -157,23 +162,20 @@ def evaluate_layover(
             reason=f"Ideal {hours:.1f}h connection at {arr_code}",
         )
 
-    # 2. Rule 5 (Acceptable if price is good): 4.0h - 6.0h (Single-PNR only, same airport)
-    if cfg.ideal_short_max_h < hours <= cfg.acceptable_short_max_h:
+    # 2. Rule 5 (Acceptable): 4.0h - 6.0h (protected or >=4h self-transfer)
+    if (cfg.ideal_short_max_h < hours <= cfg.acceptable_short_max_h) or (
+        is_self_transfer and cfg.min_self_transfer_h <= hours <= cfg.acceptable_short_max_h
+    ):
         if is_self_transfer:
-            return LayoverEvaluation(
-                arrival_airport=arr_code,
-                departure_airport=dep_code,
-                city=city,
-                country=cc,
-                arrival_local=arr_local,
-                departure_local=dep_local,
-                duration_hours=hours,
-                is_self_transfer=True,
-                category="REJECTED",
-                strict_valid=False,
-                watchlist_valid=False,
-                reason=f"Self-transfer not allowed on {hours:.1f}h layover at {arr_code}",
+            luggage_msg = (
+                f"Airport change ({arr_code}→{dep_code}): collect & re-check bags"
+                if not same_airport
+                else f"Self-transfer: collect & re-check bags at {arr_code}"
             )
+            reason_msg = f"Acceptable {hours:.1f}h self-transfer layover at {arr_code}"
+        else:
+            luggage_msg = "Bags checked through automatically"
+            reason_msg = f"Acceptable {hours:.1f}h layover at {arr_code} (good-price tier)"
         return LayoverEvaluation(
             arrival_airport=arr_code,
             departure_airport=dep_code,
@@ -182,77 +184,23 @@ def evaluate_layover(
             arrival_local=arr_local,
             departure_local=dep_local,
             duration_hours=hours,
-            is_self_transfer=False,
+            is_self_transfer=is_self_transfer,
             category="ACCEPTABLE_SHORT_4_6H",
             strict_valid=True,
             watchlist_valid=True,
-            luggage_note="Bags checked through automatically",
-            reason=f"Acceptable {hours:.1f}h layover at {arr_code} (good-price tier)",
+            luggage_note=luggage_msg,
+            reason=reason_msg,
         )
 
     # 3. Rule 7: 8.0h - 10.0h quick city explore (Leave luggage + quick transit + 5-8h city)
-    if cfg.day_explore_min_h <= hours <= cfg.day_explore_max_h:
-        if not same_airport:
-            return LayoverEvaluation(
-                arrival_airport=arr_code,
-                departure_airport=dep_code,
-                city=city,
-                country=cc,
-                arrival_local=arr_local,
-                departure_local=dep_local,
-                duration_hours=hours,
-                is_self_transfer=True,
-                category="REJECTED",
-                strict_valid=False,
-                watchlist_valid=False,
-                reason=f"Airport change ({arr_code}->{dep_code}) impractical for 8-10h city explore",
-            )
-        if not profile or not profile.can_enter_landside_from_tlv:
-            return LayoverEvaluation(
-                arrival_airport=arr_code,
-                departure_airport=dep_code,
-                city=city,
-                country=cc,
-                arrival_local=arr_local,
-                departure_local=dep_local,
-                duration_hours=hours,
-                is_self_transfer=is_self_transfer,
-                category="REJECTED",
-                strict_valid=False,
-                watchlist_valid=False,
-                reason=f"Unverified fast city transit / landside access at {arr_code}",
-            )
-        if not profile.has_left_luggage:
-            return LayoverEvaluation(
-                arrival_airport=arr_code,
-                departure_airport=dep_code,
-                city=profile.city,
-                country=profile.country,
-                arrival_local=arr_local,
-                departure_local=dep_local,
-                duration_hours=hours,
-                is_self_transfer=is_self_transfer,
-                category="REJECTED",
-                strict_valid=False,
-                watchlist_valid=False,
-                reason=f"{arr_code} lacks reliable terminal left-luggage storage ({profile.notes})",
-            )
-        if profile.transit_minutes_one_way > 38:
-            return LayoverEvaluation(
-                arrival_airport=arr_code,
-                departure_airport=dep_code,
-                city=profile.city,
-                country=profile.country,
-                arrival_local=arr_local,
-                departure_local=dep_local,
-                duration_hours=hours,
-                is_self_transfer=is_self_transfer,
-                category="REJECTED",
-                strict_valid=False,
-                watchlist_valid=False,
-                reason=f"{arr_code} to {profile.city} takes {profile.transit_minutes_one_way}m each way (not quick enough)",
-            )
-
+    if (
+        cfg.day_explore_min_h <= hours <= cfg.day_explore_max_h
+        and same_airport
+        and profile
+        and profile.can_enter_landside_from_tlv
+        and profile.has_left_luggage
+        and profile.transit_minutes_one_way <= 38
+    ):
         exit_h = 0.9 if is_self_transfer else 0.6
         return_h = 1.6 if is_self_transfer else 1.35
         transit_h = profile.transit_minutes_one_way / 60.0
@@ -287,59 +235,14 @@ def evaluate_layover(
                     f"({city_start.strftime('%H:%M')}–{city_end.strftime('%H:%M')}, {profile.transit_minutes_one_way}m transit)"
                 ),
             )
-        return LayoverEvaluation(
-            arrival_airport=arr_code,
-            departure_airport=dep_code,
-            city=profile.city,
-            country=profile.country,
-            arrival_local=arr_local,
-            departure_local=dep_local,
-            duration_hours=hours,
-            is_self_transfer=is_self_transfer,
-            category="REJECTED",
-            strict_valid=False,
-            watchlist_valid=False,
-            usable_city_hours=usable_city_h,
-            transit_summary=f"{profile.transit_minutes_one_way}m via {profile.transit_mode}",
-            reason=(
-                f"{hours:.1f}h at {arr_code} occurs mostly overnight or yields only "
-                f"{waking_h:.1f}h daytime explore (need ~5-8h)"
-            ),
-        )
 
     # 4. Rule 6: 18.0h - 20.0h overnight explore + sleep in East Europe / HK / Bangkok
-    if cfg.overnight_explore_min_h <= hours <= cfg.overnight_explore_max_h:
-        if not is_overnight_18_20h_hub(arr_code, dep_code):
-            return LayoverEvaluation(
-                arrival_airport=arr_code,
-                departure_airport=dep_code,
-                city=city,
-                country=cc,
-                arrival_local=arr_local,
-                departure_local=dep_local,
-                duration_hours=hours,
-                is_self_transfer=is_self_transfer,
-                category="REJECTED",
-                strict_valid=False,
-                watchlist_valid=False,
-                reason=f"{hours:.1f}h layover at {arr_code} ({city}) is not in East Europe, Hong Kong, or Bangkok",
-            )
+    if (
+        cfg.overnight_explore_min_h <= hours <= cfg.overnight_explore_max_h
+        and is_overnight_18_20h_hub(arr_code, dep_code)
+        and _spans_overnight_sleep(arr_dt, dep_dt)
+    ):
         hub_city = OVERNIGHT_18_20H_AIRPORTS.get(arr_code, city)
-        if not _spans_overnight_sleep(arr_dt, dep_dt):
-            return LayoverEvaluation(
-                arrival_airport=arr_code,
-                departure_airport=dep_code,
-                city=hub_city,
-                country=cc,
-                arrival_local=arr_local,
-                departure_local=dep_local,
-                duration_hours=hours,
-                is_self_transfer=is_self_transfer,
-                category="WATCHLIST_NEAR_MISS",
-                strict_valid=False,
-                watchlist_valid=True,
-                reason=f"{hours:.1f}h in {hub_city} does not span full overnight hotel sleep window",
-            )
         usable_explore = round(max(4.0, hours - 8.0 - 3.2), 1)
         transit_note = (
             f"{profile.transit_minutes_one_way}m via {profile.transit_mode}"
@@ -367,9 +270,58 @@ def evaluate_layover(
             ),
         )
 
-    # 5. Secondary Watchlist check (near-misses within ~1.25h of valid windows)
-    # Never allow short self-transfers!
-    if not is_self_transfer and (1.5 <= hours < cfg.ideal_short_min_h or cfg.acceptable_short_max_h < hours <= 6.8):
+    # 5. General long layover up to max_layover_h (28h) at any non-blocked hub
+    if cfg.acceptable_short_max_h < hours <= cfg.max_layover_h:
+        display_city = (
+            (profile.city if profile else "")
+            or OVERNIGHT_18_20H_AIRPORTS.get(arr_code, "")
+            or city
+            or arr_code
+        )
+        display_cc = cc or (profile.country if profile else "")
+        transit_note = (
+            f"{profile.transit_minutes_one_way}m via {profile.transit_mode}"
+            if profile
+            else ""
+        )
+        spans_night = _spans_overnight_sleep(arr_dt, dep_dt)
+        if not same_airport:
+            luggage_msg = f"Airport change ({arr_code}→{dep_code}): collect & re-check bags"
+        elif is_self_transfer:
+            luggage_msg = f"Self-transfer: collect & re-check bags at {arr_code}"
+        elif spans_night:
+            luggage_msg = "Overnight layover — confirm whether airline holds checked bags overnight"
+        else:
+            luggage_msg = "Checked bags transferred automatically"
+
+        if spans_night:
+            reason_msg = (
+                f"{hours:.1f}h overnight layover in {display_city} "
+                f"(lands {arr_dt.strftime('%b %d %H:%M')}, flies {dep_dt.strftime('%b %d %H:%M')})"
+            )
+        else:
+            reason_msg = f"{hours:.1f}h long layover in {display_city} ({arr_code})"
+
+        return LayoverEvaluation(
+            arrival_airport=arr_code,
+            departure_airport=dep_code,
+            city=display_city,
+            country=display_cc,
+            arrival_local=arr_local,
+            departure_local=dep_local,
+            duration_hours=hours,
+            is_self_transfer=is_self_transfer,
+            category="LONG_LAYOVER",
+            strict_valid=True,
+            watchlist_valid=True,
+            transit_summary=transit_note,
+            luggage_note=luggage_msg,
+            reason=reason_msg,
+        )
+
+    # 6. Secondary Watchlist check (near-misses just outside 2h..max_layover_h)
+    # Never allow short self-transfers (<4h already rejected above)!
+    if not is_self_transfer and 1.5 <= hours < cfg.ideal_short_min_h:
         return LayoverEvaluation(
             arrival_airport=arr_code,
             departure_airport=dep_code,
@@ -383,16 +335,15 @@ def evaluate_layover(
             strict_valid=False,
             watchlist_valid=True,
             luggage_note="Bags checked through",
-            reason=f"Near-miss {hours:.1f}h single-ticket layover at {arr_code} (slightly outside 2-6h)",
+            reason=f"Near-miss {hours:.1f}h single-ticket layover at {arr_code} (slightly under 2h)",
         )
 
-    if (16.5 <= hours < cfg.overnight_explore_min_h or cfg.overnight_explore_max_h < hours <= 22.0) and is_overnight_18_20h_hub(arr_code, dep_code) and _spans_overnight_sleep(arr_dt, dep_dt):
-        hub_city = OVERNIGHT_18_20H_AIRPORTS.get(arr_code, city)
+    if cfg.max_layover_h < hours <= cfg.max_layover_h + cfg.watchlist_layover_slack_h:
         return LayoverEvaluation(
             arrival_airport=arr_code,
             departure_airport=dep_code,
-            city=hub_city,
-            country=cc,
+            city=city or (profile.city if profile else arr_code),
+            country=cc or (profile.country if profile else ""),
             arrival_local=arr_local,
             departure_local=dep_local,
             duration_hours=hours,
@@ -400,32 +351,8 @@ def evaluate_layover(
             category="WATCHLIST_NEAR_MISS",
             strict_valid=False,
             watchlist_valid=True,
-            reason=f"Near-miss {hours:.1f}h overnight in {hub_city} (just outside 18-20h rule)",
+            reason=f"Near-miss {hours:.1f}h layover at {arr_code} (just over {cfg.max_layover_h:.0f}h limit)",
         )
-
-    if same_airport and profile and profile.has_left_luggage and profile.transit_minutes_one_way <= 38 and (7.5 <= hours < 8.0 or 10.0 < hours <= 11.0):
-        exit_h = 0.9 if is_self_transfer else 0.6
-        return_h = 1.6 if is_self_transfer else 1.35
-        transit_h = profile.transit_minutes_one_way / 60.0
-        city_start = arr_dt + timedelta(hours=exit_h + transit_h)
-        city_end = dep_dt - timedelta(hours=return_h + transit_h)
-        if _waking_overlap_hours(city_start, city_end) >= 4.5:
-            return LayoverEvaluation(
-                arrival_airport=arr_code,
-                departure_airport=dep_code,
-                city=profile.city,
-                country=profile.country,
-                arrival_local=arr_local,
-                departure_local=dep_local,
-                duration_hours=hours,
-                is_self_transfer=is_self_transfer,
-                category="WATCHLIST_NEAR_MISS",
-                strict_valid=False,
-                watchlist_valid=True,
-                usable_city_hours=round(hours - exit_h - return_h - 2 * transit_h, 1),
-                transit_summary=f"{profile.transit_minutes_one_way}m via {profile.transit_mode}",
-                reason=f"Near-miss {hours:.1f}h daytime explore in {profile.city} (just outside 8-10h)",
-            )
 
     return LayoverEvaluation(
         arrival_airport=arr_code,
@@ -439,7 +366,7 @@ def evaluate_layover(
         category="REJECTED",
         strict_valid=False,
         watchlist_valid=False,
-        reason=f"{hours:.1f}h layover at {arr_code} outside allowed windows (2-6h, 8-10h city, 18-20h overnight)",
+        reason=f"{hours:.1f}h layover at {arr_code} outside allowed range (2–{cfg.max_layover_h:.0f}h)",
     )
 
 
@@ -549,12 +476,13 @@ def evaluate_itineraries(
         has_4_6h = any(lv.category == "ACCEPTABLE_SHORT_4_6H" for lv in all_layovers)
         has_day_explore = any(lv.category == "DAY_EXPLORE_8_10H" for lv in all_layovers)
         has_overnight = any(lv.category == "OVERNIGHT_EXPLORE_18_20H" for lv in all_layovers)
+        has_long_layover = any(lv.category == "LONG_LAYOVER" for lv in all_layovers)
         has_self_transfer = any(lv.is_self_transfer for lv in all_layovers)
         is_open_jaw = raw.outbound.dest_code != raw.inbound.origin_code
 
         if not both_strict:
             tier = "WATCHLIST"
-        elif not has_4_6h and not has_day_explore and not has_overnight:
+        elif not has_4_6h and not has_day_explore and not has_overnight and not has_long_layover:
             tier = "STRICT_IDEAL"
         else:
             tier = "STRICT_ACCEPTABLE"
@@ -570,12 +498,17 @@ def evaluate_itineraries(
         if has_overnight:
             cities = sorted({lv.city for lv in all_layovers if lv.category == "OVERNIGHT_EXPLORE_18_20H"})
             badges.append(f"18–20h Overnight ({', '.join(cities)})")
+        if has_long_layover:
+            long_lvs = [lv for lv in all_layovers if lv.category == "LONG_LAYOVER"]
+            max_lh = max(lv.duration_hours for lv in long_lvs)
+            cities = sorted({lv.city or lv.arrival_airport for lv in long_lvs})
+            badges.append(f"Long Layover {max_lh:.0f}h ({', '.join(cities)})")
         if is_open_jaw:
             badges.append(f"Open-Jaw ({raw.outbound.dest_code} / {raw.inbound.origin_code})")
         if raw.pnr_count == 1 and raw.ticket_structure == "single_ticket":
             badges.append("Single Airline Ticket")
         elif has_self_transfer:
-            badges.append("Long-Layover Self-Transfer")
+            badges.append("Self-Transfer (≥4h)")
         elif raw.ticket_structure == "split_outbound_inbound":
             badges.append("2 Separate One-Ways")
 
@@ -642,11 +575,17 @@ def evaluate_itineraries(
                 penalty += 60.0
 
         for lv in all_lvs:
-            if lv.category == "DAY_EXPLORE_8_10H":
+            if lv.category == "ACCEPTABLE_SHORT_4_6H" and lv.is_self_transfer:
+                penalty += 35.0
+                notes.append(lv.reason)
+            elif lv.category == "DAY_EXPLORE_8_10H":
                 penalty += 55.0 + (35.0 if lv.is_self_transfer else 0.0)
                 notes.append(lv.reason)
             elif lv.category == "OVERNIGHT_EXPLORE_18_20H":
                 penalty += 70.0 + (30.0 if lv.is_self_transfer else 0.0)
+                notes.append(lv.reason)
+            elif lv.category == "LONG_LAYOVER":
+                penalty += 85.0 + min(65.0, max(0.0, lv.duration_hours - 6.0) * 3.0) + (35.0 if lv.is_self_transfer else 0.0)
                 notes.append(lv.reason)
             elif lv.category == "WATCHLIST_NEAR_MISS":
                 penalty += 400.0

@@ -41,7 +41,7 @@ def generate_markdown_report(snapshot: dict[str, Any], reports_dir: Path = REPOR
         f"- **Checked at:** `{snapshot['checked_at_local']}` (`{sched['timezone']}`)",
         f"- **Daily Schedule:** `{sched['daily_time']}` (`{sched['timezone']}`)",
         f"- **Window:** Depart `TLV` **Oct 5–9, 2027** · Return from Taiwan (`TPE`/`TSA`/`KHH`/`RMQ`) **Oct 22–24, 2027** · 1 Adult Economy (`USD`)",
-        f"- **Candidates Scanned:** `{s['raw_candidates_scanned']}` real itineraries → **{s['strict_total_count']} strict matches** (`{s['strict_ideal_count']}` ideal 2–4h, `{s['strict_acceptable_count']}` acceptable 4–6h / 8–10h / 18–20h) + `{s['watchlist_count']}` near-miss watchlist",
+        f"- **Candidates Scanned:** `{s['raw_candidates_scanned']}` real itineraries → **{s['strict_total_count']} strict matches** (`{s['strict_ideal_count']}` ideal 2–4h, `{s['strict_acceptable_count']}` acceptable 4–6h / explore / long ≤28h) + `{s['watchlist_count']}` near-miss watchlist",
         f"- **Lowest Strict Fare Today:** `{('$' + str(s['min_strict_price_usd'])) if s['min_strict_price_usd'] else 'N/A'}` "
         f"(Ideal 2–4h: `{('$' + str(s['min_ideal_price_usd'])) if s['min_ideal_price_usd'] else 'N/A'}`)",
         "",
@@ -508,9 +508,9 @@ DASHBOARD_TEMPLATE = r"""<!DOCTYPE html>
         <div class="metric-note">Single protected airline ticket</div>
       </div>
       <div class="metric-box">
-        <div class="metric-label">Best Explore / 4–6h Option</div>
+        <div class="metric-label">Best Explore / Long / 4–6h</div>
         <div class="metric-value mono" id="metricMinAcceptable">—</div>
-        <div class="metric-note">8–10h city / 18–20h overnight / 4–6h</div>
+        <div class="metric-note">4–6h / city explore / long ≤28h</div>
       </div>
       <div class="metric-box">
         <div class="metric-label">Last Checked</div>
@@ -538,7 +538,7 @@ DASHBOARD_TEMPLATE = r"""<!DOCTYPE html>
       <div class="controls-bar">
         <button class="tab-btn active" id="tabAllStrict" data-tab="ALL_STRICT" type="button">All Strict Matches</button>
         <button class="tab-btn" id="tabIdeal" data-tab="IDEAL" type="button">Ideal 2–4h</button>
-        <button class="tab-btn" id="tabExplore" data-tab="EXPLORE" type="button">8–10h City &amp; 18–20h Overnight</button>
+        <button class="tab-btn" id="tabExplore" data-tab="EXPLORE" type="button">Explore &amp; Long (≤28h)</button>
         <button class="tab-btn" id="tabShort46" data-tab="SHORT_4_6" type="button">4–6h Layover</button>
         <button class="tab-btn" id="tabWatchlist" data-tab="WATCHLIST" type="button">Near-Miss Watchlist</button>
 
@@ -575,10 +575,10 @@ DASHBOARD_TEMPLATE = r"""<!DOCTYPE html>
       <strong>Active Rule Engine:</strong>
       (1) Runs daily at 06:15 Asia/Jerusalem after overnight airline GDS batch updates ·
       (2) Zero Persian Gulf or Turkey stops/carriers ·
-      (3) 2–4h single-ticket layovers preferred; 4–6h single-ticket layovers accepted &amp; benchmarked against 2–4h fares ·
-      (4) 8–10h layovers accepted only at airports with left-luggage storage, ≤38m city rail transit, and ≥4.8h daytime city window ·
-      (5) 18–20h overnight sleep+explore layovers accepted in Eastern Europe, Hong Kong, or Bangkok ·
-      (6) Self-transfer permitted strictly on long layovers (8–10h or 18–20h), never on short connections.
+      (3) 2–4h single-ticket layovers preferred; 4–6h layovers accepted &amp; benchmarked against 2–4h fares ·
+      (4) 8–10h fast daytime city explore &amp; 18–20h East Europe/Hong Kong/Bangkok overnight hubs highlighted ·
+      (5) Long layovers up to 28h accepted at any non-blocked hub ·
+      (6) Self-transfer permitted on ≥4h layovers, strictly blocked under 4h.
     </footer>
   </div>
 
@@ -606,7 +606,7 @@ DASHBOARD_TEMPLATE = r"""<!DOCTYPE html>
 
     function badgeClass(text) {
       if (text.includes('Ideal') || text.includes('Single Airline') || text.includes('Good-Price')) return 'ideal';
-      if (text.includes('Explore') || text.includes('Overnight') || text.includes('Open-Jaw')) return 'explore';
+      if (text.includes('Explore') || text.includes('Overnight') || text.includes('Long Layover') || text.includes('Open-Jaw')) return 'explore';
       if (text.includes('Self-Transfer') || text.includes('4–6h')) return 'warn';
       return 'neutral';
     }
@@ -745,7 +745,7 @@ DASHBOARD_TEMPLATE = r"""<!DOCTYPE html>
       return pool.filter(it => {
         const lvs = [...(it.outbound_layovers || []), ...(it.inbound_layovers || [])];
         if (activeTab === 'IDEAL' && it.tier !== 'STRICT_IDEAL') return false;
-        if (activeTab === 'EXPLORE' && !lvs.some(l => l.category === 'DAY_EXPLORE_8_10H' || l.category === 'OVERNIGHT_EXPLORE_18_20H')) return false;
+        if (activeTab === 'EXPLORE' && !lvs.some(l => l.category === 'DAY_EXPLORE_8_10H' || l.category === 'OVERNIGHT_EXPLORE_18_20H' || l.category === 'LONG_LAYOVER')) return false;
         if (activeTab === 'SHORT_4_6' && !lvs.some(l => l.category === 'ACCEPTABLE_SHORT_4_6H')) return false;
 
         if (outFilter && it.outbound_date !== outFilter) return false;
