@@ -177,6 +177,24 @@ def _post_graphql(payload: dict[str, Any], timeout: int) -> dict[str, Any]:
     return {}
 
 
+def _build_kiwi_filter(
+    base_filter: dict[str, Any],
+    filt: dict[str, Any],
+    cfg: SearchConfig,
+) -> dict[str, Any]:
+    """Merge Kiwi GraphQL filter params without violating stopoverCountries/excludeStopoverCountries mutex."""
+    merged = {**base_filter, **filt}
+    if merged.get("stopoverCountries"):
+        excluded = {c.upper() for c in cfg.excluded_countries}
+        merged["stopoverCountries"] = [
+            c for c in merged["stopoverCountries"] if c.upper() not in excluded
+        ]
+        merged.pop("excludeStopoverCountries", None)
+    else:
+        merged["excludeStopoverCountries"] = list(cfg.excluded_countries)
+    return merged
+
+
 def _fetch_return_pass(
     label: str,
     out_start: str,
@@ -188,6 +206,12 @@ def _fetch_return_pass(
     cfg: SearchConfig,
 ) -> tuple[str, list[RawItinerary], str | None]:
     tw_ids = [f"Station:airport:{code}" for code in cfg.taiwan_airports]
+    base_filter = {
+        "allowReturnFromDifferentCity": True,
+        "allowReturnToDifferentCity": False,
+        "allowChangeInboundDestination": False,
+        "allowChangeInboundSource": True,
+    }
     variables = {
         "search": {
             "itinerary": {
@@ -199,14 +223,7 @@ def _fetch_return_pass(
             "passengers": {"adults": cfg.passengers_adults, "children": 0, "infants": 0},
             "cabinClass": {"cabinClass": cfg.cabin_class, "applyMixedClasses": False},
         },
-        "filter": {
-            "excludeStopoverCountries": list(cfg.excluded_countries),
-            "allowReturnFromDifferentCity": True,
-            "allowReturnToDifferentCity": False,
-            "allowChangeInboundDestination": False,
-            "allowChangeInboundSource": True,
-            **filt,
-        },
+        "filter": _build_kiwi_filter(base_filter, filt, cfg),
         "options": {
             "currency": cfg.currency,
             "locale": "en",
@@ -271,10 +288,7 @@ def _fetch_oneway_pass(
             "passengers": {"adults": cfg.passengers_adults, "children": 0, "infants": 0},
             "cabinClass": {"cabinClass": cfg.cabin_class, "applyMixedClasses": False},
         },
-        "filter": {
-            "excludeStopoverCountries": list(cfg.excluded_countries),
-            **filt,
-        },
+        "filter": _build_kiwi_filter({}, filt, cfg),
         "options": {
             "currency": cfg.currency,
             "locale": "en",
@@ -307,6 +321,7 @@ def fetch_kiwi_itineraries(cfg: SearchConfig = DEFAULT_CONFIG) -> tuple[list[Raw
     out_end = f"{cfg.outbound_end.isoformat()}T23:59:59"
     in_start = f"{cfg.inbound_start.isoformat()}T00:00:00"
     in_end = f"{cfg.inbound_end.isoformat()}T23:59:59"
+    max_lv = int(cfg.max_layover_h)
 
     rt_tasks: list[tuple[str, str, str, str, str, dict[str, Any], str]] = [
         # 1. Ideal 2-4h single-PNR (price & quality)
@@ -314,13 +329,13 @@ def fetch_kiwi_itineraries(cfg: SearchConfig = DEFAULT_CONFIG) -> tuple[list[Raw
         ("ideal_2_4h_quality", out_start, out_end, in_start, in_end, {"limit": 60, "maxStopsCount": 2, "enableSelfTransfer": False, "stopoverTime": {"start": 2, "end": 4}}, "QUALITY"),
         # 2. Acceptable 2-6h single-PNR
         ("short_2_6h_price", out_start, out_end, in_start, in_end, {"limit": 80, "maxStopsCount": 2, "enableSelfTransfer": False, "stopoverTime": {"start": 2, "end": 6}}, "PRICE"),
-        # 3. Single-PNR 2-22h (captures mixed 3h out + 18.5h BKK/HKG/EastEU overnight in!)
-        ("single_pnr_2_22h", out_start, out_end, in_start, in_end, {"limit": 80, "maxStopsCount": 2, "enableSelfTransfer": False, "stopoverTime": {"start": 2, "end": 22}}, "PRICE"),
-        # 4. Overnight hubs (East Europe / HK / Bangkok) incl. self-transfer
-        ("overnight_hubs", out_start, out_end, in_start, in_end, {"limit": 80, "maxStopsCount": 2, "enableSelfTransfer": True, "stopoverCountries": OVERNIGHT_ELIGIBLE_COUNTRIES_KIWI, "stopoverTime": {"start": 2, "end": 22}}, "PRICE"),
-        # 5. 1-stop mixed (captures 8-10h daytime city explore & 18-20h overnight self-transfer)
-        ("1stop_mixed_price", out_start, out_end, in_start, in_end, {"limit": 80, "maxStopsCount": 1, "enableSelfTransfer": True, "stopoverTime": {"start": 2, "end": 22}}, "PRICE"),
-        ("1stop_mixed_quality", out_start, out_end, in_start, in_end, {"limit": 80, "maxStopsCount": 1, "enableSelfTransfer": True, "stopoverTime": {"start": 2, "end": 22}}, "QUALITY"),
+        # 3. Single-PNR 2-28h (captures mixed short + long/overnight layovers)
+        ("single_pnr_2_28h", out_start, out_end, in_start, in_end, {"limit": 80, "maxStopsCount": 2, "enableSelfTransfer": False, "stopoverTime": {"start": 2, "end": max_lv}}, "PRICE"),
+        # 4. Overnight hubs (East Europe / HK / Bangkok) incl. >=4h self-transfer
+        ("overnight_hubs", out_start, out_end, in_start, in_end, {"limit": 80, "maxStopsCount": 1, "enableSelfTransfer": True, "stopoverCountries": OVERNIGHT_ELIGIBLE_COUNTRIES_KIWI, "stopoverTime": {"start": 2, "end": max_lv}}, "PRICE"),
+        # 5. 1-stop mixed up to 28h (captures daytime city explore, overnight, and long layovers)
+        ("1stop_mixed_price", out_start, out_end, in_start, in_end, {"limit": 80, "maxStopsCount": 1, "enableSelfTransfer": True, "stopoverTime": {"start": 2, "end": max_lv}}, "PRICE"),
+        ("1stop_mixed_quality", out_start, out_end, in_start, in_end, {"limit": 80, "maxStopsCount": 1, "enableSelfTransfer": True, "stopoverTime": {"start": 2, "end": max_lv}}, "QUALITY"),
     ]
 
     # Also query individual outbound dates against return window so cheaper single days don't crowd out other days
@@ -335,7 +350,7 @@ def fetch_kiwi_itineraries(cfg: SearchConfig = DEFAULT_CONFIG) -> tuple[list[Raw
                 de,
                 in_start,
                 in_end,
-                {"limit": 45, "maxStopsCount": 1, "enableSelfTransfer": True, "stopoverTime": {"start": 2, "end": 22}},
+                {"limit": 45, "maxStopsCount": 1, "enableSelfTransfer": True, "stopoverTime": {"start": 2, "end": max_lv}},
                 "PRICE",
             )
         )
@@ -349,12 +364,12 @@ def fetch_kiwi_itineraries(cfg: SearchConfig = DEFAULT_CONFIG) -> tuple[list[Raw
     tlv_ids = [f"Station:airport:{cfg.origin_airport}"]
 
     ow_tasks = [
-        ("ow_out_single", tlv_ids, tw_ids, out_start, out_end, {"limit": 60, "maxStopsCount": 2, "enableSelfTransfer": False, "stopoverTime": {"start": 2, "end": 22}}),
-        ("ow_out_1stop", tlv_ids, tw_ids, out_start, out_end, {"limit": 80, "maxStopsCount": 1, "enableSelfTransfer": True, "stopoverTime": {"start": 2, "end": 22}}),
-        ("ow_out_hubs", tlv_ids, tw_ids, out_start, out_end, {"limit": 60, "maxStopsCount": 2, "enableSelfTransfer": True, "stopoverCountries": OVERNIGHT_ELIGIBLE_COUNTRIES_KIWI, "stopoverTime": {"start": 2, "end": 22}}),
-        ("ow_in_single", tw_ids, tlv_ids, in_start, in_end, {"limit": 60, "maxStopsCount": 2, "enableSelfTransfer": False, "stopoverTime": {"start": 2, "end": 22}}),
-        ("ow_in_1stop", tw_ids, tlv_ids, in_start, in_end, {"limit": 80, "maxStopsCount": 1, "enableSelfTransfer": True, "stopoverTime": {"start": 2, "end": 22}}),
-        ("ow_in_hubs", tw_ids, tlv_ids, in_start, in_end, {"limit": 60, "maxStopsCount": 2, "enableSelfTransfer": True, "stopoverCountries": OVERNIGHT_ELIGIBLE_COUNTRIES_KIWI, "stopoverTime": {"start": 2, "end": 22}}),
+        ("ow_out_single", tlv_ids, tw_ids, out_start, out_end, {"limit": 60, "maxStopsCount": 2, "enableSelfTransfer": False, "stopoverTime": {"start": 2, "end": max_lv}}),
+        ("ow_out_1stop", tlv_ids, tw_ids, out_start, out_end, {"limit": 80, "maxStopsCount": 1, "enableSelfTransfer": True, "stopoverTime": {"start": 2, "end": max_lv}}),
+        ("ow_out_hubs", tlv_ids, tw_ids, out_start, out_end, {"limit": 60, "maxStopsCount": 2, "enableSelfTransfer": True, "stopoverCountries": OVERNIGHT_ELIGIBLE_COUNTRIES_KIWI, "stopoverTime": {"start": 2, "end": max_lv}}),
+        ("ow_in_single", tw_ids, tlv_ids, in_start, in_end, {"limit": 60, "maxStopsCount": 2, "enableSelfTransfer": False, "stopoverTime": {"start": 2, "end": max_lv}}),
+        ("ow_in_1stop", tw_ids, tlv_ids, in_start, in_end, {"limit": 80, "maxStopsCount": 1, "enableSelfTransfer": True, "stopoverTime": {"start": 2, "end": max_lv}}),
+        ("ow_in_hubs", tw_ids, tlv_ids, in_start, in_end, {"limit": 60, "maxStopsCount": 2, "enableSelfTransfer": True, "stopoverCountries": OVERNIGHT_ELIGIBLE_COUNTRIES_KIWI, "stopoverTime": {"start": 2, "end": max_lv}}),
     ]
 
     out_sectors: list[tuple[int, int, FlightSector, str]] = []

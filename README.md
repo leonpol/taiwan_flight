@@ -11,11 +11,11 @@ Airline GDS systems (Amadeus, Sabre, Travelport) and carrier revenue-management 
 1. **Dates & Route**: Outbound `TLV` → Taiwan (`TPE`, `TSA`, `KHH`, `RMQ`) on `2027-10-05..2027-10-09`; Return Taiwan (`TPE`, `TSA`, `KHH`, `RMQ`) → `TLV` on `2027-10-22..2027-10-24`. Open-jaw Taiwan trips (e.g., land in `RMQ` or `TPE`, fly out of `KHH` or `TPE`) are automatically included.
 2. **Zero Persian Gulf or Turkey**: Server-side and segment-by-segment blocklists reject any stopover or carrier in `TR`, `AE`, `QA`, `BH`, `KW`, `OM`, `SA`, `IR`, or `IQ`.
 3. **Layover Windows & Self-Transfer Policy (`USD`)**:
-   - **2.0–4.0h (Preferred)**: Single airline-protected ticket only (checked luggage transferred).
-   - **4.0–6.0h (Acceptable if price is good)**: Single airline-protected ticket only; benchmarked directly against the lowest `2–4h` fare.
-   - **8.0–10.0h (Daytime Quick City Explore)**: Allowed (including self-transfer) **only** at airports with verified terminal left-luggage storage, fast city rail/express transit (`≤38 min` each way), and `≥4.8h` usable daytime/evening hours (`07:30–23:00` local time) in the city.
-   - **18.0–20.0h (Overnight Explore + Sleep)**: Allowed (including self-transfer) **only** in **Eastern European cities, Hong Kong (`HKG`), or Bangkok (`BKK`/`DMK`)**, crossing overnight sleeping hours and flying out the next calendar day.
-4. **100% Real Data**: Queries live airline/OTA inventory via Kiwi's Umbrella GraphQL engine (multi-pass round-trip, hub-targeted, per-date, and independent one-way sector pairing) plus Google Flights' live protobuf engine (automatically unlocking return-window fares as `2027-10-22..24` enters Google's 330-day calendar on `2026-11-26..28`).
+   - **2.0–4.0h (Preferred)**: Single airline-protected ticket only (checked luggage transferred). Self-transfers under 4h are strictly blocked.
+   - **4.0–6.0h (Acceptable)**: Benchmarked directly against the lowest `2–4h` fare; `≥4h` self-transfers are permitted and flagged.
+   - **8.0–10.0h (Daytime Quick City Explore)** & **18.0–20.0h (Overnight Explore + Sleep in East Europe / `HKG` / `BKK`/`DMK`)**: Highlighted and ranked ahead of generic long layovers.
+   - **Long Layovers up to 28.0h**: Accepted at any non-blocked hub (excluding Turkey, Persian Gulf, and landside-restricted self-transfer airports such as `KUL`/`CGK`).
+4. **100% Real Data**: Queries live airline/OTA inventory via Kiwi's Umbrella GraphQL engine (multi-pass round-trip, hub-targeted, per-date, and independent one-way sector pairing up to 28h layovers) plus Google Flights' live protobuf engine with SOCS consent cookie support (automatically unlocking return-window fares as `2027-10-22..24` enters Google's 330-day calendar on `2026-11-26..28`).
 
 ## Quick Start
 

@@ -41,6 +41,8 @@ class SearchConfig:
     ideal_short_min_h: float = 2.0
     ideal_short_max_h: float = 4.0
     acceptable_short_max_h: float = 6.0
+    min_self_transfer_h: float = 4.0
+    max_layover_h: float = 28.0
 
     day_explore_min_h: float = 8.0
     day_explore_max_h: float = 10.0

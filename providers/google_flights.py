@@ -3,12 +3,16 @@
 from __future__ import annotations
 
 import json
+import os
 import re
+import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import date, timedelta
 from typing import Any
 
 from fast_flights import FlightQuery, Passengers, create_query, fetch_flights_html
+from fast_flights.integrations.base import FetchIntegration
+from primp import Client
 from selectolax.lexbor import LexborHTMLParser
 
 from airports import AIRPORT_CITY_PROFILES, OVERNIGHT_18_20H_AIRPORTS, TAIWAN_AIRPORTS
@@ -17,7 +21,35 @@ from evaluator import evaluate_sector
 from models import FlightSector, FlightSegment, RawItinerary
 
 _DS1_RE = re.compile(r"data:(\[.*\]),\s*(?:sideChannel|errorHasStatus)", re.DOTALL)
+GOOGLE_FLIGHTS_URL = "https://www.google.com/travel/flights"
 GOOGLE_FLIGHTS_MAX_ADVANCE_DAYS = 330
+# Essential-only Google consent cookie so EU/EEA runners skip the consent.google.com
+# interstitial and receive the ds:1 flight payload.
+DEFAULT_GOOGLE_SOCS_COOKIE = "CAESHAgBEhJnd3NfMjAyMzA4MTAtMF9SQzIaAmVuIAEaBgiAo_CmBg"
+
+
+class _SocsFetchIntegration(FetchIntegration):
+    """fast-flights FetchIntegration that attaches Google's SOCS consent cookie."""
+
+    def __init__(self, timeout: int = 28, socs_cookie: str | None = None) -> None:
+        self.timeout = timeout
+        if socs_cookie is None:
+            socs_cookie = os.environ.get("GOOGLE_SOCS_COOKIE", DEFAULT_GOOGLE_SOCS_COOKIE).strip()
+        self.socs_cookie = socs_cookie
+
+    def fetch_html(self, q: Any, /) -> str:
+        cookies = {"SOCS": self.socs_cookie} if self.socs_cookie else None
+        client = Client(
+            impersonate="chrome_145",
+            impersonate_os="macos",
+            referer=True,
+            cookie_store=True,
+            cookies=cookies,
+            timeout=self.timeout,
+        )
+        params = q.params() if hasattr(q, "params") else {"q": str(q)}
+        res = client.get(GOOGLE_FLIGHTS_URL, params=params)
+        return res.text
 
 
 def build_google_flights_url(
@@ -84,6 +116,8 @@ def _parse_gf_oneway_html(
     parser = LexborHTMLParser(html)
     script = parser.css_first(r"script.ds\:1")
     if not script:
+        if "consent.google.com" in html:
+            return [], "google_consent_wall"
         return [], "missing_ds1_script"
     m = _DS1_RE.search(script.text())
     if not m:
@@ -183,8 +217,15 @@ def _query_gf_oneway(
             language="en",
             hide_separate_and_self_transfer=hide_self_transfer,
         )
-        html = fetch_flights_html(q)
-        secs, status_err = _parse_gf_oneway_html(html, q.url(), hide_self_transfer)
+        fetcher = _SocsFetchIntegration(timeout=cfg.request_timeout_sec)
+        secs: list[tuple[int, int, FlightSector, str]] = []
+        status_err: str | None = None
+        for attempt in range(2):
+            html = fetch_flights_html(q, fetch_integration=fetcher)
+            secs, status_err = _parse_gf_oneway_html(html, q.url(), hide_self_transfer)
+            if status_err != "missing_ds1_script" or attempt == 1:
+                break
+            time.sleep(0.6)
         return label, secs, status_err
     except Exception as exc:
         return label, [], str(exc)
@@ -226,7 +267,7 @@ def fetch_google_flights_itineraries(
     notes: list[str] = []
 
     if tasks:
-        with ThreadPoolExecutor(max_workers=4) as pool:
+        with ThreadPoolExecutor(max_workers=2) as pool:
             futs = [
                 pool.submit(_query_gf_oneway, d_str, orig, dst, hide_st, cfg)
                 for (d_str, orig, dst, hide_st) in tasks

@@ -43,6 +43,7 @@ class LayoverEvaluation:
     # - "ACCEPTABLE_SHORT_4_6H"
     # - "DAY_EXPLORE_8_10H"
     # - "OVERNIGHT_EXPLORE_18_20H"
+    # - "LONG_LAYOVER"
     # - "WATCHLIST_NEAR_MISS"
     # - "REJECTED"
     strict_valid: bool
